@@ -1,0 +1,5 @@
+{
+    "startedAt": "formatTime(startedAt,'iso8601')",
+    "readyAt": "formatTime(readyAt,'iso8601')",
+    "eventType": "'controllerStarted'"
+  }

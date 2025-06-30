@@ -1,0 +1,5 @@
+<step>
+    <project>/plugins/EC-Kubectl/project</project>
+    <procedure>Create Or Update Objects</procedure>
+    <category>Container Management</category>
+</step>

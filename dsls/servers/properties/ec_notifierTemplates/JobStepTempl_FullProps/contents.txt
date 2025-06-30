@@ -1,0 +1,3 @@
+Subject: Job step $[/myJobStep/jobStepId]  from procedure step  '$[/myStep/stepName]' $[/myEvent/type] - CloudBees CD notification
+
+$[/server/ec_notifierTemplates/JobStepTempl_FullProps/body]

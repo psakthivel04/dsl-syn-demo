@@ -1,0 +1,5 @@
+<step>
+    <project>/plugins/EC-Docker/project</project>
+    <procedure>runDockerRun</procedure>
+    <category>Container Management</category>
+</step>

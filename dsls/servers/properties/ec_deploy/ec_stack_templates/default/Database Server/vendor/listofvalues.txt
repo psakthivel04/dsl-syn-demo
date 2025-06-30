@@ -1,0 +1,1 @@
+$[/server/ec_deploy/ec_stack_templates/listofvalues/db_vendor]

@@ -1,0 +1,5 @@
+<step>
+    <project>/plugins/EC-ServiceNow/project</project>
+    <procedure>DeleteIncident</procedure>
+    <category>Resource Management</category>
+</step>

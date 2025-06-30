@@ -1,0 +1,5 @@
+<step>
+    <project>/plugins/EC-DslDeploy/project</project>
+    <procedure>installDslFromDirectory</procedure>
+    <category>Utility</category>
+</step>

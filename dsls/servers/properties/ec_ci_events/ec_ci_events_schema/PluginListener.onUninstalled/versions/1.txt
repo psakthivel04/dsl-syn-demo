@@ -1,0 +1,10 @@
+{
+    "pluginName":"object.shortName",
+    "pluginDisplayName":"object.displayName",
+    "pluginVersion":"object.version",
+    "description": "object.location.description",
+    "isCAP":"supportInfo.supported",
+    "isProprietary": "supportInfo.proprietary",
+    "ts":"formatTime(now(),'iso8601')",
+    "eventType":"'uninstall'"
+  }

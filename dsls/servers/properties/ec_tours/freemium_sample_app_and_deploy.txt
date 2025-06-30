@@ -1,0 +1,361 @@
+{
+  "id":"freemium_sample_app_and_deploy",
+  "name":"Create and Deploy Your First Application",
+  "duration":300,
+  "icon":"icon-application",
+  "starting_url": "home",
+  "index_order":300,
+  "version":1,
+  "requiredPages":["Applications", "Application Deployments", "Environments"],
+  "tasks":[
+    {
+      "id":"get_started",
+      "name":"Get Started",
+      "icon":"icon-schedule-start",
+      "steps":[
+        {
+          "name":"Click on \"Applications\" to go to the \"List Page\".",
+          "detail_content":"In this tutorial you will create your \"Hello World\" application and deploy it.",
+          "uiElement":".at-applications-menu",
+          "coachmark_location_offset": {
+            "bottom": 20
+          }
+        }
+      ]
+    },
+    {
+      "id":"create_application",
+      "name":"Add an Application",
+      "icon":"button-add",
+      "steps":[
+        {
+          "name":"Click to open the \"New Application\" dialogue.",
+          "uiElement":".at-add-item-btn",
+          "coachmark_location":"left"
+        },
+        {
+          "name":"Click on the option \"Create New...\"",
+          "detail_content":"This choice creates a new application from scratch.",
+          "coachmark_location":"bottom-right",
+          "uiElement":".at-create-new-app"
+        },
+        {
+          "name":"Type \"Hello World\" into the name field.",
+          "coachmark_location":"left",
+          "uiElement": ".at-app-name-input"
+        },
+        {
+          "name":"Click to select a Project",
+          "detail_content":"This is where your application will be saved.",
+          "uiElement":".at-select",
+          "coachmark_location":"left"
+        },
+        {
+          "name":"Click OK to save.",
+          "uiElement":".at-ok-btn",
+          "coachmark_location":"top-left"
+              }
+            ]
+          },
+          {
+            "id": "add_component",
+      "name": "Add a Component",
+      "icon": "icon-mastercomponent",
+      "steps": [
+        {
+          "name": "Click to open the \"New Component\" dialogue.",
+          "detail_content": "You are creating this application with a tier containing a component. Applications can also have services running containers.",
+          "uiElement": ".at-starting-tier",
+          "coachmark_location": "right"
+        },
+        {
+          "name": "Click \"Create from Master Component\".",
+          "detail_content": "A component can be created from scratch, or from an existing one. For this application, we are using a predefined master component for an html file.",
+          "uiElement": ".at-master-component",
+          "coachmark_location": "top-right"
+        },
+        {
+          "name": "Click on the \"HTML File Master Component\".",
+          "detail_content": "This master component already contains the html artifact and process for its deployment.",
+          "uiElement": ".at-existing-master-component:first",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Click the checkbox \"Use Copy\".",
+          "detail_content": "Copy the component into your application. You can also use a master component by reference.",
+          "coachmark_location": "bottom-left",
+          "uiElement": ".at-copy-checkbox:first"
+        },
+        {
+          "name": "Click \"Next\".",
+          "coachmark_location": "top",
+          "uiElement": ".at-component-next-btn"
+        },
+        {
+          "name": "Name this component \"Hello World Component\".",
+          "detail_content": "This component references the html file that will be deployed.",
+          "uiElement": ".at-component-name-input"
+        },
+        {
+          "name": "Click OK to save",
+          "uiElement": ".at-ok-btn",
+          "coachmark_location": "top-left"
+        }
+      ]
+    },
+    {
+      "id":"update_component_definition",
+      "name":"Define the Tier & Component",
+      "icon":"icon-component",
+      "steps":[
+        {
+          "name": "Click on the tier menu.",
+          "coachmark_location": "left",
+          "uiElement": ".at-tier-menu-btn"
+        },
+        {
+          "name": "Click on \"Details\".",
+          "detail_content": "Here you can change the default name of the tier.",
+          "coachmark_location": "bottom-right",
+          "uiElement": ".at-item-edit"
+        },
+        {
+          "name": "Name the tier \"Web Server\".",
+          "detail_content": "This tier is the web server where the html file component is deployed.",
+          "coachmark_location": "bottom-right",
+          "uiElement": ".at-form-txt-name-input"
+        },
+        {
+          "name": "Click OK to save",
+          "uiElement": ".at-ok-btn",
+          "coachmark_location": "top"
+        },
+        {
+          "name":"Click on the component menu.",
+          "detail_content":"Your are going to open the dialogue to define the component.",
+          "uiElement":".at-show-component-menu-btn"
+        },
+        {
+          "name":"Click on \"Component Definition\".",
+          "detail_content":"The definition contains the artifact details and where the artifact is retrieved.",
+          "uiElement":".at-item-definition"
+        },
+        {
+          "name":"The Component Definition",
+          "detail_content":"This component references an html file on the filesystem using the EC-FileSysRepo.  A component can also reference artifacts in the built-in EC-Artifact repository, or other external repositories sucha as Maven or Artifactory from the dropdown.",
+          "coachmark_location":"right",
+          "hasArrow": false
+        },
+        {
+          "name":"Type in the component's definition.",
+          "detail_content":"Enter \"/home/ecloud/sample_dsl/hello_world\" into the \"Root Directory\" field.<br>Then scroll to enter \"/opt/electriccloud/electriccommander/apache/htdocs\" into the \"Retireve to Directory\" field<br>Click OK to save",
+          "uiElement":".at-ok-btn",
+          "coachmark_location":"top-right",
+          "coachmark_location_offset": {
+            "right": 30
+          },
+          "hasArrow": false
+        },
+        {
+          "name": "Hierarchy Navigation Menu",
+          "detail_content": "The hierarchy menu on the left pane provides a top down view of all of the parts of your application, easy access to each of these, and guidance on what is missing in your application in order to deploy.  ",
+          "coachmark_location": "bottom-left"
+        },
+        {
+          "name": "Expand the Tier view",
+          "detail_content": "To view the components defined within the tier",
+          "uiElement":".at-hierarchy-nav-expand-application-tier-1",
+          "coachmark_location": "bottom-right"
+        },
+
+        {
+          "name": "Expand the Component view",
+          "detail_content": "View the details of the component we just defined",
+          "uiElement":".at-hierarchy-nav-expand-application-tier-component",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "The Hello World Component list contains one process.",
+          "detail_content": "This process, <b>Deploy</b>, defines the steps for deploying this component.",
+          "coachmark_location": "bottom-left"
+        }
+      ]
+    },
+
+    {
+      "id": "create_application_process",
+      "name": "Add an Application Process",
+      "icon": "icon-process",
+      "steps": [
+        {
+          "name": "Click to add an Application Process",
+          "detail_content": "We can see the next step is to create and aplication process. The application process orchestrates component processes and is run to deploy the application",
+          "uiElement": ".at-hierarchy-nav-setup-application-processes",
+          "coachmark_location": "right"
+        },
+        {
+          "name": "Click \"Create new...\".",
+          "detail_content": "An application process can be created from scratch, or from an existing Application Process. For this application, you will start from scratch to define your application process.",
+          "uiElement": ".at-row-create-new",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Type Name the new application process \"Deploy\".",
+          "uiElement": ".at-react-form-txt-input:first",
+          "coachmark_location": "left"
+        },
+        {
+          "name": "Click OK to save.",
+          "uiElement": ".at-ok-btn",
+          "coachmark_location": "top-left"
+        }
+      ]
+    },
+
+    {
+      "id":"define_application_process",
+      "name":"Add the Application Process Step",
+      "icon":"icon-process-step",
+      "steps":[
+        {
+          "name":"Click to open the \"New Step\" dialogue.",
+          "detail_content":"This simple process will have one step.<br>Depending on the case, a process can have multiple steps, branches and transitions to model a complex deployment",
+          "uiElement":".at-define-step-btn",
+          "coachmark_location":"left"
+        },
+        {
+          "name":"Name the application process Step \"Deploy Web Tier\".",
+          "coachmark_location":"left",
+          "uiElement":".at-react-form-txt-input"
+        },
+        {
+          "name": "Click the \"Next\" button.",
+          "uiElement": ".at-ok-btn",
+          "coachmark_location": "top-left"
+        },
+        {
+          "name":"Click on \"Component\" Step Type.",
+          "detail_content":"This step will call the process that is defined in our component. Steps can also call plugins, procedures, workflows or commands directly.",
+          "coachmark_location": "bottom-right",
+          "uiElement":".at-step-type-component"
+        },
+        {
+          "name":"Click on \"Hello World Component\".",
+          "uiElement":".at-component-name",
+          "coachmark_location":"bottom-left"
+        },
+        {
+          "name":"Click on the \"Deploy\" component process.",
+          "detail_content":"The deploy process was predefined in the master component.",
+          "uiElement":".at-component-process-name",
+          "coachmark_location":"bottom-left"
+        },
+        {
+          "name": "Click OK to save",
+          "detail_content":"",
+          "uiElement": ".at-ok-btn",
+          "coachmark_location": "top-left"
+        }
+      ]
+    },
+    {
+      "id":"create_tier_map",
+      "name":"Add a Tier Map",
+      "icon":"icon-tier-map",
+      "steps":[
+        {
+          "name":"Now create a mapping from this application to an environment",
+          "coachmark_location": "center"
+        },
+        {
+            "name":"Click to open the \"New Tier Map\" dialogue.",
+            "detail_content":"You are going to map the tiers in your application to the tiers of an environment.",
+            "coachmark_location": "bottom-left",
+            "uiElement":".at-hierarchy-nav-setup-application-map"
+        },
+        {
+            "name":"Click on the \"Select Existing...\"  option.",
+            "detail_content":"Applications can be mapped to predefined environments, or to dynamic environments that are provisioned at deployment.",
+            "uiElement":".at-create-env-mapping",
+            "coachmark_location": "bottom"
+        },
+        {
+          "name":"Click on \"Your First Environment\"",
+          "detail_content":"This environment has a single tier for you to map to the \"Web Server\" tier.",
+          "uiElement":".at-environment-to-map",
+          "coachmark_location":"bottom-left"
+        },
+        {
+          "name":"Click on the Menu.",
+          "uiElement":".at-mapping-select-btn"
+        },
+        {
+          "name":"Click on \"Apache\".",
+          "detail_content":"The Web tier in the application will map to the Apache server tier defined in the environment. For applications with multiple tiers, each tier must  be mapped to a corresponding environment tier.",
+          "uiElement":".at-popover-not-link"
+        },
+        {
+          "name":"Click to close the window",
+          "uiElement":".at-breadcrumb--first-btn",
+          "coachmark_location":"right",
+          "coachmark_location_offset": {
+            "left": 30
+          }
+        }
+      ]
+    },
+
+    {
+      "id":"run_your_deployment",
+      "name":"Deploy your first application",
+      "icon":"icon-runtime-run",
+      "steps":[
+        {
+          "name":"Click the \"Run\" button to start a new deployment.",
+          "detail_content":"",
+          "uiElement":".at-application-run-btn",
+          "coachmark_location":"left"
+        },
+        {
+          "name":"Click to open the \"New Run\" dialogue.",
+          "detail_content":"This dialogue has the settings for deploying the Hello World Application.",
+          "uiElement":".at-process-new-run-btn"
+        },
+        {
+          "name":"Click to select the Deploy process.",
+          "coachmark_location":"left",
+          "uiElement":".at-select-process-container"
+        },
+        {
+          "name":"Click to select the environment.",
+          "detail_content":"You can choose any environment for which a tier map exists.",
+          "uiElement":".at-select-env-container",
+          "coachmark_location":"left"
+        },
+        {
+          "name":"Click OK to deploy the application.",
+          "detail_content":"Other advanced options include partial deploy, deploying only changes, and artifact staging.",
+          "uiElement":".at-ok-btn",
+          "coachmark_location":"top-right"
+        }
+      ]
+    },
+
+    {
+      "id":"view_your_deployment",
+      "name":"View your deployment",
+      "icon":"icon-process",
+      "steps":[
+        {
+          "name":"Monitor the progress of your deployment.",
+          "detail_content":"Wait for the completion of the runtime before clicking \"Continue\".",
+          "coachmark_location":"bottom"
+        },
+        {
+          "name":"View the successful deployment",
+          "detail_content":"View the successful deployment to the local web server by opening a browser and going to <a target='_blank' href='https://$[/javascript const wsh = '$[/server/webServerHost]'; wsh.split(':').length > 2 && !wsh.includes('[') && !wsh.includes(']') ? '[' + wsh + ']' : wsh]/hello_world.html'>https://$[/javascript const wsh = '$[/server/webServerHost]'; wsh.split(':').length > 2 && !wsh.includes('[') && !wsh.includes(']') ? '[' + wsh + ']' : wsh]/hello_world.html</a>"
+        }
+      ]
+    }
+  ]
+}

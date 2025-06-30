@@ -1,0 +1,11 @@
+{
+    "pluginName":"object.shortName",
+    "pluginDisplayName":"object.displayName",
+    "pluginVersion":"object.version",
+    "description": "object.location.description",
+    "isCAP":"supportInfo.supported",
+    "isProprietary": "supportInfo.proprietary",
+    "isEnabled": "object.active",
+    "ts":"formatTime(now(),'iso8601')",
+    "eventType":"'change'"
+  }

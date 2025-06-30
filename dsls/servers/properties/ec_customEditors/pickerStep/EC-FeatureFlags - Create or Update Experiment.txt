@@ -1,0 +1,5 @@
+<step>
+    <project>/plugins/EC-FeatureFlags/project</project>
+    <procedure>Create or Update Experiment</procedure>
+    <category>Feature Flags</category>
+</step>

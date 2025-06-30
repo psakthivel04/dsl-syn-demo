@@ -1,0 +1,103 @@
+{
+  "id": "enterprise_introductionToAnalytics",
+  "name": "Introduction to CloudBees Analytics dashboards",
+  "duration": 180,
+  "icon": "button-view-dashboard",
+  "version": 1,
+  "requiredPages": ["Dashboards"],
+  "index_order": 900,
+  "tasks": [
+    {
+      "id": "get_started",
+      "name": "Get started",
+      "icon": "icon-schedule-start",
+      "steps": [
+        {
+          "name": "Select the main menu",
+          "detail_content": "This tutorial introduces you to the CloudBees Analytics dashboards by exploring a few of the built-in dashboards.",
+          "uiElement": ".tour--main-menu-btn",
+          "coachmark_location": "right"
+        },
+        {
+          "name": "Select **Analytics**",
+          "uiElement": ".tour--main-menu-group-analytics",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Select **Dashboards**",
+          "uiElement": ".tour--main-menu-item-dashboards",
+          "coachmark_location": "bottom-right"
+        }
+      ]
+    },
+    {
+      "id": "view_dashboards",
+      "name": "CloudBees Analytics",
+      "icon": "icon-dashboard",
+      "steps": [
+        {
+          "name": "**Application Deployments** dashboard",
+          "detail_content": "The **Application Deployments** dashboard tracks development agility and deployment reliability with metrics on success rates, failure rates, and durations. You can filter by date, applications, environments, projects, and more. Select **Continue**.",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Select **Application Deployments**.",
+          "uiElement": ".tour--dashboard-list-item-name-application_deployments",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Open **dashboards** page to select another dashboard.",
+          "uiElement": ".at-breadcrumbs-item-2",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Select **Releases**",
+          "uiElement": ".tour--dashboard-list-item-name-releases",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "**Releases** dashboard",
+          "detail_content": "The **Releases** dashboard displays key metrics across releases to gain insight into your organization's throughput, and to highlight potential bottlenecks in pipelines. Use the dropdown menus at the top of the dashboard to filter metrics by date and release. Select **Continue**.",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Open **dashboards** page to select another dashboard.",
+          "uiElement": ".at-breadcrumbs-item-2",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Select **Release Command Center**",
+          "uiElement": ".tour--dashboard-list-item-name-release_command_center",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Select the dropdown",
+          "uiElement": ".tour--dashboard-releases-popover-dropdown-releasecommandcenter",
+          "detail_content": "The **Release Command Center** dashboard displays data associated with a single release.",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Select a release",
+          "uiElement": ".tour--popover-list-element:nth-of-type(2)",
+          "detail_content": "",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "**Release Command Center** dashboard",
+          "detail_content": "Before you can view data from the tools you use in your release process, configuration for the **Release Command Center** dashboard is required. Refer to [Configure the CloudBees Analytics server](https://docs.cloudbees.com/docs/cloudbees-cd/latest/set-up-analytics/) for more information. Select **Continue**.",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "**Release Command Center** dashboard",
+          "detail_content": "The **Release Command Center** dashboard provides a view of a release across all of its phases. It integrates data from external tools such as Jira, Jenkins, and ServiceNow, aligning this information from the planning phase on the left to operations on the right for a complete picture of the release. Select **Continue**.",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "CloudBees Analytics",
+          "detail_content": "Use the built-in dashboards or make a copy of one and customize it. You can also create your own standard or command center style dashboards. Refer to [Monitoring CloudBees CD/RO](https://docs.cloudbees.com/docs/cloudbees-cd/latest/monitoring) for more details about CloudBees Analytics dashboards. Select **OK**.",
+          "coachmark_location": "center"
+        }
+      ]
+    }
+  ]
+}

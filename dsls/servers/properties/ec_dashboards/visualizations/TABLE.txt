@@ -1,0 +1,162 @@
+{
+    "visualizationType": "TABLE",
+    "label": "Table",
+    "supportedAttributes": [
+        {
+            "attribute": "column1",
+            "label": "Column 1",
+            "supportedTypes": null,
+            "required": "true",
+            "documentation": "Column to display in the table"
+        },
+        {
+            "attribute": "column2",
+            "label": "Column 2",
+            "supportedTypes": null,
+            "required": "false",
+            "documentation": "Column to display in the table"
+        },
+        {
+            "attribute": "column3",
+            "label": "Column 3",
+            "supportedTypes": null,
+            "required": "false",
+            "documentation": "Column to display in the table"
+        },
+        {
+            "attribute": "column4",
+            "label": "Column 4",
+            "supportedTypes": null,
+            "required": "false",
+            "documentation": "Column to display in the table"
+        },
+        {
+            "attribute": "column5",
+            "label": "Column 5",
+            "supportedTypes": null,
+            "required": "false",
+            "documentation": "Column to display in the table"
+        },
+        {
+            "attribute": "column6",
+            "label": "Column 6",
+            "supportedTypes": null,
+            "required": "false",
+            "documentation": "Column to display in the table"
+        },
+        {
+            "attribute": "column7",
+            "label": "Column 7",
+            "supportedTypes": null,
+            "required": "false",
+            "documentation": "Column to display in the table"
+        },
+        {
+            "attribute": "column8",
+            "label": "Column 8",
+            "supportedTypes": null,
+            "required": "false",
+            "documentation": "Column to display in the table"
+        },
+        {
+            "attribute": "column9",
+            "label": "Column 9",
+            "supportedTypes": null,
+            "required": "false",
+            "documentation": "Column to display in the table"
+        },
+        {
+            "attribute": "column10",
+            "label": "Column 10",
+            "supportedTypes": null,
+            "required": "false",
+            "documentation": "Column to display in the table"
+        },
+        {
+            "attribute": "column11",
+            "label": "Column 11",
+            "supportedTypes": null,
+            "required": "false",
+            "documentation": "Column to display in the table"
+        }
+    ],
+    "supportedProperties": [
+        {
+            "property": "column1Width",
+            "label": "Column 1 Width",
+            "type": "PERCENT",
+            "required": "false",
+            "documentation": "Column width (in percentage)"
+        },
+        {
+            "property": "column2Width",
+            "label": "Column 2 Width",
+            "type": "PERCENT",
+            "required": "false",
+            "documentation": "Column width (in percentage)"
+        },
+        {
+            "property": "column3Width",
+            "label": "Column 3 Width",
+            "type": "PERCENT",
+            "required": "false",
+            "documentation": "Column width (in percentage)"
+        },
+        {
+            "property": "column4Width",
+            "label": "Column 4 Width",
+            "type": "PERCENT",
+            "required": "false",
+            "documentation": "Column width (in percentage)"
+        },
+        {
+            "property": "column5Width",
+            "label": "Column 5 Width",
+            "type": "PERCENT",
+            "required": "false",
+            "documentation": "Column width (in percentage)"
+        },
+        {
+            "property": "column6Width",
+            "label": "Column 6 Width",
+            "type": "PERCENT",
+            "required": "false",
+            "documentation": "Column width (in percentage)"
+        },
+        {
+            "property": "column7Width",
+            "label": "Column 7 Width",
+            "type": "PERCENT",
+            "required": "false",
+            "documentation": "Column width (in percentage)"
+        },
+        {
+            "property": "column8Width",
+            "label": "Column 8 Width",
+            "type": "PERCENT",
+            "required": "false",
+            "documentation": "Column width (in percentage)"
+        },
+        {
+            "property": "column9Width",
+            "label": "Column 9 Width",
+            "type": "PERCENT",
+            "required": "false",
+            "documentation": "Column width (in percentage)"
+        },
+        {
+            "property": "column10Width",
+            "label": "Column 10 Width",
+            "type": "PERCENT",
+            "required": "false",
+            "documentation": "Column width (in percentage)"
+        },
+        {
+            "property": "column11Width",
+            "label": "Column 11 Width",
+            "type": "PERCENT",
+            "required": "false",
+            "documentation": "Column width (in percentage)"
+        }
+    ]
+}

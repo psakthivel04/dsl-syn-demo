@@ -1,0 +1,9 @@
+CloudBees CD Notification (from email notifier: '$[/myEvent/notifier]')
+
+State $[/myState/stateName] from workflow '$[/myWorkflow/workflowName]' $[/myEvent/type] at: $[/myEvent/time]
+
+Workflow Definition: $[/myWorkflowDefinition/workflowDefinitionName]
+Project: $[/myProject/projectName]
+State Id: $[/myState/stateId]
+Created: $[/myState/createTime]
+Sub job: $[/myState/subjob]

@@ -1,0 +1,344 @@
+{
+  "id":"freemium_view_microservices_app",
+  "name":"View and Deploy a Microservices Application",
+  "duration":420,
+  "icon":"icon-application",
+  "starting_url": "home",
+  "version":1,
+  "requiredPages":["Applications", "Application Deployments", "Environments", "Microservices"],
+  "index_order":150,
+  "tasks":[
+    {
+      "id":"get_started",
+      "name":"Get Started",
+      "icon":"icon-schedule-start",
+      "steps":[
+        {
+          "name":"Select Applications to get started",
+          "detail_content":"In this tutorial you will view the application and environment model for the microservices application MotorBike StoreFront",
+          "uiElement":".at-applications-menu",
+          "coachmark_location":"bottom-right"
+        }
+      ]
+    },
+    {
+      "id":"motorbike-app",
+      "name":"The Motorbike StoreFront Microservices Application Model",
+      "icon":"icon-application",
+      "steps":[
+        {
+          "name":"Open the Motorbike StoreFront application",
+          "detail_content":"<b>Click the <svg class=\"sds-svg-icon\"><use xlink:href=\"#icon-go-to-details\"></use></svg> icon </b> next to the Motorbike StoreFront Application to open the application model.",
+          "uiElement":".at-application-list",
+          "coachmark_location":"top-right",
+          "hasArrow": false,
+          "coachmark_location_offset": {
+            "top": 25,
+            "left": 40,
+            "right": -5
+          }
+        },
+        {
+          "name":"View the Application Model",
+          "detail_content":"This application is a microservices based application composed of two services - the \"store-backend\" and the \"store-frontend\".",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"Services and Containers",
+          "detail_content":"A service can be comprised of 1 or more containers that define it.  These containers are deployed as part of the service deployment according the the configuration properties defined on the container and service.",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name": "Hierarchy Navigation Menu",
+          "detail_content": "The hierarchy menu on the left pane provides a top down view of all of the parts of your application, easy access to each of these, and guidance on what is missing in your application in order to deploy.  ",
+          "coachmark_location": "bottom-left"
+        },
+        {
+          "name":"Select Service Menu",
+          "detail_content":"Look at the the Service configuration.",
+          "uiElement":".at-slide-menu-btn",
+          "coachmark_location":""
+        },
+        {
+          "name":"Select Configure Microservice",
+          "uiElement":".at-item-configure",
+          "coachmark_location":"right"
+        },
+        {
+          "name":"View the Service Configuration Details",
+          "detail_content":"Configuration details are used during service deployment including volume mounts, number of service instances to run, rolling deployment settings and port mappings.  View the details and click OK to continue.",
+          "coachmark_location":"bottom-left"
+        },
+        {
+          "name":"Click OK",
+          "uiElement":".at-ok-btn",
+          "coachmark_location":"top-right"
+        },
+        {
+          "name":"Select the Container Menu",
+          "detail_content":"Now view the container definition.",
+          "uiElement":".at-show-component-menu-btn",
+          "coachmark_location":""
+        },
+        {
+          "name":"Select Container Definition",
+          "uiElement":".at-item-definition",
+          "coachmark_location":"right"
+        },
+        {
+          "name":"View the Container Definition",
+          "detail_content":"This container definition includes the reference to the image in a public or private repository, and details on how to deploy the container including, the version to deploy, CPU and Memory requirements, ",
+          "coachmark_location":"right"
+        },
+        {
+          "name":"Click OK",
+          "uiElement":".at-ok-btn",
+          "coachmark_location":"top-right"
+        },
+        {
+          "name":"Service Deployment",
+          "detail_content":"Unlike traditional application component tiers, there is no separate process defined for container deployment, the deployment is performed based on the container and service configurations",
+          "coachmark_location":"right"
+        },
+        {
+          "name":"View the Application Processes",
+          "detail_content":"The application process is invoked to deploy the entire application",
+          "uiElement":".at-processes-popover-btn",
+          "coachmark_location":""
+        },
+        {
+          "name":"Select the \"Deploy\" Process",
+          "uiElement":".ec-react-popover__list-wrapper",
+          "coachmark_location":"left"
+        },
+        {
+          "name":"View the Deploy Process",
+          "detail_content":"The process has two steps to deploy each of the services.  The process steps can also call plugins, command blocks, predefined procedures, rollback steps, or wait for manual input. The process can contain branching, parallelism and conditions between steps.",
+          "coachmark_location":"right"
+        }
+      ]
+    },
+    {
+      "id":"plugin-conf",
+      "name":"Create your Container Platform Plugin Configuration ",
+      "icon":"icon-environments-static",
+      "steps":[
+        {
+          "name":"Plugin Configuration",
+          "detail_content":"Before creating the environment for deployment, we will first create a plugin configuration to connect to the container runtime platform where the Motorbike application will be deployed.",
+          "coachmark_location":"center"
+        },
+        {
+          "name":"Select the Main Menu",
+          "detail_content":"",
+          "uiElement":".at-main-menu-btn",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"Select Admin",
+          "detail_content":"",
+          "uiElement":".at-admin",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"Select Plugins",
+          "detail_content":"",
+          "uiElement":".plugins",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"Choose Plugin",
+          "detail_content":"Select the plugin for your container runtime platform:<br><li>EC-AmazonECS</li><li>EC-GoogleContainerEngine</li><br>",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"Click 'Configure' on the right column of the plugin",
+          "detail_content":"",
+          "coachmark_location":"top-middle"
+        },
+        {
+          "name":"Click 'Create Configuration' on the top right to create a new plugin configuration",
+          "detail_content":"This configuration will be used to connect to your container runtime, create new clusters and deploy microservices.",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"Enter Configuration Details and Click OK",
+          "detail_content":"Give your configuration a name that will be used to reference it in your environment.  Enter the account and server details to connect to your container runtime platform.  Make sure the user has appropriate permissions to run the microservices deployment.",
+          "coachmark_location":"top-right"
+        }
+      ]
+    },
+    {
+      "id":"motorbike-env",
+      "name":"The Motorbike Microservices Environment Model",
+      "icon":"icon-environments-static",
+      "steps":[
+        {
+          "name":"Select the Main Menu",
+          "detail_content":"Now configure the corresponding environment model for the Motorbike microservices application.",
+          "uiElement":".at-main-menu-btn",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"Select Applications",
+          "uiElement":".applications",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"Select All Applications",
+          "detail_content":"Environments are modeled to map to static or dynamic resources, or container clusters.",
+          "uiElement":".allApplications",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"Open the Motorbike StoreFront application",
+          "detail_content":"<b>Click the <svg class=\"sds-svg-icon\"><use xlink:href=\"#icon-go-to-details\"></use></svg> icon </b> next to the Motorbike StoreFront Application to open the application model.",
+          "uiElement":".at-application-list",
+          "coachmark_location":"top-right",
+          "hasArrow": false,
+          "coachmark_location_offset": {
+            "top": 15,
+            "left": 40,
+            "right": -5
+          }
+        },
+        {
+          "name":"Expand the \"Map to Environment\" view",
+          "detail_content":"We will now look at the environment model the Motorbike application is mapped to.",
+          "uiElement":".at-hierarchy-nav-expand-application-map",
+          "coachmark_location":"bottom-right",
+          "coachmark_location_offset": {
+            "left": 6
+          }
+        },
+        {
+          "name":"Click The environment name \"Motorbik-env\" to open the environment view",
+          "uiElement":".at-hierarchy-nav-env-name",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"View the Environment Model",
+          "detail_content":"The environment currently has one undefined cluster. We will configure the cluster with your container runtime platform details. ",
+          "coachmark_location":"left"
+        },
+        {
+          "name":"Select the Cluster Menu",
+          "detail_content":"To complete the environment definition and deploy the application, you will first need to configure the cluster with your container runtime platform",
+          "uiElement":".tier-menu-btn",
+          "coachmark_location":""
+        },
+        {
+          "name":"Select Configure Cluster",
+          "detail_content":"",
+          "uiElement":".at-item-configure",
+          "coachmark_location":""
+        },
+        {
+          "name":"Select Your Runtime Platform",
+          "detail_content":"Select the Container platform from the dropdown",
+          "uiElement":".at-select",
+          "coachmark_location":"right"
+        },
+        {
+          "name":"Enter Configuration Details",
+          "detail_content":"Enter the Plugin Configuration name that you created to connect to the platform. Then enter any other configuraatins for your platform.  These may include a name for the cluster that will be created, capacity, and the type of instance to run",
+          "coachmark_location":"bottom"
+        },
+        {
+          "name":"Click OK to save",
+          "detail_content":"",
+          "uiElement":".at-ok-btn",
+          "coachmark_location":"top-left"
+        }
+      ]
+    },
+    {
+      "id":"tier-map",
+      "name":"View Tier Maps",
+      "icon":"icon-tier-map",
+      "steps":[
+        {
+          "name":"Click the menu to view the map from this environment to the Motorbike application",
+          "detail_content":"Tier Maps are association from an application to an environment, mapping the services to the clusters in the environment",
+          "uiElement":".at-hierarchy-nav-context-menu-map-environment-to-application",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"Select Details",
+          "uiElement":".at-item-0",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"View the Mapping",
+          "detail_content":"Both store-backend and store-frontend services are mapped to to the Motorbike-cluster.",
+          "uiElement":"",
+          "coachmark_location":"bottom"
+        },
+        {
+          "name":"Close the Dialog",
+          "uiElement":".at-breadcrumb--first-btn",
+          "coachmark_location":"right"
+        }
+      ]
+    },
+    {
+      "id":"run_a_deployment",
+      "name":"Run A Deployment",
+      "icon":"icon-runtime-run",
+      "steps":[
+        {
+          "name":"Lets try deploying the microservices application",
+          "detail_content":"Click the run icon to start the deployment of the Motorbike Application",
+          "uiElement":".at-hierarchy-nav-run-environment-map-1",
+          "coachmark_location":"right"
+        },
+        {
+          "name":"Select the Deploy Process",
+          "uiElement":".at-select-process-container",
+          "coachmark_location":"left"
+        },
+        {
+          "name":"Select Motorbike-env",
+          "detail_content":"",
+          "uiElement":".at-select-env-container",
+          "coachmark_location":"left"
+        },
+        {
+          "name":"View Container Selection Options",
+          "detail_content":"",
+          "uiElement":".at-artifacts-selection-container",
+          "coachmark_location":"top-right"
+        },
+        {
+          "name":"View Container Selection Options",
+          "detail_content":"Currently all containers in the application are selected, you can optionally select individual containers to be run in this deployment.",
+          "uiElement":".at-artifacts-selection-ok-btn",
+          "coachmark_location":"top-right"
+        },
+        {
+          "name":"Click OK to Run the Deployment",
+          "detail_content":"",
+          "uiElement":".at-ok-btn",
+          "coachmark_location":"top-right"
+        }
+      ]
+    },
+
+    {
+      "id":"view_your_deployment",
+      "name":"View your deployment",
+      "icon":"icon-process",
+      "steps":[
+        {
+          "name":"View the deployment progress and details.",
+          "detail_content": "Click the <svg class=\"sds-svg-icon\"><use xlink:href=\"#icon-go-to-details\"></use></svg> icon to view more details.",
+          "coachmark_location":"bottom"
+        },
+        {
+          "name":"View the successful deployment",
+          "detail_content":"View the creation of clusters and container deployment in your container runtime platform</a>"
+        }
+      ]
+    }
+  ]
+}

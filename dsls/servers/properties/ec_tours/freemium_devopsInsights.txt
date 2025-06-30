@@ -1,0 +1,84 @@
+{
+  "id":"freemium_devopsInsights",
+  "name":"Introduction to the DevOps Insights Dashboards",
+  "duration":180,
+  "icon":"button-view-dashboard",
+  "starting_url": "home",
+  "version":1,
+  "requiredPages":["DevOps Insight Dashboards"],
+  "index_order":700,
+  "tasks":[
+    {
+      "id":"get_started",
+      "name":"Get Started",
+      "icon":"icon-schedule-start",
+      "steps":[
+        {
+          "name":"Select the DevOps Insights menu item to get started",
+          "detail_content":"This tutorial is an introduction to the DevOps Insights Dashboards, which provide visibility into key metris across your deployments and releases - with three included dashboards, and the ability to create custom dashboards.  In this tutorial, we will cover the three out of the box dashboards",
+          "uiElement":".at-dashboards",
+          "coachmark_location":"bottom-right"
+        }
+      ]
+    },
+    {
+      "id":"view_dashboards",
+      "name":"DevOps Insights",
+      "icon":"icon-dashboard",
+      "steps":[
+        {
+          "name":"Deployments Dashboard",
+          "detail_content":"The Deployments dashboard displays key metrics for application deployments across ElectricFlow, with the ability to filter by date, application, and environment using the drop-downs at the top of the dashboard.. The Deployments dashboard provides indicators to measure agility of development and reliability of deployments, such as deployment success and failure rates and deployment duration.",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"Click the dropdown to view other available dashboards",
+          "uiElement":".at-objects-list-popover",
+          "coachmark_location":"bottom-left"
+        },
+        {
+          "name":"Select the Releases Dashboard",
+          "uiElement":".at-popover-list-element-releases",
+          "coachmark_location":"bottom-left"
+        },
+        {
+          "name":"Releases Dashboard",
+          "detail_content":"The Releases dashboard displays key metrics across releases that can be used to get an insight into your organization's throughput and to bubble up any potential bottlenecks in your release delivery pipelines so that they may be addressed quickly. The metrics displayed by the Releases dashboard can be filtered by date and releases using the drop-downs at the top of the dashboard.",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"Click the dropdown to select another dashboard",
+          "uiElement":".at-objects-list-popover",
+          "coachmark_location":"bottom-left"
+        },
+        {
+          "name":"Select the Releases Command Center",
+          "uiElement":".at-popover-list-element-releasecommandcenter",
+          "coachmark_location":"bottom-left"
+        },
+        {
+          "name":"Select a Release",
+          "uiElement":".at-dashboard-releases-popover-dropdown-releasecommandcenter",
+          "detail_content":"The Release Command center displays data associated with a single release",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"Select JPetStore 2.3",
+          "uiElement":".ec-grid-primary__col",
+          "detail_content":"View Sample data for the JPetStore 2.3 release",
+          "coachmark_location":"bottom-left"
+        },
+        {
+          "name":"Release Command Center",
+          "detail_content":"The Release Command Center dashboard provides a \"birds-eye\" view of a release across all of its phases, pulling data from external tools used across your release. These phases start with planning on the left, and through to operations on the right - pulling data from tools like JIRA, Jenkins, HP Quality Center and ServiceNow and combining that with your Release data to provide a full picture of the release.",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"DevOps Insights",
+          "detail_content":"For more details on the DevOps Insights dashboards and how to create your own dashboard, click <a href=\"http://docs.electric-cloud.com/eflow_doc/8_0/User/HTML/UserflowHTML.htm#eflow_user/devopsinsightintro.htm%3FTocPath%3DDevOps%20Insight%7C_____0\">here</a>",
+          "coachmark_location":"center"
+        }
+      ]
+    }
+  ]
+}

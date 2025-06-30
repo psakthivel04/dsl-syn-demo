@@ -1,0 +1,3 @@
+Subject: Job  '$[jobName]'  from procedure  '$[procedureName]'  $[/myEvent/type]  - CloudBees CD notification
+
+$[/server/ec_notifierTemplates/Html_JobTempl/body]

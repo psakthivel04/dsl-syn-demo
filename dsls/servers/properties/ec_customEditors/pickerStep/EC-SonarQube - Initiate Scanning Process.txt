@@ -1,0 +1,5 @@
+<step>
+    <project>/plugins/EC-SonarQube/project</project>
+    <procedure>Initiate Scanning Process</procedure>
+    <category>Code Analysis</category>
+</step>

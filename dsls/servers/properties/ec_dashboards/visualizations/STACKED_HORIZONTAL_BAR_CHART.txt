@@ -1,0 +1,41 @@
+{
+    "visualizationType": "STACKED_HORIZONTAL_BAR_CHART",
+    "label": "Stacked Horizontal Bar Chart",
+    "supportedAttributes": [
+        {
+            "attribute": "xAxis",
+            "label": "X-Axis",
+            "supportedTypes": [
+                "NUMBER",
+                "DURATION",
+                "PERCENT"
+            ],
+            "required": "true",
+            "documentation": "X-Axis value"
+        },
+        {
+            "attribute": "yAxisIcon",
+            "label": "Y-Axis Icon",
+            "supportedTypes": [
+                "STRING"
+            ],
+            "required": "false",
+            "documentation": "Icon to display along with the Y-Axis value"
+        },
+        {
+            "attribute": "yAxis",
+            "label": "Y-Axis",
+            "supportedTypes": null,
+            "required": "true",
+            "documentation": "Y-Axis value"
+        },
+        {
+            "attribute": "stacks",
+            "label": "Stack by",
+            "supportedTypes": null,
+            "required": "true",
+            "documentation": "Value to stack by"
+        }
+    ],
+    "supportsColorMap": "true"
+}

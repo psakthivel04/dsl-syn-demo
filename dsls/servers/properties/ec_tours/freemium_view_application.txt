@@ -1,0 +1,251 @@
+{
+  "id":"freemium_view_application",
+  "name":"View and Deploy an Application",
+  "duration":300,
+  "icon":"icon-application",
+  "starting_url": "home",
+  "version":1,
+  "requiredPages":["Applications", "Application Deployments", "Environments"],
+  "index_order":100,
+  "tasks":[
+    {
+      "id":"get_started",
+      "name":"Get Started",
+      "icon":"icon-schedule-start",
+      "steps":[
+        {
+          "name":"Select Applications to get started",
+          "detail_content":"In this tutorial you will view the application and environment model for the jpetstore-app and run a deployment.",
+          "uiElement":".at-applications-menu",
+          "coachmark_location":"bottom-right",
+          "coachmark_location_offset": {
+            "bottom": 20
+          }
+        }
+      ]
+    },
+    {
+      "id":"jpetstore-app",
+      "name":"The JPetstore Application Model",
+      "icon":"icon-application",
+      "steps":[
+        {
+          "name":"Open the JPetstore-app",
+          "detail_content":"<b>Click the <svg class=\"sds-svg-icon\"><use xlink:href=\"#icon-go-to-details\"></use></svg> icon </b> next to the JPetStore Application to open the application model.",
+          "uiElement":".at-application-list",
+          "coachmark_location":"top-right",
+          "coachmark_location_offset": {
+            "top": 100
+          },
+          "hasArrow": false
+        },
+        {
+          "name":"View the Application Model",
+          "detail_content":"This application is a traditional application composed of two tiers - the \"App Server\" and the \"Database\".  An application tier is a logical grouping of components in your application",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"Application Tiers and Components",
+          "detail_content":"The tiers contain 1 or more components, these components represent the deployable artifacts and contain reference to the artifact, as well as processes to act on the component. The \"App Server\" tier has one component, \"jpetstore-sql.war\"",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name": "Hierarchy Navigation Menu",
+          "detail_content": "The hierarchy menu on the left pane provides a top down view of all of the parts of your application, easy access to each of these, and guidance on what is missing in your application in order to deploy.  ",
+          "coachmark_location": "bottom-left"
+        },
+        {
+          "name":"Select Component Menu",
+          "detail_content":"Take a look at the the component definition.",
+          "uiElement":".at-show-component-menu-btn-1",
+          "coachmark_location":""
+        },
+        {
+          "name":"Select Component Definition",
+          "uiElement":".at-item-1",
+          "coachmark_location":"right"
+        },
+        {
+          "name":"View the Component Details",
+          "detail_content":"This component is stored on the filesystem.  The EC-FileSysRepo plugin is used to reference the artifact location - with details such as the directory where the artifact resides, relative path of the artifact within that directory, artifact name, and the default version to retrieve",
+          "coachmark_location":"right"
+        },
+        {
+          "name":"Click OK",
+          "uiElement":".at-ok-btn",
+          "coachmark_location":"top-right",
+          "coachmark_location_offset": {
+            "right": 30
+          }
+        },
+        {
+          "name":"View Component Processes",
+          "detail_content":"A component can contain component processes.  A component process is a set of actions to be taken on that specific component when the application is deployed.",
+          "uiElement":".at-show-comp-process-btn-1:first",
+          "coachmark_location":"bottom-left"
+        },
+        {
+          "name":"Select Process \"Deploy\"",
+          "uiElement":".at-react-popover__list-item-1",
+          "coachmark_location":""
+        },
+        {
+          "name":"View the Deploy Component Process",
+          "detail_content":"This process has multiple steps that are run in order to deploy the component.  A step can call a component operation to retrieve the artifact, a command block, a plugin, a predefined procedure, or it can wait for a manual intervention.  View the details of the component process.",
+          "coachmark_location":"left"
+        },
+        {
+          "name":"Click to go back to the \"Application Editor\".",
+          "detail_content":"Click the application name to go back",
+          "uiElement":".at-hierarchy-nav-app-name",
+          "coachmark_location":"right"
+        },
+        {
+          "name":"View the Application Processes",
+          "detail_content":"Applications also contain Application Processes. These processes are invoked to orchestrate operations on the application",
+          "uiElement":".at-processes-popover-btn",
+          "coachmark_location":""
+        },
+        {
+          "name":"Select the \"Deploy\" Process",
+          "uiElement":".at-application-process-popover",
+          "coachmark_location":"left",
+          "coachmark_location_offset": {
+            "top": 40
+          }
+        },
+        {
+          "name":"View the Deploy Process",
+          "detail_content":"The process has two steps that call the Deploy processes defined on each component in the application.  The process steps can also call plugins, command blocks, predefined procedures, rollback steps, or wait for manual input. The process can contain branching, parallelism and conditions between steps.",
+          "coachmark_location":"right"
+        }
+      ]
+    },
+    {
+      "id":"jpetstore-env",
+      "name":"The JPetstore Environment Model",
+      "icon":"icon-environments-static",
+      "steps":[
+        {
+          "name":"Expand the \"Map to Environment\" view",
+          "detail_content":"We will now look at the environment model the JPetstore application is mapped to.",
+          "uiElement":".at-hierarchy-nav-expand-application-map",
+          "coachmark_location":"bottom-right",
+          "coachmark_location_offset": {
+            "left": 6
+          }
+        },
+        {
+          "name":"Click The environment name \"jpetstore-env-prod\" to open the environment view",
+          "uiElement":".at-hierarchy-nav-env-name",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"View the Environment Model",
+          "detail_content":"The Environment has two tiers, \"Wildfly\" and \"MariaDB\". These tiers map with the tiers in the application and are logical groupings of resources.",
+          "coachmark_location":"bottom"
+        },
+        {
+          "name":"Select the Wildfly Resource Menu",
+          "detail_content":"",
+          "uiElement":".at-show-resources-menu-btn",
+          "coachmark_location":""
+        },
+        {
+          "name":"Select Details",
+          "detail_content":"The tier details show the resources assigned to this tier",
+          "uiElement":".at-item-details",
+          "coachmark_location":""
+        },
+        {
+          "name":"View the resource list",
+          "detail_content":"The environment tier has a single resource.  The resource refers to an ElectricFlow Agent.  The deploy tasks run against this tier will run on all resources assigned to the tier.",
+          "coachmark_location":"bottom"
+        },
+        {
+          "name":"Click Cancel to close",
+          "detail_content":"",
+          "uiElement":".at-cancel-btn",
+          "coachmark_location":"top-left"
+        }
+      ]
+    },
+    {
+      "id":"tier-map",
+      "name":"View Tier Maps",
+      "icon":"icon-tier-map",
+      "steps":[
+        {
+          "name":"Click the menu to view the map from this environment to the JPetStore application",
+          "detail_content":"Tier Maps are association from an application to an environment, mapping the application tiers to the environment tiers",
+          "uiElement":".at-hierarchy-nav-context-menu-map-environment-to-application",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"Select Details",
+          "uiElement":".at-item-0",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"View the Mapping",
+          "detail_content":"The App Server application tier maps to the Wildfly environment tier, and the DB tier maps to MariaDB.  The component processes tied to an application tier are run on the resources in the mapped environment tier.",
+          "uiElement":"",
+          "coachmark_location":"bottom"
+        },
+        {
+          "name":"Close the Dialog",
+          "uiElement":".at-breadcrumb-first-btn",
+          "coachmark_location":"right"
+        }
+      ]
+    },
+    {
+      "id":"run_a_deployment",
+      "name":"Run A Deployment",
+      "icon":"icon-runtime-run",
+      "steps":[
+        {
+          "name":"Let's try deploying the application to the JPetstore Prod environment",
+          "coachmark_location":"center"
+        },
+        {
+          "name":"Click the run icon to start the deployment of the Jpetstore Application",
+          "uiElement":".at-hierarchy-nav-run-environment-map-1",
+          "coachmark_location":"right"
+        },
+        {
+          "name":"Select the Deploy Process",
+          "uiElement":".at-select-process-container"
+        },
+        {
+          "name":"Select jpetstore-env-prod",
+          "detail_content":"",
+          "uiElement":".at-select-env-container"
+        },
+        {
+          "name":"Click OK to Run",
+          "detail_content":"Other advanced options include Smart Deploy and Artifact Staging",
+          "uiElement":".at-ok-btn",
+          "coachmark_location":"top-right"
+        }
+      ]
+    },
+
+    {
+      "id":"view_your_deployment",
+      "name":"View your deployment",
+      "icon":"icon-process",
+      "steps":[
+        {
+          "name":"View the deployment progress and details.",
+          "detail_content":"Click the <svg class=\"sds-svg-icon\"><use xlink:href=\"#icon-go-to-details\"></use></svg> icon to view more details.",
+          "coachmark_location":"bottom"
+        },
+        {
+          "name":"View the successful deployment",
+          "detail_content":"View the deployed JPetstore Application, open the link in a browser <a target='_blank' href='http://$[/javascript var s=server.webServerHost;s.split(':')[0]]:8080/jpetstore-prod/actions/Catalog.action'>http://$[/javascript var s=server.webServerHost;s.split(':')[0]]:8080/jpetstore-prod/actions/Catalog.action</a>"
+        }
+      ]
+    }
+  ]
+}

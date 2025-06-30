@@ -1,0 +1,5 @@
+<step>
+    <project>/plugins/EC-GCP-ComputeEngine/project</project>
+    <procedure>Create Image</procedure>
+    <category>Resource Management</category>
+</step>

@@ -1,0 +1,12 @@
+{
+    "startsAt": "formatTime(object.startingDate,'iso8601')",
+    "expiresAt": "formatTime(object.expirationDate,'iso8601')",
+    "availableSeats": "object.numberOfSeats",
+    "licenseVersion": "object.licenseVersion",
+    "customerName": "object.customerName",
+    "organizationalUnit": "object.organizationalUnit",
+    "editionDisplayName": "object.editionDisplayName",
+    "wildcard": "object.isWildcardLicense",
+    "licensedPacks": "object.licensedPacks",
+    "source":"'CloudBees CI'"
+  }

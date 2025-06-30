@@ -1,0 +1,74 @@
+{
+    "visualizationType": "HORIZONTAL_BAR_CHART",
+    "label": "Horizontal Bar Chart",
+    "supportedAttributes": [
+        {
+            "attribute": "xAxis",
+            "label": "X-Axis",
+            "supportedTypes": [
+                "NUMBER",
+                "DURATION",
+                "PERCENT"
+            ],
+            "required": "true",
+            "documentation": "X-Axis value"
+        },
+        {
+            "attribute": "yAxisIcon",
+            "label": "Y-Axis Icon",
+            "supportedTypes": [
+                "STRING"
+            ],
+            "required": "false",
+            "documentation": "Icon to display along with the Y-Axis value"
+        },
+        {
+            "attribute": "yAxis",
+            "label": "Y-Axis",
+            "supportedTypes": null,
+            "required": "true",
+            "documentation": "Y-Axis value"
+        },
+        {
+            "attribute": "referenceLine",
+            "label": "Reference Line",
+            "supportedTypes": [
+                "NUMBER",
+                "DURATION",
+                "PERCENT"
+            ],
+            "required": "false",
+            "documentation": "Reference line value"
+        }
+    ],
+    "supportedProperties": [
+        {
+            "property": "defaultColor",
+            "label": "Line Color",
+            "type": "COLOR",
+            "documentation": "Color of a bar"
+        },
+        {
+            "property": "showReferenceLine",
+            "label": "Display Reference Line",
+            "type": "BOOLEAN",
+            "required": "false",
+            "documentation": "Whether to display a reference line on the chart."
+        },
+        {
+            "property": "referenceLineColor",
+            "label": "Reference Line Color",
+            "type": "COLOR",
+            "required": "false",
+            "documentation": "Line color for rendering the reference line on the chart."
+        },
+        {
+            "property": "referenceLineLabel",
+            "label": "Reference Line Label",
+            "type": "STRING",
+            "required": "false",
+            "documentation": "Label/legend to display at the bottom of the chart describing the reference line."
+        }
+    ],
+    "supportsReferenceLine": "true"
+}
