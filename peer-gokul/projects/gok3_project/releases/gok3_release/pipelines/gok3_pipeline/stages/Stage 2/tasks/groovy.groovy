@@ -5,9 +5,10 @@ ElectricFlow ef = new ElectricFlow()
 
 
   ef.runProcedure(
-      
+
      projectName: "test_scale _field_demo",
      procedureName: "ExecProject-C-IDC-demo_field_1"
    )
+         sleep(1000)
    print i
  }
