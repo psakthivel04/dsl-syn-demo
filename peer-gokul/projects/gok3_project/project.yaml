@@ -1,0 +1,7 @@
+---
+apiVersion: cloudbees.com/v2025.9
+kind: project
+metadata:
+  name: gok3_project
+spec:
+  tracked: true
