@@ -1,0 +1,12 @@
+---
+apiVersion: cloudbees.com/v2025.9
+kind: task
+metadata:
+  name: Deploy
+spec:
+  environmentName: newenv
+  environmentProjectName: gok3_project
+  subapplication: helm-test
+  subprocess: Deploy Application
+  taskProcessType: APPLICATION
+  taskType: PROCESS

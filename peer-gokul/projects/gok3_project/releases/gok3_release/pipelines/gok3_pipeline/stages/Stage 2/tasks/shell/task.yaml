@@ -1,0 +1,9 @@
+---
+apiVersion: cloudbees.com/v2025.9
+kind: task
+metadata:
+  name: shell
+spec:
+  command: "{% cb_include_as_yaml_comment '../shell.cmd' %}"
+  shell: bash
+  taskType: COMMAND
