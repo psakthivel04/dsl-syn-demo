@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/EC-Github/project</project>
-    <procedure>Create Release</procedure>
-    <category>Source Control</category>
-</step>

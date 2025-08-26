@@ -1,1 +1,0 @@
-property 'availableViews', propertyType: 'sheet'

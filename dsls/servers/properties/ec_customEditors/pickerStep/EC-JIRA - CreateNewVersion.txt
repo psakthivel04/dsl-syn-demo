@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/EC-JIRA/project</project>
-    <procedure>CreateNewVersion</procedure>
-    <category>Defect Tracking</category>
-</step>

@@ -1,1 +1,0 @@
-property 'product', propertyType: 'sheet'

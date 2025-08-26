@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/EF-Utilities/project</project>
-    <procedure>Decommission Environments</procedure>
-    <category>Deploy</category>
-</step>

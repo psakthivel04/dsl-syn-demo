@@ -1,3 +1,0 @@
-Subject: State $[/myState/stateName] from workflow '$[/myWorkflow/workflowName]' $[/myEvent/type] - CloudBees CD notification
-
-$[/server/ec_notifierTemplates/StateTemplate_FullPropertyPaths/body]

@@ -1,1 +1,0 @@
-property 'settings', propertyType: 'sheet'

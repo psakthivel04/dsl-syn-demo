@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/EC-Maven/project</project>
-    <procedure>Retrieve Artifact</procedure>
-    <category>Build</category>
-</step>

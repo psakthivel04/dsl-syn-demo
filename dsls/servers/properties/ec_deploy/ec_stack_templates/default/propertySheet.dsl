@@ -1,1 +1,0 @@
-property 'default', propertyType: 'sheet'

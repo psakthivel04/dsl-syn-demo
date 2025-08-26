@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/EF-Utilities/project</project>
-    <procedure>Seed environment inventory</procedure>
-    <category>Deploy</category>
-</step>

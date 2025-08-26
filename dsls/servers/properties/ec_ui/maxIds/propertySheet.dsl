@@ -1,1 +1,0 @@
-property 'maxIds', propertyType: 'sheet'

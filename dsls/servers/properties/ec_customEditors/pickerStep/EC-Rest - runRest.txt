@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/EC-Rest/project</project>
-    <procedure>runRest</procedure>
-    <category>Utilities</category>
-</step>

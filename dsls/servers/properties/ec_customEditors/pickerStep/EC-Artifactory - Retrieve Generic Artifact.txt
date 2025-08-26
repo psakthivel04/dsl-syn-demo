@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/EC-Artifactory/project</project>
-    <procedure>Retrieve Generic Artifact</procedure>
-    <category>Build</category>
-</step>

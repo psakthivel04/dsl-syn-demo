@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/AzureCLI/project</project>
-    <procedure>Run CLI</procedure>
-    <category>Utilities</category>
-</step>

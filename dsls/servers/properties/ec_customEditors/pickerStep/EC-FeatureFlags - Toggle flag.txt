@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/EC-FeatureFlags/project</project>
-    <procedure>Toggle flag</procedure>
-    <category>Feature Flags</category>
-</step>

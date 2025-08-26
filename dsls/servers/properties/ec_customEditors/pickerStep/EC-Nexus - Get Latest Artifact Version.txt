@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/EC-Nexus/project</project>
-    <procedure>Get Latest Artifact Version</procedure>
-    <category>Build</category>
-</step>

@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/EC-Docker/project</project>
-    <procedure>runDockerPull</procedure>
-    <category>Container Management</category>
-</step>

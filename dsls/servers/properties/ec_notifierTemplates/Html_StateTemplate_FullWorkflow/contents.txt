@@ -1,3 +1,0 @@
-Subject: Workflow  '$[workflowName]'  in project  '$[projectName]'  $[/myEvent/type]  - CloudBees CD notification
-
-$[/server/ec_notifierTemplates/Html_StateTemplate_FullWorkflow/body]

@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/EC-Github/project</project>
-    <procedure>Approve Pull Request</procedure>
-    <category>Source Control</category>
-</step>

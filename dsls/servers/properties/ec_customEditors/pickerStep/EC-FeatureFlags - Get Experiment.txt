@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/EC-FeatureFlags/project</project>
-    <procedure>Get Experiment</procedure>
-    <category>Feature Flags</category>
-</step>

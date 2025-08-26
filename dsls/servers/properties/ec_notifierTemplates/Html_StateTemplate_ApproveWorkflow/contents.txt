@@ -1,3 +1,0 @@
-Subject: Build $[workflowName] in project  '$[projectName]'  is ready for approval
-
-$[/server/ec_notifierTemplates/Html_StateTemplate_ApproveWorkflow/body]

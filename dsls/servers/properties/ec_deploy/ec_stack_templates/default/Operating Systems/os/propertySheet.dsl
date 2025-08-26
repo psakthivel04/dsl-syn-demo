@@ -1,1 +1,0 @@
-property 'os', propertyType: 'sheet'

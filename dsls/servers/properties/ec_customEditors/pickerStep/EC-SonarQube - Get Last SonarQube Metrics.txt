@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/EC-SonarQube/project</project>
-    <procedure>Get Last SonarQube Metrics</procedure>
-    <category>Code Analysis</category>
-</step>

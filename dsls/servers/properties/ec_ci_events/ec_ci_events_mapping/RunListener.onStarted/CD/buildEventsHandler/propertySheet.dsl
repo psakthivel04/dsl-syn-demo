@@ -1,1 +1,0 @@
-property 'buildEventsHandler', propertyType: 'sheet'

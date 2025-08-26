@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/EC-AWS-EC2/project</project>
-    <procedure>API_CreateTags</procedure>
-    <category>Resource Management</category>
-</step>
