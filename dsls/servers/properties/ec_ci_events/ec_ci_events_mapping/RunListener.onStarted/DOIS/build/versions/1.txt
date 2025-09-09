@@ -1,0 +1,10 @@
+{
+      "buildFullDisplayName": "ciBuildDetailName",
+      "jobFullName": "ciJobName",
+      "buildDisplayName": "_IGNORE_FIELD_",
+      "buildDescription": "_IGNORE_FIELD_",
+      "jobDisplayName": "_IGNORE_FIELD_",
+      "jobFullDisplayName": "_IGNORE_FIELD_",
+      "jobName": "_IGNORE_FIELD_",
+      "jobType": "_IGNORE_FIELD_"
+    }

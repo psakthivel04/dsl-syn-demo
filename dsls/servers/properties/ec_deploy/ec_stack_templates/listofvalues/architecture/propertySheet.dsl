@@ -1,0 +1,1 @@
+property 'architecture', propertyType: 'sheet'

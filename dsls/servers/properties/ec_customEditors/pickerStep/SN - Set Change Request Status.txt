@@ -1,0 +1,5 @@
+<step>
+    <project>/plugins/ServiceNow/project</project>
+    <procedure>Set Change Request Status</procedure>
+    <category>Resource Management</category>
+</step>

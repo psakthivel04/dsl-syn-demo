@@ -1,0 +1,354 @@
+{
+  "id": "enterprise_createPipeline",
+  "name": "Create a pipeline",
+  "duration": 471,
+  "icon": "icon-pipeline",
+  "version": 1,
+  "requiredPages": ["Pipelines", "Pipeline Runs"],
+  "index_order": 800,
+  "tasks": [
+    {
+      "id": "get_started",
+      "name": "Get started",
+      "icon": "icon-schedule-start",
+      "steps": [
+        {
+          "name": "Select the main menu to get started.",
+          "detail_content": "In this tutorial, you are creating a pipeline with two stages and adding an approval between the stages.",
+          "uiElement": ".tour--main-menu-btn",
+          "coachmark_location": "right"
+        },
+        {
+          "name": "Select **Release orchestration**",
+          "uiElement": ".tour--main-menu-group-release-orchestration",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Select **Pipelines**",
+          "uiElement": ".tour--main-menu-item-pipelines",
+          "coachmark_location": "bottom-right"
+        }
+      ]
+    },
+    {
+      "id": "create_pipeline",
+      "name": "Add a pipeline",
+      "icon": "icon-pipeline",
+      "steps": [
+        {
+          "name": "Select **+**",
+          "uiElement": ".tour--create-new-object-btn",
+          "coachmark_location": "left"
+        },
+        {
+          "name": "Select **Create New...**",
+          "detail_content": "Create a new pipeline. You can also select **Create Existing...** to start from an existing pipeline.",
+          "uiElement": ".tour--create-new",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Specify a pipeline name",
+          "detail_content": "Enter a unique name for your pipeline, and then **Enter**.",
+          "uiElement": ".tour--entry-object-name",
+          "coachmark_location": "right"
+        },
+        {
+          "name": "Select **Project**",
+          "detail_content": "Select a project where you would like to save your pipeline. For this tutorial, select **Default**.",
+          "uiElement": ".tour--select-object-project",
+          "coachmark_location": "right"
+        },
+        {
+          "name": "Select **OK**",
+          "uiElement": ".tour--modal-footer-btn-ok",
+          "coachmark_location": "top"
+        }
+      ]
+    },
+    {
+      "id": "QE_stage",
+      "name": "Add the QE stage",
+      "icon": "icon-add-stage",
+      "steps": [
+        {
+          "name": "Select the **three-dot menu**",
+          "detail_content": "A newly created pipeline includes one empty stage.",
+          "uiElement": ".tour--pipeline-stage-0-context-menu",
+          "coachmark_location": "right"
+        },
+        {
+          "name": "Select **Details**",
+          "detail_content": "The details panel opens.",
+          "uiElement": ".tour--context-menu-details",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Rename the stage to **QE**",
+          "detail_content": "This stage represents the QE environment.",
+          "uiElement": ".tour--entry-object-name",
+          "coachmark_location": "bottom",
+          "delayBeforeAppearance": 1000
+        },
+        {
+          "name": "Select **Save changes**",
+          "uiElement": ".tour--drawer-footer-btn-save_changes",
+          "coachmark_location": "top"
+        }
+      ]
+    },
+    {
+      "id": "QE_stage_task",
+      "name": "Define the QE stage",
+      "icon": "icon-stage",
+      "steps": [
+        {
+          "name": "Select **Add task**",
+          "detail_content": "Define the tasks that are executed within this stage. A stage runs tasks that can perform actions such as deploying applications, invoking plugin processes, or handling manual interventions. Tasks can be run sequentially or in parallel.",
+          "uiElement": ".tour--add_task-btn-0",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Specify a task name",
+          "detail_content": "Enter a task name that describes the action the task is performing. For example, **Initialize**.",
+          "uiElement": ".tour--entry-object-name",
+          "coachmark_location": "right"
+        },
+        {
+          "name": "Select **Define**",
+          "detail_content": "The **Edit Task** pane opens to enter the details, definition, and conditions for the task.",
+          "uiElement": ".tour--define-btn",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Select **Task type**",
+          "detail_content": "Select the drop-down next to **Task type** to choose the type of task based on the requirements.",
+          "uiElement": ".tour--select-object-task_type",
+          "coachmark_location": "left",
+          "delayBeforeAppearance": 1000
+        },
+        {
+          "name": "Select **Command**",
+          "detail_content": "For this example, select **Command**. This task type could be used to initialize a database, configure network settings, or use Terraform to set up infrastructure.",
+          "uiElement": ".tour--task_type-COMMAND",
+          "coachmark_location": "left"
+        },
+        {
+          "name": "Enter a command",
+          "detail_content": "Copy the following into the **Command** field:  <code>echo \"hello from stage QE\"</code>     Then select **Continue**.",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Select **Save changes**",
+          "uiElement": ".tour--drawer-footer-btn-save_changes",
+          "coachmark_location": "top"
+        },
+        {
+          "name": "Add more tasks",
+          "detail_content": "Tasks can be re-ordered, run conditionally, and set to run in parallel or sequentially. When you have completed adding more tasks, select **Continue**.",
+          "coachmark_location": "bottom-right"
+        }
+      ]
+    },
+    {
+      "id": "Prod_stage",
+      "name": "Add the Prod stage",
+      "icon": "icon-add-stage",
+      "steps": [
+        {
+          "name": "Select **+**",
+          "uiElement": ".tour--add_stage-btn",
+          "coachmark_location": "bottom"
+        },
+        {
+          "name": "Type **Prod**",
+          "detail_content": "The name for this stage is **Prod** indicating it corresponds to the production environment.",
+          "uiElement": ".tour--entry-object-name",
+          "coachmark_location": "bottom",
+          "delayBeforeAppearance": 1000
+        },
+        {
+          "name": "Select **Save changes**",
+          "uiElement": ".tour--drawer-footer-btn-save_changes",
+          "coachmark_location": "top"
+        }
+      ]
+    },
+    {
+      "id": "Prod_stage_task",
+      "name": "Define the Prod stage",
+      "icon": "icon-stage",
+      "steps": [
+        {
+          "name": "Select **Add task**",
+          "detail_content": "The production stage in this example could include tasks to ensure that only fully tested, validated, and approved changes are released to end users.",
+          "uiElement": ".tour--add_task-btn-1",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Enter a task name",
+          "detail_content": "Type in a task name such as **ManualApproval**. This manual approval could facilitate visibility and oversight for the production deployment, ensuring team agreement.",
+          "uiElement": ".tour--entry-object-name",
+          "coachmark_location": "right"
+        },
+        {
+          "name": "Select **Define**",
+          "detail_content": "The **Edit Task** pane opens to enter the details, definition, and conditions for this task.",
+          "uiElement": ".tour--define-btn",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Select **Task type**",
+          "detail_content": "View the available task type options. What type would you select for performing the final system checks? Which task would handle running plugin steps to orchestrate additional tools in your process?",
+          "uiElement": ".tour--select-object-task_type",
+          "coachmark_location": "left",
+          "delayBeforeAppearance": 1000
+        },
+        {
+          "name": "Select **Manual**",
+          "detail_content": "For this example, you are creating an approval task using the **Manual** task type.",
+          "uiElement": ".tour--task_type-MANUAL",
+          "coachmark_location": "left"
+        },
+        {
+          "name": "Select the **Assignees** field",
+          "detail_content": "Select yourself or an assignee group to which you belong. Approvals can be assigned to a user or a group. They can also be based on the output of a procedure or custom condition. Select **Save changes**.",
+          "uiElement": ".tour--drawer-footer-btn-save_changes",
+          "coachmark_location": "top",
+          "hasArrow": false
+        },
+        {
+          "name": "Add more tasks",
+          "detail_content": "Tasks can be re-ordered, run conditionally, and set to run in parallel or sequentially. When you have completed adding more tasks, select **Continue**.",
+          "coachmark_location": "bottom-right"
+        }
+      ]
+    },
+    {
+      "id": "create_entry_gate",
+      "name": "Add an entry gate",
+      "icon": "icon-gate-entry",
+      "steps": [
+        {
+          "name": "Add an entry gate",
+          "detail_content": "A stage entry or exit gate allows you to control when a pipeline can enter or exit a stage. Gates can require manual approval or they can be automated based on conditions. Select **Continue**.",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Select **+**",
+          "detail_content": "Select the blue **+** to open the **Entry Gate Rules** panel to add a rule.",
+          "uiElement": ".tour--toggle-entry-gates-1",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Select **Add rule**",
+          "detail_content": "Gate rules can serve various purposes, such as obtain approval, run a procedure, run a plugin, or define custom conditions.",
+          "uiElement": ".tour--add_rule-btn-1",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Specify a rule name",
+          "detail_content": "Enter **Prod approval** for the rule name.",
+          "uiElement": ".tour--entry-object-name",
+          "coachmark_location": "right"
+        },
+        {
+          "name": "Select **Define**",
+          "detail_content": "The **Edit Rule** page opens to enter the details, definition, and conditions for the rule.",
+          "uiElement": ".tour--define-btn",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Select **Rule type**",
+          "detail_content": "Explore the available rule options. Which rule type would you select to run a final performance stability check?",
+          "uiElement": ".tour--select-object-rule_type",
+          "coachmark_location": "left",
+          "delayBeforeAppearance": 1000
+        },
+        {
+          "name": "Select **Approval**",
+          "detail_content": "Use the **Approval** rule type within an entry gate to pause the pipeline until a manual approval is obtained.",
+          "uiElement": ".tour--task_type-APPROVAL",
+          "coachmark_location": "left"
+        },
+        {
+          "name": "Select the **Assignees** field",
+          "detail_content": "Select yourself or a group to which you belong. Approvals can be assigned to a user or a group. They can also be based on the output of a procedure or custom condition. Select **Save changes**.",
+          "uiElement": ".tour--drawer-footer-btn-save_changes",
+          "coachmark_location": "top",
+          "hasArrow": false
+        }
+      ]
+    },
+    {
+      "id": "run_your_pipeline",
+      "name": "Run your pipeline",
+      "icon": "icon-runtime-run",
+      "steps": [
+        {
+          "name": "Select **New run**",
+          "detail_content": "When you select **New run**, a panel opens with optional settings to apply.",
+          "uiElement": ".tour--run-pipeline-btn",
+          "coachmark_location": "left",
+          "delayBeforeAppearance": 1000
+        },
+        {
+          "name": "View the options",
+          "detail_content": "You can select which pipeline stages to execute during this run. For this example, keep both stages selected. There are no parameters for this pipeline. Select **Continue**.",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Select **Run**",
+          "detail_content": "Select **Run** to start the pipeline.",
+          "uiElement": ".tour--drawer-footer-btn-run",
+          "coachmark_location": "top-left"
+        },
+        {
+          "name": "Wait for the QE stage to complete.",
+          "detail_content": "The stage is complete when the top section in the QE stage turns green. Select **Continue**.",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Select the **Response required** dropdown",
+          "detail_content": "Select the dropdown arrow to open the approval dialog.",
+          "uiElement": ".tour--APPROVAL-icon-menu-dropdown",
+          "coachmark_location": "top-left"
+        },
+        {
+          "name": "Select an approver",
+          "detail_content": "All possible approvers display in the dropdown.",
+          "uiElement": ".tour--approver-row",
+          "coachmark_location": "right"
+        },
+        {
+          "name": "Approve the entry gate task",
+          "detail_content": "Select **Approve**. Add a comment which can be viewed later for auditing and traceability purposes. Select **OK** to finalize the approval.",
+          "uiElement": ".tour--modal-footer-btn-ok",
+          "coachmark_location": "top-right"
+        },
+        {
+          "name": "Select the **Response required** dropdown",
+          "detail_content": "The Prod stage pauses at the manual task. Select the dropdown arrow to open the approval dialog.",
+          "uiElement": ".tour--MANUAL-icon-menu-dropdown",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Select an approver",
+          "detail_content": "All possible approvers display in the dropdown.",
+          "uiElement": ".tour--approver-row",
+          "coachmark_location": "right"
+        },
+        {
+          "name": "Select **Completed**",
+          "detail_content": "This manual task is complete once you select **Completed**. Optionally, you can add a comment for future reference. Select **OK**.",
+          "uiElement": ".tour--modal-footer-btn-ok",
+          "coachmark_location": "top-right"
+        },
+        {
+          "name": "Explore your successful pipeline run",
+          "detail_content": "Now that your pipeline run is complete, view an audit report and other run instance details by selecting the three-dot menu on the right of the pipeline run. To learn more about pipeline concepts in CloudBees CD/RO, refer to [Release Concepts](https://docs.cloudbees.com/docs/cloudbees-cd/latest/releases/release-concepts).",
+          "coachmark_location": "right"
+        }
+      ]
+    }
+  ]
+}

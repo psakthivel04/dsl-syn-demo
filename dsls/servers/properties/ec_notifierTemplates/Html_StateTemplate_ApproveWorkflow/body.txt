@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Build Approvals - $[workflowName]</title>
+    <style type="text/css">
+        body {
+            font-family: Tahoma, Helvetica, sans-serif;
+            background: #ffffff;
+            color: #000000;
+            font-size: 11px;
+            margin: 5px 0px 0px 5px;
+        }
+        
+        /* Styles for the outcome area at the top of the report. */
+        .outcome td {
+          font-size: 16px;
+          padding: 5px;
+        }
+       
+        /* Overall colors. */
+       
+        a {
+            color: #000000;
+        }
+        a:hover {
+            color: #cc6600;
+        }
+    </style>
+</head>
+<body>
+<!-- Start of Link -->
+<h2>Build Approval Required</h2>
+<table class="outcome" cellspacing="1">
+  <tr>
+    <td><a href="https://$[/javascript const wsh = '$[/server/webServerHost]'; wsh.split(':').length > 2 && !wsh.includes('[') && !wsh.includes(']') ? '[' + wsh + ']' : wsh]/commander/link/workflowDetails/projects/$[/myProject]/workflows/$[/myWorkflow/workflowName]/s=Projects">CloudBees CD approval page</td>
+  </tr>
+  <tr>    
+    <td><a href="https://$[/javascript const wsh = '$[/server/webServerHost]'; wsh.split(':').length > 2 && !wsh.includes('[') && !wsh.includes(']') ? '[' + wsh + ']' : wsh]/commander/link/transitionWorkflow/projects/$[/myProject]/workflows/$[/myWorkflow/workflowName]/states/$[/myWorkflow/activeState]/transitions/approve">Approve Now</td>
+  </tr>
+</table>
+</body>
+</html>

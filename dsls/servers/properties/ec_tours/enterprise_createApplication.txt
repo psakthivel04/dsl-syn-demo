@@ -1,0 +1,332 @@
+{
+  "id": "enterprise_createApplication",
+  "name": "Create an application model",
+  "duration": 360,
+  "icon": "icon-application",
+  "index_order": 600,
+  "version": 1,
+  "requiredPages": ["Applications", "Environments"],
+  "tasks": [
+    {
+      "id": "get_started",
+      "name": "Get started",
+      "icon": "icon-schedule-start",
+      "steps": [
+        {
+          "name": "Select the main menu",
+          "detail_content": "In this tutorial, you are creating a new application model and deployment process. To model the application, you will publish a deployable artifact that can be stored in the EC-Artifact repository, a shared filesystem, or a Maven-based repository.",
+
+          "uiElement": ".tour--main-menu-btn",
+          "coachmark_location": "right"
+        },
+        {
+          "name": "Select **Deployment automation**",
+          "uiElement": ".tour--main-menu-group-deployment-automation",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Select **Applications**",
+          "uiElement": ".tour--main-menu-item-applications",
+          "coachmark_location": "bottom-right"
+        }
+      ]
+    },
+    {
+      "id": "create_application",
+      "name": "Add an application",
+      "icon": "icon-application",
+      "steps": [
+        {
+          "name": "Select **Add application**",
+          "uiElement": ".tour--create-new-object-btn",
+          "coachmark_location": "left"
+        },
+        {
+          "name": "Select **Create New...**",
+          "detail_content": "This opens the setup dialog to create a new application.",
+          "coachmark_location": "bottom-right",
+          "uiElement": ".tour--create-new"
+        },
+        {
+          "name": "Specify the application name",
+          "detail_content": "Type your application name, and then press **Enter** to continue.",
+          "coachmark_location": "left",
+          "uiElement": ".tour--entry-object-name"
+        },
+        {
+          "name": "Select a project",
+          "detail_content": "Your application is saved with the project you choose. If you do not have a project created, select **Default**.",
+          "uiElement": ".tour--select-object-project",
+          "coachmark_location": "left"
+        },
+        {
+          "name": "Select **OK**",
+          "detail_content": "Your application is saved with this project.",
+          "uiElement": ".tour--modal-footer-btn-ok",
+          "coachmark_location": "top-left"
+        }
+      ]
+    },
+    {
+      "id": "add_component",
+      "name": "Add a component",
+      "icon": "icon-mastercomponent",
+      "steps": [
+        {
+          "name": "Select **Component**",
+          "detail_content": "The new application component setup dialog opens. An application is comprised of tiers and traditional components, with the option to include services running containers.",
+          "uiElement": ".tour--starting-tier",
+          "coachmark_location": "right"
+        },
+        {
+          "name": "Select **Create new...**",
+          "detail_content": "You can create a new component, copy an existing component, or create one from an existing master component. For this application, you are creating a new component.",
+          "uiElement": ".tour--component-scratch",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Specify a name for your component",
+          "detail_content": "Type in a name for your component. A component references the artifact to be deployed.",
+          "uiElement": ".tour--entry-object-name"
+        },
+        {
+          "name": "Select **Next**",
+          "uiElement": ".tour--modal-footer-btn-ok",
+          "coachmark_location": "top-left"
+        }
+      ]
+    },
+    {
+      "id": "component_definition",
+      "name": "Define the tier and component",
+      "icon": "icon-component",
+      "steps": [
+        {
+          "name": "Select **Content location**",
+          "detail_content": "Select the location to store this component. It can be in the EC-Artifact repository, a filesystem location, or a Maven-based repository. If you do not have an artifact published yet, first publish it to the EC-Artifact repository, and then come back to the tutorial.",
+          "coachmark_location": "left",
+          "uiElement": ".tour--select"
+        },
+        {
+          "name": "Specify your artifact name",
+          "detail_content": "Enter the name of the artifact into the **Artifact** field, and then add the component details. Optionally, specify the artifact version to retrieve and the location to retrieve it from. Select **Continue**.",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Select **OK**",
+          "uiElement": ".tour--modal-footer-btn-ok",
+          "coachmark_location": "top-left"
+        },
+        {
+          "name": "Select the three-dot menu",
+          "coachmark_location": "left",
+          "uiElement": ".tour--tier-menu-btn"
+        },
+        {
+          "name": "Select **Details**",
+          "detail_content": "The tier details window opens to update the default name of the tier.",
+          "coachmark_location": "bottom-right",
+          "uiElement": ".tour--context-menu-details"
+        },
+        {
+          "name": "Specify your tier name.",
+          "detail_content": "The default tier name can be used or you can modify it. A tier is a logical grouping of components and represents a server type in your application. For example, it may be a web tier, application tier, or database tier.",
+          "coachmark_location": "bottom-right",
+          "uiElement": ".tour--entry-object-name"
+        },
+        {
+          "name": "Select **OK**",
+          "uiElement": ".tour--modal-footer-btn-ok",
+          "coachmark_location": "top-left"
+        }
+      ]
+    },
+    {
+      "id": "create_component_process",
+      "name": "Add a component process",
+      "icon": "icon-process",
+      "steps": [
+        {
+          "name": "Hierarchy navigation menu",
+          "detail_content": "The hierarchical menu in the left pane displays a top-down view of your application's components, enables access to components, and shows indicators for any missing elements from the deployment. Select **Continue**.",
+          "coachmark_location": "bottom"
+        },
+        {
+          "name": "Select to expand the hierarchy menu",
+          "uiElement": ".tour--hierarchy-navigation-toggler",
+          "coachmark_location": "right"
+        },
+        {
+          "name": "Select to expand the tier view",
+          "detail_content": "This expand action reveals the components defined within the tier.",
+          "uiElement": ".tour--hierarchy-nav-expand-application-tier-1",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Select to expand the component view",
+          "detail_content": "This expand action shows the details of the component you previously defined.",
+          "uiElement": ".tour--hierarchy-nav-expand-application-tier-component",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Add component process",
+          "detail_content": "The component process requires setup. It models the steps for deploying the artifact in the component. Select **Requires Setup**.",
+          "uiElement": ".tour--hierarchy-nav-setup-component-processes",
+          "coachmark_location": "top-right"
+        },
+        {
+          "name": "Select **Create new...**.",
+          "detail_content": "A new component process can be created, or one can be created from a copy of an existing component process, or from an existing master component process. For this application, you are creating a new component process.",
+          "uiElement": ".tour--create-new",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Type **Deploy** for the name",
+          "uiElement": ".tour--entry-object-name",
+          "coachmark_location": "left"
+        },
+        {
+          "name": "Select **OK**",
+          "uiElement": ".tour--modal-footer-btn-ok",
+          "coachmark_location": "top-left"
+        }
+      ]
+    },
+    {
+      "id": "define_component_process",
+      "name": "Define the component process",
+      "icon": "icon-process-step",
+      "steps": [
+        {
+          "name": "Select the **+**.",
+          "detail_content": "The setup dialog opens to define the first step of the process.",
+          "uiElement": ".tour--define-step-btn",
+          "coachmark_location": "left"
+        },
+        {
+          "name": "Specify a name for your component process step",
+          "coachmark_location": "left",
+          "uiElement": ".tour--entry-object-step_name"
+        },
+        {
+          "name": "Select **Next**",
+          "uiElement": ".tour--modal-footer-btn-ok",
+          "coachmark_location": "top-left"
+        },
+        {
+          "name": "Review the step definition",
+          "detail_content": "Review the step types that determine the action the step takes. Typically the first step is to retrieve the artifact. Refer to [Create application processes](https://docs.cloudbees.com/docs/cloudbees-cd/latest/applications-processes/create-processes) for more information. Select **Continue**.",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Select **Component Operations**",
+          "detail_content": "The **Parameters inherited from the component** screen opens displaying the details you previously provided to satisfy the requirements and define this component process. Select **Continue**.",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Select **OK**",
+          "uiElement": ".tour--modal-footer-btn-ok",
+          "coachmark_location": "top-left"
+        },
+        {
+          "name": "Select the **+** icon",
+          "detail_content": "Continue exploring and defining your component process, adding process steps as needed. Steps can utilize plugins to install your artifact. Use the process editor to add branches, call different types of actions, and add conditions on transitions. Select **Continue**.",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Select your application name",
+          "detail_content": "In the hierarchy menu on the left, select your application name to return to the application editor and continue building your application.",
+          "uiElement": ".tour--hierarchy-nav-app-name",
+          "coachmark_location": "right"
+        },
+        {
+          "name": "Continue building your application model",
+          "detail_content": "Add new tiers and components to build out the model for your entire application. When you are ready, select **Continue**.",
+          "coachmark_location": "bottom-right"
+        }
+      ]
+    },
+    {
+      "id": "create_application_process",
+      "name": "Add an application process",
+      "icon": "icon-process",
+      "steps": [
+        {
+          "name": "Select **Requires Setup**",
+          "detail_content": "The setup dialog opens. The application process orchestrates component processes and is run to deploy the application.",
+          "uiElement": ".tour--hierarchy-nav-setup-application-processes",
+          "coachmark_location": "right"
+        },
+        {
+          "name": "Select **Create new...**",
+          "detail_content": "You can create a new application process or start with an existing one. For this application, you are creating a new application process.",
+          "uiElement": ".tour--create-new",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Type **Deploy** as the name",
+          "uiElement": ".tour--entry-object-name",
+          "coachmark_location": "left"
+        },
+        {
+          "name": "Select **OK**",
+          "uiElement": ".tour--modal-footer-btn-ok",
+          "coachmark_location": "top-left"
+        }
+      ]
+    },
+    {
+      "id": "define_application_process",
+      "name": "Define the application process",
+      "icon": "icon-process-step",
+      "steps": [
+        {
+          "name": "Select the **+** icon",
+          "detail_content": "The setup dialog opens to create a new application process step. A process can have multiple steps, branches, and transitions to model a complex deployment.",
+          "uiElement": ".tour--define-step-btn",
+          "coachmark_location": "left"
+        },
+        {
+          "name": "Type **Step** as the name",
+          "coachmark_location": "left",
+          "uiElement": ".tour--entry-object-step_name"
+        },
+        {
+          "name": "Select **Next**",
+          "uiElement": ".tour--modal-footer-btn-ok",
+          "coachmark_location": "top-left"
+        },
+        {
+          "name": "Select **Component**",
+          "detail_content": "The step type **Component** calls the component process you defined for installing a component, or it can call a plugin, run a shell command, procedure, utility, manual intervention, or a rollback operation. Select **Component**, and then select **Continue**.",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Define the steps",
+          "detail_content": "Continue through the component and process steps to define your component. Select **Continue** when you are ready to proceed.",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Select **OK**",
+          "uiElement": ".tour--modal-footer-btn-ok",
+          "coachmark_location": "top-left"
+        },
+        {
+          "name": "Complete your application process definition",
+          "detail_content": "Select **+** to add more process steps required to install components for your application and any other installation processes. With the process editor, you can add branches, call different types of actions, and add conditions on transitions. Select **Continue**.",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Select to go back to the **Application Editor**.",
+          "detail_content": "",
+          "uiElement": ".tour--hierarchy-nav-app-name",
+          "coachmark_location": "right"
+        },
+        {
+          "name": "Next, create an environment",
+          "detail_content": "Continue in the tutorial series: Start the next tutorial to create an environment and map your application to it, and then try running a deployment."
+        }
+      ]
+    }
+  ]
+}

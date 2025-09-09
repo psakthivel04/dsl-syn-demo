@@ -1,0 +1,5 @@
+<step>
+    <project>/plugins/EC-AWS-EC2/project</project>
+    <procedure>API_ReleaseIP</procedure>
+    <category>Resource Management</category>
+</step>

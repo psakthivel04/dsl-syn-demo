@@ -1,0 +1,1 @@
+$[/server/ec_deploy/ec_stageNotifierTemplates/ec_default_stage_events_template]

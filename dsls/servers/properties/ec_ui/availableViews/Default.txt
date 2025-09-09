@@ -1,0 +1,1 @@
+<view><base>base</base><tab><label>Administration</label><tab><label>Plugins</label><url>pages/EC-PluginManager/pluginmanager</url></tab></tab><tab><label>Home</label><tab><label>Overview</label><url>pages/EC-Homepage/homepage</url><accesskey>h</accesskey></tab></tab></view>

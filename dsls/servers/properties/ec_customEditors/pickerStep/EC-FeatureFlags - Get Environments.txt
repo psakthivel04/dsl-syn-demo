@@ -1,0 +1,5 @@
+<step>
+    <project>/plugins/EC-FeatureFlags/project</project>
+    <procedure>Get Environments</procedure>
+    <category>Feature Flags</category>
+</step>

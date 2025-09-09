@@ -1,0 +1,5 @@
+<step>
+    <project>/plugins/EC-Nexus/project</project>
+    <procedure>Retrieve Artifact from Nexus</procedure>
+    <category>Build</category>
+</step>

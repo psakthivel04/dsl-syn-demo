@@ -1,0 +1,7 @@
+{
+      "buildNumber": "object.number",
+      "jobFullName": "job.fullName",
+      "scmUri": "revisions[0].uri",
+      "startTime": "formatTime(object.startTimeInMillis,'iso8601')",
+      "revisionId": "revisions[0].revision"
+  }

@@ -1,0 +1,1 @@
+$[/server/ec_deploy/ec_pipelineNotifierTemplates/ec_default_gate_task_notification_template]

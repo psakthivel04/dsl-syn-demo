@@ -1,0 +1,540 @@
+#!/usr/bin/env perl
+# -*-Perl-*-
+
+# Script
+#     ProcedureUsage 
+#
+#     This perl script is intended to be executed as a "loaded" file in the 
+#     ecextract program environment. It is not a standalone perl program.
+#
+# Purpose
+#     Generate an xml file that contains Procedure reference data. The
+#     reference data is Procedures that are called by and the Procedures that 
+#     call a specific Procedure.
+#
+#     The Procedure(s) to gather reference information for is specified on
+#     the command line with the following parameters (in addition to other
+#     ecextract parameters):
+#
+#       --project
+#           Specifies the name of the project. "%" may be used as wildcard. 
+#       --procedure
+#           Specifies the name of the procedure. "%" may be used as wildcard. 
+#
+# Copyright (c) 2021 CloudBees, Inc.
+# All rights reserved
+
+# -------------------------------------------------------------------------
+# Globals
+# -------------------------------------------------------------------------
+
+# Procedure reference information is a hash with the following elements:
+#   "Project"     - project name
+#   "Procedure"   - procedure name
+#   "callee_hash" - hash of procedures called by this procedure. 
+#                   Each hash entry is another hash that contains:
+#                     "project" - procedure project name
+#                     "procedure" - procedure name
+#   "caller_hash" - hash of procedures that call this procedure.
+#                   Each hash entry is another hash that contains:
+#                     "project" - procedure project name
+#                     "procedure" - procedure name
+#
+%::gProcedureRefList ;              # Procedure reference information 
+
+$::gProject = "";                   # Name of project to get references for
+$::gProcedure = "";                 # Name of procedure to get references for
+
+%::gMyOptions = (
+         "project=s" => \$::gProject,
+         "procedure=s" => \$::gProcedure,
+    );
+
+# -------------------------------------------------------------------------
+# Help
+# -------------------------------------------------------------------------
+$::gMyHelpMessage = $::gHelpMessage . "
+--project projectName                The project to get usage information for
+--procedure procedureName            The procedure to get usage information for
+";
+
+# -----------------------------------------------------------------------
+#  getProcedureUsageData
+#      
+#    This is the main entry point.
+#
+#  Return:
+#    none
+#  Arguments:
+#    none
+# -----------------------------------------------------------------------
+sub getProcedureUsageData() {
+    # ---------------------------------------------------------------
+    # Process Options
+    # ---------------------------------------------------------------
+    if (!GetOptions(%::gMyOptions)) {
+        debugMsg(0,$::gMyHelpMessage);
+        exit(1);
+    }
+
+    # These are the same steps that ecextract takes
+    processOptions();
+    createXML();
+    serverLogin();
+    
+    # Now we do our own thing ....
+    
+    # Process procedure usage data
+    processProcUsage($::gProject, $::gProcedure);
+    
+    # Cleanup and exit
+    closeXML();
+    exit(0);
+}
+
+# -----------------------------------------------------------------------
+#  processProcUsage
+#      
+#    ...
+#
+#  Return:
+#    none
+#  Arguments:
+#    projectName - Name of the procedure project
+#    procedureName - Name of the procedure
+# -----------------------------------------------------------------------
+sub processProcUsage($$) {
+    my ($projectName, $procedureName) = @_;
+    debugMsg(0, "Getting procedure usage information for Project[$projectName] "
+            . "Procedure[$procedureName]");
+    
+    # ---------------------------------------------------------------
+    # Process all the procedure steps that are CALLED BY the specified Procedure(s)
+    # ---------------------------------------------------------------
+    my @allProcObjIds = getProcedureStepsCalledByProcedure($projectName, $procedureName);
+    processProcSteps($projectName, $procedureName, "calls", \@allProcObjIds);    
+
+    # ---------------------------------------------------------------
+    # Process all the procedure steps that CALL the specified Procedure(s)
+    # ---------------------------------------------------------------
+    @allProcObjIds = getProcedureStepsCallingProcedure($projectName, $procedureName);    
+    processProcSteps($projectName, $procedureName, "called by", \@allProcObjIds);    
+    
+    outputToXML();
+}
+
+# -----------------------------------------------------------------------
+#  processProcSteps
+#      
+#    ...
+#
+#  Return:
+#    none
+#  Arguments:
+#    callType - either "calledby" or "calling"
+#    procStepObjIds - Array of Procedure step object ids to process
+# -----------------------------------------------------------------------
+sub processProcSteps($$$$) {
+    my $projectName = $_[0];
+    my $procedureName = $_[1]; 
+    my $callType = $_[2];
+    my $tempref = $_[3];
+    my @procStepObjIds = @$tempref;
+    debugMsg(0, "Processing procedure steps that Project[$projectName]"
+            . " Procedure[$procedureName] ==> $callType <==  "); 
+
+    # ---------------------------------------------------------------
+    # Process each Procedure Step
+    # 1. Get the caller/callee information from the step properties
+    # 2. Call addProcedureInfo() to add caller/callee information to the 
+    #    procedure reference list data structure.
+    # ---------------------------------------------------------------
+    my %projectHash;    
+    my @procUsage;
+    foreach my $procId (@procStepObjIds) {
+        debugMsg(3, "   Getting procId = $procId");
+        my @objectList = ($procId);
+        my $xPath = $::ECommander->getObjects({objectId => \@objectList});
+        my $msg = $::ECommander->getError();
+        if ($msg ne "") {
+            debugMsg(0, "Error: [$msg] ");
+            return;
+        }
+
+        debugMsg(6,"Return data from Commander:\n" .
+            $xPath->findnodes_as_string("/") . "\n");
+
+        # Get the calling and callee Project/Procedure info from the Procedure
+        # Step properties returned by getObjects
+        my $callingProjName = 
+            $xPath->find("//response/object/step/projectName")->string_value();
+        my $callingProcName = 
+            $xPath->find("//response/object/step/procedureName")->string_value();
+        my $callingStepName = 
+            $xPath->find("//response/object/step/stepName")->string_value();
+        my $calledProjName= 
+            $xPath->find("//response/object/step/subproject")->string_value();
+        my $calledProcName= 
+            $xPath->find("//response/object/step/subprocedure")->string_value();
+        
+        if ($calledProcName ne "") {
+            # If the subproject name is empty that means it is the same 
+            # as the calling project.
+            if ($calledProjName eq "") {
+                $calledProjName = $callingProjName;
+            }
+            debugMsg(3, "       projectName=\"$callingProjName\"");
+            debugMsg(3, "       procedureName=\"$callingProcName\"");
+            debugMsg(3, "       stepName=\"$callingStepName\"");
+            debugMsg(3, "          subproject=\"$calledProjName\"");
+            debugMsg(3, "          subprocedure=\"$calledProcName\"");
+            
+            if ($callType eq "calls") {
+                addProcedureInfo($callingProjName, $callingProcName, 
+                                 "calls", 
+                                 $calledProjName, $calledProcName);
+            }
+            elsif ($callType eq "called by") {
+                addProcedureInfo($calledProjName, $calledProcName, 
+                                 "called by", 
+                                 $callingProjName, $callingProcName);
+            }
+        }
+        else {
+            debugMsg(0, "??? The Called procedure name is empty.");
+            debugMsg(0, "    projectName=\"$callingProjName\"");
+            debugMsg(0, "    procedureName=\"$callingProcName\"");
+            debugMsg(0, "    stepName=\"$callingStepName\"");
+            debugMsg(0, "        subproject=\"$calledProjName\"");
+            debugMsg(0, "        subprocedure=\"$calledProcName\"");
+        }
+    }
+}
+
+# -----------------------------------------------------------------------
+#  outputToXML
+#      
+#    Output procedure reference data to XML file.
+#
+#  Return:
+#    none
+#  Arguments:
+#    none
+# -----------------------------------------------------------------------
+sub outputToXML() {
+    debugMsg(1, "Generating XML output ...");
+    debugMsg(1, "  Size of ::gProcedureRefList is: ".keys(%::gProcedureRefList));
+
+    # Each key is a hash of Procedure information
+    my @keyList = keys %::gProcedureRefList;
+    foreach my $key (@keyList) {
+        debugMsg(3, "    Key = $key");
+
+        # Get callee hash (the procedures called by the target procedure)
+        my $procedureDataRef = $::gProcedureRefList{$key};
+        my $projectName = $procedureDataRef->{"project"};        
+        my $procedureName = $procedureDataRef->{"procedure"};
+                
+        my $calleeHashRef = $procedureDataRef->{"callee_hash"};
+        debugMsg(3, "    Size of calleeHashRef is: ".keys(%$calleeHashRef));
+        while( my ($callee_key, $procedureRef) = each %$calleeHashRef ) {
+            debugMsg(3, "      key: $callee_key");
+            print XMLOUT "    <procedureReference>\n";
+            print XMLOUT "        <lhsProject>$projectName</lhsProject>\n";
+            print XMLOUT "        <lhsProcedure>$procedureName</lhsProcedure>\n";
+            print XMLOUT "        <refType>calls</refType>\n";
+            print XMLOUT "        <rhsProject>".$procedureRef->{"project"}."</rhsProject>\n";
+            print XMLOUT "        <rhsProcedure>".$procedureRef->{"procedure"}."</rhsProcedure>\n";
+            print XMLOUT "    </procedureReference>\n";
+            
+        }
+
+        # Get caller hash (the callers of the target procedure)
+        my $callerHashRef = $procedureDataRef->{"caller_hash"};
+        debugMsg(3, "    Size of callerHashRef is: ".keys(%$callerHashRef));
+        while( my ($caller_key, $procedureRef) = each %$callerHashRef ) {
+            debugMsg(3, "      key: $caller_key");
+            print XMLOUT "    <procedureReference>\n";
+            print XMLOUT "        <lhsProject>$projectName</lhsProject>\n";
+            print XMLOUT "        <lhsProcedure>$procedureName</lhsProcedure>\n";
+            print XMLOUT "        <refType>called by</refType>\n";
+            print XMLOUT "        <rhsProject>".$procedureRef->{"project"}."</rhsProject>\n";
+            print XMLOUT "        <rhsProcedure>".$procedureRef->{"procedure"}."</rhsProcedure>\n";
+            print XMLOUT "    </procedureReference>\n";
+            
+        }
+        
+    }
+}
+
+# -----------------------------------------------------------------------
+#  addProcedureInfo
+#      
+#    Add an entry to the procedure reference hash representing a
+#    procedure that calls another procedure, e.g. A --calls--> B,
+#    of is called by another, e.g. B --called by--> A.
+#
+#  Return:
+#    none
+#  Arguments:
+#    lhsProjName - Name of the calling procedure project
+#    lhsProcName - Name of the calling procedure
+#    refType     - Type of reference - "calls" or "called by"
+#    rhsProjName - Name of the called procedure project
+#    rhsProcName - Name of the called procedure
+# -----------------------------------------------------------------------
+sub addProcedureInfo($$$$$) {
+    my ($lhsProjName, $lhsProcName, $refType, $rhsProjName, 
+        $rhsProcName) = @_;
+    
+    # Concatenated project and procedure names to use as hash keys. 
+    # Format is [projectName][procedureName], e.g. foo/bar][foo/bar]   
+    my $lhsConcatName = "[".$lhsProjName."][".$lhsProcName."]";
+    my $rhsConcatName = "[".$rhsProjName."][".$rhsProcName."]";
+    
+    #----------------------------------------------
+    # Get LHS Procedure to set it's RHS procedure
+    #----------------------------------------------
+    my $procedureDataRef = $::gProcedureRefList{$lhsConcatName};
+    if ( keys %$procedureDataRef == 0) {
+        # Add procedure caller info
+        debugMsg(3, "      Adding new procedure: $lhsConcatName");
+        $procedureDataRef = {project => $lhsProjName,
+                             procedure => $lhsProcName
+        };
+        $::gProcedureRefList{$lhsConcatName} = $procedureDataRef;
+    }
+
+    #----------------------------------------------
+    # Get RHS procedure hash based on the reference type
+    #----------------------------------------------
+    if ($refType eq "calls") {
+        $rhsProcHashRef = $procedureDataRef->{"callee_hash"};        
+        if ( keys %$rhsProcHashRef == 0) {
+            debugMsg(3, "      Creating rhs callee_hash for $lhsConcatName");
+            $rhsProcHashRef = {};
+            $procedureDataRef->{"callee_hash"} = $rhsProcHashRef;
+        }
+        
+    } elsif ($refType eq "called by") {
+        # Get caller hash
+        $rhsProcHashRef = $procedureDataRef->{"caller_hash"};        
+        if ( keys %$rhsProcHashRef == 0) {
+            debugMsg(3, "      Creating rhs caller_hash for $lhsConcatName");
+            $rhsProcHashRef = {};
+            $procedureDataRef->{"caller_hash"} = $rhsProcHashRef;
+        }
+        
+    } else {
+        debugMsg(0, "Error - unknown reference type [$refType]");
+    }
+        
+    #----------------------------------------------
+    # Get callee data
+    #----------------------------------------------
+    my $rhsDataRef = $rhsProcHashRef->{$rhsConcatName};        
+    if ( keys %$rhsDataRef == 0) {
+        debugMsg(3, "      Creating rhs [$refType] data for $rhsConcatName");
+        $rhsDataRef = {project => $rhsProjName,
+                          procedure => $rhsProcName
+        };
+        $rhsProcHashRef->{$rhsConcatName} = $rhsDataRef;
+    }
+    else {
+        # Already recorded the procedure calling this callee
+    }
+}
+
+
+# -----------------------------------------------------------------------
+#  getProcedureStepsCalledByProcedure
+#      
+#    Return a list of all procedure step IDs that are CALLED BY
+#    the specified project/procedure. Wildcard (%) may be used
+#    in both the project and procedure names.
+#
+#  Return:
+#    none
+#  Arguments:
+#    projectName - Name of the procedure project
+#    procedureName - Name of the procedure
+# -----------------------------------------------------------------------
+sub getProcedureStepsCalledByProcedure($$) {
+    my ($projectName, $procedureName) = @_;
+    
+    debugMsg(3, "Getting procedure steps CALLED BY [$projectName][$procedureName]");
+
+    #----------------------------------------------
+    # Set filter to get Procedure Steps called by the given Procedure
+    #----------------------------------------------
+    my @filterList = ();
+    push (@filterList, {"propertyName" => "projectName", 
+                        "operator"   => "like",
+                        "operand1"    => "$projectName"
+    });
+    push (@filterList, {"propertyName" => "procedureName", 
+                        "operator"   => "like",
+                        "operand1"    => "$procedureName"
+    });
+    # Find any procedure that is called
+    push (@filterList, {"propertyName" => "subprocedure", 
+                        "operator"   => "isNotNull"
+    });
+ 
+    #----------------------------------------------
+    # Search for matching objects and retrieve ID's only
+    #----------------------------------------------
+    my $xPath = $::ECommander->findObjects("procedureStep",
+                                  {numObjects => "0",
+                                  filter     => \@filterList});
+
+    my $msg = $::ECommander->getError();
+    if ($msg ne "") {
+        debugMsg(0,"Error: [$msg] ");
+        return;
+    }
+
+    debugMsg(6,"Return data from Commander:\n" .
+        $xPath->findnodes_as_string("/") . "\n");
+
+    #----------------------------------------------
+    # Build a list of all the object id's
+    #----------------------------------------------
+    my @allObjectsList;
+    my $numobjs = 0;
+    my $nodeset = $xPath->find('//response/objectId');
+    foreach my $node ($nodeset->get_nodelist) {
+        my $objectId = $node->string_value();
+        push (@allObjectsList, $objectId);
+        $numobjs += 1;
+    }
+
+    debugMsg(1,"   Found $numobjs objects Where: projectName like $projectName"
+                . " and procedureName like $procedureName"
+                . " and subprocedure isNotNull");
+    return @allObjectsList;
+}
+
+# -----------------------------------------------------------------------
+#  getProcedureStepsCallingProcedure
+#      
+#    Return a list of all procedure step IDs that CALL
+#    the specified procedure. Wildcard (%) may be used
+#    in the procedure name.
+#
+#  Return:
+#    none
+#  Arguments:
+#    projectName - Name of the procedure project
+#    procedureName - Name of the procedure
+# -----------------------------------------------------------------------
+sub getProcedureStepsCallingProcedure($$) {
+    my ($projectName, $procedureName) = @_;
+    
+    debugMsg(3, "Getting procedure steps CALLING [$projectName][$procedureName]");
+
+    #----------------------------------------------
+    # Set filter to get Procedure Steps calling the given Procedure
+    # from a DIFFERENT project.
+    #----------------------------------------------
+    my @filterList = ();
+    # This filter will find all callers from a different Project. 
+    push (@filterList, {"propertyName" => "subproject", 
+                        "operator"   => "like",
+                        "operand1"    => "$projectName"
+    });
+    push (@filterList, {"propertyName" => "subprocedure", 
+                        "operator"   => "like",
+                        "operand1"    => "$procedureName"
+    });
+ 
+    #----------------------------------------------
+    # Search for matching objects and retrieve ID's only
+    #----------------------------------------------
+    my $xPath = $::ECommander->findObjects("procedureStep",
+                                  {numObjects => "0",
+                                  filter     => \@filterList});
+
+    my $msg = $::ECommander->getError();
+    if ($msg ne "") {
+        debugMsg(0,"Error: [$msg] ");
+        return;
+    }
+
+    debugMsg(6,"Return data from Commander:\n" .
+        $xPath->findnodes_as_string("/") . "\n");
+
+    #----------------------------------------------
+    # Build a list of all the object id's
+    #----------------------------------------------
+    my @allObjectsList;
+    my $numobjs = 0;
+    my $nodeset = $xPath->find('//response/objectId');
+    foreach my $node ($nodeset->get_nodelist) {
+        my $objectId = $node->string_value();
+        push (@allObjectsList, $objectId);
+        $numobjs += 1;
+    }
+
+    debugMsg(1,"   Found $numobjs objects Where: subproject like $projectName"
+                . " and subprocedure like $procedureName");
+
+    #----------------------------------------------
+    # Set filter to get Procedure Steps calling the given Procedure
+    # from the SAME project.
+    #----------------------------------------------
+    @filterList = ();
+    # This filter will find all callers from the same Project. 
+    # Subproject is not specified because it can be empty. This happens
+    # when the subprocedure being called is in the same project as the 
+    # calling procedure.
+    push (@filterList, {"propertyName" => "projectName", 
+                        "operator"   => "like",
+                        "operand1"    => "$projectName"
+    });
+    push (@filterList, {"propertyName" => "subproject", 
+                        "operator"   => "equals",
+                        "operand1"    => ""
+    });
+    push (@filterList, {"propertyName" => "subprocedure", 
+                        "operator"   => "like",
+                        "operand1"    => "$procedureName"
+    });
+ 
+    #----------------------------------------------
+    # Search for matching objects and retrieve ID's only
+    #----------------------------------------------
+    $xPath = $::ECommander->findObjects("procedureStep",
+                                  {numObjects => "0",
+                                  filter     => \@filterList});
+
+    $msg = $::ECommander->getError();
+    if ($msg ne "") {
+        debugMsg(0,"Error: [$msg] ");
+        return;
+    }
+
+    debugMsg(6,"Return data from Commander:\n" .
+        $xPath->findnodes_as_string("/") . "\n");
+
+    #----------------------------------------------
+    # Add to the list of all the object id's
+    #----------------------------------------------
+    $numobjs = 0;
+    $nodeset = $xPath->find('//response/objectId');
+    foreach my $node ($nodeset->get_nodelist) {
+        my $objectId = $node->string_value();
+        push (@allObjectsList, $objectId);
+        $numobjs += 1;
+    }
+
+    debugMsg(1,"   Found $numobjs objects Where: projectName like $projectName"
+                . " and subproject equals \"\""
+                . " and subprocedure like $procedureName");
+    return @allObjectsList;
+}
+
+#----------------------------------------------
+# Call getProcedureUsageData main entry point
+#----------------------------------------------
+getProcedureUsageData();

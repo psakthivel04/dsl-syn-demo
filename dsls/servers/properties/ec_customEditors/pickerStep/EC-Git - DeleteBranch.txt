@@ -1,0 +1,5 @@
+<step>
+    <project>/plugins/EC-Git/project</project>
+    <procedure>DeleteBranch</procedure>
+    <category>Source Code Management</category>
+</step>

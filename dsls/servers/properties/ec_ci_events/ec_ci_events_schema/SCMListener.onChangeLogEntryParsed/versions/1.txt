@@ -1,0 +1,9 @@
+{
+    "id": "uuid(trimToNull(lowerCase(authorEmail))||author.fullName)",
+    "username": "author.fullName",
+    "email": "lowerCase(authorEmail)",
+    "timestamp": "formatTime(entry.timestamp,'iso8601')",
+    "category":"'scm'",
+    "status": "'success'",
+    "source":"'CloudBees CI'"
+  }

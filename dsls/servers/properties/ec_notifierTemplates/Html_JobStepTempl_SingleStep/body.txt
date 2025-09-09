@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Job step $[jobStepId]  from procedure step  '$[stepName]'  $[/myEvent/type] - CloudBees CD Notification</title>
+    <style type="text/css">
+        body {
+            font-family: Tahoma, Helvetica, sans-serif;
+            background: #ffffff;
+            color: #000000;
+            font-size: 11px;
+            margin: 5px 0px 0px 5px;
+        }
+        
+        /* Styles for the outcome area at the top of the report. */
+
+        .outcome table.outcomeOk {
+            background: #bef0bc;
+        }
+        .outcome table.outcomeError {
+            background: #f7cfcf;
+        }
+        .outcome table.outcomeWarning {
+            background: #fff2bf;
+        }
+        .outcome td {
+            padding: 5px;
+        }
+        .outcome td.outcome {
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .outcome td.viewOnline a {
+            font-size: 12px;
+            font-weight: bold;
+            text-decoration: none;
+            border-bottom: dotted 1px;
+        }
+        
+        /* Styles for the main summary table. */
+
+        div.summary {
+            margin: 20px 0px 0px 0px;
+        }
+        .summary table {
+            background: #ffffff;
+        }
+        .summary td {
+            padding: 3px 15px 3px 5px;
+            vertical-align: top;
+        }
+        .summary .header td {
+            background: #c8cacf;
+            font-weight: bold;
+        }
+        td.labelEven {
+            background: #f5f5f7;
+            font-weight: bold;
+        }
+        td.labelOdd {
+            background: #ffffff;
+            font-weight: bold;
+        }
+        .summary td.success {
+            background: #bef0bc;
+        }
+        .summary td.warning {
+            background: #fff2bf;
+        }
+        .summary td.warning a {
+            text-decoration: none;
+            border-bottom: dotted 1px;
+        }
+        .summary td.error {
+            background: #f7cfcf;
+        }
+        .summary td.error a {
+            text-decoration: none;
+            border-bottom: dotted 1px;
+        }
+        .summary td.noData {
+            background: #dfe1e7;
+            color: #666666;
+        }
+        
+        /* Styles for section headings. */
+
+        div.heading {
+            margin: 15px 0px 0px 0px;
+            border-top: solid 1px #d1d1d1;
+            width: 98%;
+            padding-top: 5px;
+        }
+        span.headerText {
+            padding-left: 5px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #555e7e;
+        }
+        
+        /* Styles for simple striped tables like those in the
+         * General Information section.
+         */
+         
+        div.stripes {
+            margin: 10px 0px 0px 0px;
+        }
+        .stripes tr.odd {
+            background: #f5f5f7;
+        }
+        .stripes tr.even {
+            background: #ffffff;
+        }
+        .stripes td {
+            padding: 4px 5px 4px 5px;
+        }
+        .stripes td.label {
+            font-weight: bold;
+            width: 20%;
+        }
+        .stripes td.error {
+            color: #cc0000;
+        }
+        .stripes td.warning {
+            color: #7c5c17;
+        }
+
+        /* Styles for diagnostic messages. */
+       
+        div.diagnostics {
+            margin: 10px 0px 0px 0px;
+        } 
+        .diagnostics td.stepHeader {
+            padding: 8px 5px 8px 5px;
+            background: #f5f5f7;
+        }
+        .diagnostics span.stepName {
+            font-weight: bold;
+        }
+        .diagnostics td {
+            padding: 5px 5px 5px 5px;
+        }
+        .diagnostics td.indexError {
+            padding: 15px 5px 0px 5px;
+            font-weight: bold;
+            color: #cc0000;
+        }
+        .diagnostics td.indexWarning {
+            padding: 15px 5px 0px 5px;
+            font-weight: bold;
+            color: #7c5c17; 
+        }
+        .diagnostics td.indexMiscellaneous {
+            padding: 15px 5px 0px 5px;
+            font-weight: bold;
+        }
+        .diagnostics td.logLink {
+            color: #999999;
+            padding-bottom: 10px;
+        }
+        .diagnostics td.logLink a {
+            text-decoration: none;
+            border-bottom: dotted 1px;
+            color: #333333;
+        }
+        .diagnostics td.logLink a:hover {
+            color: #cc6600;
+        }
+        .diagnostics td.logExtract pre {
+            padding: 8px 15px 8px 15px;
+            margin: 0px;
+            border: 1px dashed #cccccc;
+            font-family: Courier New, Courier, monospace;
+            font-size: 12px;
+        }
+        
+        /* Styles for updates section. */
+        
+        div.updates {
+            margin-top: 10px;
+        }
+        div.updates td pre {
+            padding: 8px 15px 8px 15px;
+            margin: 0px 5px 0px 5px;
+            border: 1px dashed #cccccc;
+            font-family: Courier New, Courier, monospace;
+            font-size: 12px;
+        }
+       
+        /* Overall colors. */
+       
+        a {
+            color: #000000;
+        }
+        a:hover {
+            color: #cc6600;
+        }
+    </style>
+</head>
+<body>
+
+  <!-- Start outcome -->
+  <div class="outcome">
+    <table class="$[/javascript if (myJobStep.outcome == 'error') { 'outcomeError' } else if (myJobStep.outcome == 'success') { 'outcomeOk' } else {'outcomeWarning'}]" cellspacing="0" width="98%">
+      <tr>
+        <td class="outcome">Job step $[jobStepId]  from procedure step'$[stepName]' $[/myEvent/type]</td>
+        <td class="viewOnline" align="right"><a href="https://$[/javascript const wsh = '$[/server/webServerHost]'; wsh.split(':').length > 2 && !wsh.includes('[') && !wsh.includes(']') ? '[' + wsh + ']' : wsh]/commander/jobDetails.php?jobId=$[/myJob/jobId]">Commander Notification</td>
+      </tr>
+      <tr>
+        <td colspan="2">Notification sent by email notifier  '$[/myEvent/notifier]' at $[/myEvent/time]</td>
+      </tr>
+    </table>
+  </div>
+  <!-- End outcome -->
+
+  <!-- Start of summary table -->
+  <div class="summary">
+    <table cellspacing="1">
+      <tr class="header">
+        <td>Job Attribute</td>
+        <td>Job Attribute Value</td>
+      </tr>
+      <tr>
+         <td class="success">Project</td>
+         <td class="success">$[projectName]</td>
+      </tr>
+      <tr>
+         <td class="success">Procedure</td>
+         <td class="success">$[/myJob/procedureName]</td>
+      </tr>
+      <tr>
+         <td class="success">Started</td>
+         <td class="success">$[/myJob/start]</td>
+      </tr>
+      <tr>
+         <td class="success">Completed</td>
+         <td class="success">$[/myJob/finish]</td>
+      </tr>
+      <tr>
+         <td class="success">Directory Name</td>
+         <td class="success">$[/myJob/directoryName]</td>
+      </tr>
+      <tr>
+         <td class="success">Launched by User</td>
+         <td class="success">$[/myJob/launchedByUser]</td>
+      </tr>
+      <tr>
+         <td class="success">Outcome</td>
+         <td class="success">$[/myJob/outcome]</td>
+      </tr>
+      <tr>
+         <td class="success">Error Code</td>
+         <td class="success">$[/myJob/errorCode]</td>
+      </tr>
+      <tr>
+         <td class="success">Error Message</td>
+         <td class="success">$[/javascript if (myJob.errorMessage) { myJob.errorMessage.replace(/\n/g, "<br>");}]</td>
+      </tr>
+      <tr>
+         <td class="success">Elapsed Time</td>
+         <td class="success">$[/myJob/elapsedTime]</td>
+      </tr>
+      <tr>
+         <td class="success">Status</td>
+         <td class="success">$[/myJob/status]</td>
+      </tr>
+      <tr>
+         <td class="success">Abort Status</td>
+         <td class="success">$[/myJob/abortStatus]</td>
+      </tr>
+    </table>
+  </div>
+
+<p>
+<H3>Job Steps</H3> 
+<p>
+
+  <div class="summary">    
+    $[/javascript
+        var res = new String("\n");
+        res += "<table cellspacing=\"1\">\n";
+        res += "    <tr class=\"header\">\n";
+        res += "      <td>Step Name</td>\n";
+        res += "      <td>Job Step Id</td>\n";
+        res += "      <td>Status</td>\n";
+        res += "      <td>Outcome</td>\n";
+        res += "      <td>Error Code</td>\n";
+        res += "      <td>Start</td>\n";
+        res += "      <td>Finish</td>\n";  
+        res += "    </tr>\n";
+
+        var thisStep = myJobStep;
+
+        res += "    <tr>\n";
+        res += "      <td class=\"success\">" + thisStep.name + "</td>\n";
+        res += "      <td class=\"success\">" + thisStep.jobStepId + "</td>\n";
+        res += "      <td class=\"success\">" + thisStep.status + "</td>\n";
+        if ( thisStep.outcome == 'success' ) {
+            res += "      <td class=\"success\">" + thisStep.outcome + "</td>\n";
+        }
+        else if ( thisStep.outcome == 'error' ) {
+            res += "      <td class=\"error\">" + thisStep.outcome + "</td>\n";
+        }
+        else if ( thisStep.outcome == 'warning' ) {
+            res += "      <td class=\"warning\">" + thisStep.outcome + "</td>\n";
+        }
+        else {
+            res += "      <td class=\"success\">" + "-" + "</td>\n";
+        } 
+        if (thisStep.errorCode == null) {
+            res += "      <td class=\"success\"></td>\n";
+        } else {
+            res += "      <td class=\"error\">" + thisStep.errorCode + "</td>\n";
+        }
+        res += "      <td class=\"success\">" + thisStep.start + "</td>\n";
+        res += "      <td class=\"success\">" + thisStep.finish + "</td>\n";
+        res += "    </tr>\n";
+        res += "</table>\n";
+        res += "\n";
+        res;
+]
+
+  </div>
+    <!-- End of summary table -->
+
+</body>
+</html>

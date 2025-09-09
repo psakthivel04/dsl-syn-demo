@@ -1,0 +1,19 @@
+{
+      "approvals" : "_IGNORE_FIELD_",
+      "artifacts": "_IGNORE_FIELD_",
+      "buildFullDisplayName": "ciBuildDetailName",
+      "cdAssociations": "_IGNORE_FIELD_",
+      "changeSets": "_IGNORE_FIELD_",
+      "jobFullName": "ciJobName",
+      "buildDisplayName": "_IGNORE_FIELD_",
+      "buildDescription": "_IGNORE_FIELD_",
+      "interruptedCauses": "_IGNORE_FIELD_",
+      "jobDisplayName": "_IGNORE_FIELD_",
+      "jobFullDisplayName": "_IGNORE_FIELD_",
+      "jobName": "_IGNORE_FIELD_",
+      "jobType": "_IGNORE_FIELD_",
+      "pipelineLibraries": "_IGNORE_FIELD_",
+      "pluginUsage": "_IGNORE_FIELD_",
+      "startCauses": "_IGNORE_FIELD_",
+      "testResults": "_IGNORE_FIELD_"
+    }

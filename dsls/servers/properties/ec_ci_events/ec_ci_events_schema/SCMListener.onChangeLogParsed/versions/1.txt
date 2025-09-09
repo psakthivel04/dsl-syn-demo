@@ -1,0 +1,8 @@
+{
+        "changelog": "changelog[].{'revisionId': @.commitId, 'message': @.msg, 'author': @.author.id, 'authorEmail': emailOfUser(@.author), 'timestamp': formatTime(@.timestamp, 'iso8601')}",
+        "buildNumber": "object.number",
+        "jobFullName": "job.fullName",
+        "revisionId": "revisions[0].revision",
+        "scmUri": "revisions[0].uri",
+        "startTime": "formatTime(object.startTimeInMillis,'iso8601')"
+    }

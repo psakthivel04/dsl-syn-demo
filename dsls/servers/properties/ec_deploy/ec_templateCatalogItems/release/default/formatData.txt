@@ -1,0 +1,64 @@
+{
+                   "formalParameter":[
+                      {
+                         "formalParameterName":"releaseProjectName",
+                         "description":"Name of the release project. For example, `Default`.",
+                         "type":"project",
+                         "label":"Release Project Name",
+                         "required":"true"
+                      },
+                      {
+                         "formalParameterName":"releaseName",
+                         "description":"Name of the release to be created.",
+                         "type":"entry",
+                         "label":"Release Name",
+                         "required":"true"
+                      },
+                      {
+                         "formalParameterName":"releaseDescription",
+                         "description":"Description of the release.",
+                         "type":"textarea",
+                         "label":"Release Description",
+                         "required":"true"
+                      },
+                      {
+                         "formalParameterName":"releaseStartDate",
+                         "description":"Start date of the release.",
+                         "type":"date",
+                         "label":"Release Start Date",
+                         "required":"true"
+                      },
+                      {
+                         "formalParameterName":"releaseEndDate",
+                         "description":"End date of the release.",
+                         "type":"date",
+                         "label":"Release End Date",
+                         "required":"true"
+                      }
+                   ],
+                   "substitution":[
+                      {
+                         "propertyName":"projectName",
+                         "argumentName":"releaseProjectName"
+                      },
+                      {
+                         "propertyName":"releaseName",
+                         "argumentName":"releaseName"
+                      },
+                      {
+                         "propertyName":"description",
+                         "argumentName":"releaseDescription",
+                         "entityType":"release"
+                      },
+                      {
+                         "propertyName":"plannedStartDate",
+                         "argumentName":"releaseStartDate",
+                          "entityType":"release"
+                      },
+                      {
+                         "propertyName":"plannedEndDate",
+                         "argumentName":"releaseEndDate",
+                          "entityType":"release"
+                      }
+                   ]
+                }

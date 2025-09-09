@@ -1,0 +1,13 @@
+CloudBees CD Notification - from email notifier '$[/myEvent/notifier]'
+
+Job   '$[/myJob/jobName]'   $[/myEvent/type]  at:  $[/myEvent/time]
+
+Project:             $[/myProject/projectName]
+Procedure:           $[/myProcedure/procedureName]
+Started:             $[/myJob/start]
+Completed:           $[/myJob/finish]
+Directory Name:      $[/myJob/directoryName]
+Launched by User:    $[/myJob/launchedByUser]
+Outcome:             $[/myJob/outcome]
+Error Code:          $[/myJob/errorCode]
+Error Message:       $[/myJob/errorMessage]

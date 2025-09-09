@@ -1,0 +1,5 @@
+<step>
+    <project>/plugins/EC-AnsibleTower/project</project>
+    <procedure>List Projects</procedure>
+    <category>Resource Management</category>
+</step>

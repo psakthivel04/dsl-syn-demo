@@ -1,0 +1,88 @@
+/* CSS Document */
+
+/* Report Title Styles */
+.report {
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #333333;
+    font-weight: normal;
+}
+
+/* Chart Styles */
+.chart {
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #333333;
+    font-weight: normal;
+}
+
+/* Page breaks*/
+.page {
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #333333;
+    font-weight: normal;
+}
+
+/* Table Styles */
+.table {
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #333333;
+    font-weight: normal;
+}
+
+.table-header-cell {
+    background-image: url(/commander/lib/images/bg_listviewheader.gif);
+    background-position: center top;
+    background-repeat: repeat-x;
+    border-bottom: 2px solid #BCBEC4;
+    border-right: 1px solid #BCBEC4;
+    vertical-align: top;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: normal;
+    padding:3px 10px;
+}
+
+.table-detail-row {
+    background:#F1F1F4 none repeat scroll 0 0;
+    vertical-align:top;
+    border-bottom: 1px solid #FFFFFF;
+    border-right: 1px solid #FFFFFF;
+    padding:3px 10px;
+}
+
+.table-group-footer-cell {
+    /* If background color is set here it will override the alternating color set by the rptdesign javascript */
+    /* background:#F1F1F4 none repeat scroll 0 0;*/
+    vertical-align:top;
+    border-bottom: 1px solid #FFFFFF;
+    border-right: 1px solid #FFFFFF;
+    padding:3px 10px;
+}
+
+
+/* For reference */
+
+/*.birt_evenRow {
+    background: #DEDEE4 none repeat scroll 0 0;
+    vertical-align: top;
+    border-bottom: 1px solid #FFFFFF;
+    border-right: 1px solid #FFFFFF;
+    padding:3px 10px;
+}
+*/
+
+/*.birt_link {
+    color: #333333;
+    text-decoration: underline;
+}
+*/
+
+/*.birt_link:hover {
+    color: #CC6600;
+    cursor: pointer;
+}
+*/
+

@@ -1,0 +1,5 @@
+<step>
+    <project>/plugins/EC-Jenkins/project</project>
+    <procedure>GetArtifactList</procedure>
+    <category>Continuous Integration</category>
+</step>

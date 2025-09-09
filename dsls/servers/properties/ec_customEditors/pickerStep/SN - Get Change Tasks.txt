@@ -1,0 +1,5 @@
+<step>
+    <project>/plugins/ServiceNow/project</project>
+    <procedure>Get Change Tasks</procedure>
+    <category>Resource Management</category>
+</step>
