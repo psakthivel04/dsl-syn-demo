@@ -1,9 +1,0 @@
----
-apiVersion: cloudbees.com/v2025.9
-kind: release
-metadata:
-  name: gok3_release
-spec:
-  plannedEndDate: 2025-08-01T13:57
-  plannedStartDate: 2025-07-18T13:57
-  timeZone: Asia/Calcutta
