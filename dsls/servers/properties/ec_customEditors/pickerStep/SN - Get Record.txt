@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/ServiceNow/project</project>
-    <procedure>GetRecord</procedure>
-    <category>Resource Management</category>
-</step>

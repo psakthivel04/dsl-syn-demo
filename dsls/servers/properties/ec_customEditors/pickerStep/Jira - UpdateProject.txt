@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/Jira/project</project>
-    <procedure>UpdateProject</procedure>
-    <category>Defect Tracking</category>
-</step>

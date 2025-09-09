@@ -1,7 +1,0 @@
-#
-#Mon Mar 16 18:25:09 PDT 2009
-ProcedureLabel=\uc808\ucc28
-ProjectLabel=\ud504\ub85c\uc81d\ud2b8
-MasterPageFooterLabel=\ubcf4\uace0\uc77c
-CallsCalledByLabel=\ud638\ucd9c/\ud638\ucd9c\uc790
-

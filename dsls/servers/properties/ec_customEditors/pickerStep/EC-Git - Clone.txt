@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/EC-Git/project</project>
-    <procedure>Clone</procedure>
-    <category>Source Code Management</category>
-</step>

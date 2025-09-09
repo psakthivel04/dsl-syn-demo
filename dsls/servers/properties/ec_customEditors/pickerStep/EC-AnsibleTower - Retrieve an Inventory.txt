@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/EC-AnsibleTower/project</project>
-    <procedure>Retrieve an Inventory</procedure>
-    <category>Resource Management</category>
-</step>

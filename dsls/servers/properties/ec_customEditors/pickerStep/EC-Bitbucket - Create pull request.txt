@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/EC-Bitbucket/project</project>
-    <procedure>Create pull request</procedure>
-    <category>Source Control</category>
-</step>

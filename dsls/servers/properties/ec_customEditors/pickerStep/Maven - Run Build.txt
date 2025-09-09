@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/EC-Maven/project</project>
-    <procedure>runMaven</procedure>
-    <category>Build</category>
-</step>

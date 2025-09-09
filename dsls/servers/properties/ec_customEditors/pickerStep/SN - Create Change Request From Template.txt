@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/ServiceNow/project</project>
-    <procedure>Create Change Request From Template</procedure>
-    <category>Resource Management</category>
-</step>

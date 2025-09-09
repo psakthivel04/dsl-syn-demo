@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/EC-FileSysRepo/project</project>
-    <procedure>Retrieve File Artifact</procedure>
-    <category>System</category>
-</step>

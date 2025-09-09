@@ -1,1 +1,0 @@
-property 'build', propertyType: 'sheet'

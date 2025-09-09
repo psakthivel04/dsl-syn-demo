@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/ServiceNow/project</project>
-    <procedure>Call ServiceNow API</procedure>
-    <category></category>
-</step>

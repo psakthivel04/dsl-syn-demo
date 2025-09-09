@@ -1,1 +1,0 @@
-CloudBees CD: Failure in $[/myProcess] of $[/myApplication] to $[/myEnvironment]

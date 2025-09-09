@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/EC-SendEmail/project</project>
-    <procedure>Send Email</procedure>
-    <category>Notification</category>
-</step>

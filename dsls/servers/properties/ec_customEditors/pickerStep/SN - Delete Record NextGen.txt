@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/ServiceNow/project</project>
-    <procedure>Delete Record NextGen</procedure>
-    <category>Resource Management</category>
-</step>

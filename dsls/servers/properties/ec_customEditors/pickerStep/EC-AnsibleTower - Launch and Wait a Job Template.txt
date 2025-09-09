@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/EC-AnsibleTower/project</project>
-    <procedure>Launch and Wait a Job Template</procedure>
-    <category>Resource Management</category>
-</step>

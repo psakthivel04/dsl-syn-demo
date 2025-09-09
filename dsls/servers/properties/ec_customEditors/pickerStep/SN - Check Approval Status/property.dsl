@@ -1,3 +1,0 @@
-property 'SN - Check Approval Status', value: {% cb_include_as_groovy '../SN - Check Approval Status.txt' %}, {
-  description = 'Checks the status of one or more approvals. By checking the parameter \'Check All\' all the approvals are retrieved, and by providing any of the other parameters specific approvals can be retrieved. \'Approval For\' and \'Approver\' are joined when searching, that means that if both are provided the approvals retrieved will be the ones that match both parameters. If \'System IDs\' provided are also retrieved from \'Approval For\' and \'Approver\' filters, they will be only searched and displayed once.'
-}

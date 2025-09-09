@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/EC-Artifactory/project</project>
-    <procedure>Publish Artifact To Artifactory</procedure>
-    <category>Build</category>
-</step>

@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/EC-FileOps/project</project>
-    <procedure>DeleteFile</procedure>
-    <category>Utility</category>
-</step>

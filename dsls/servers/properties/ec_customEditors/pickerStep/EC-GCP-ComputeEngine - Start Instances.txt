@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/EC-GCP-ComputeEngine/project</project>
-    <procedure>Start Instances</procedure>
-    <category>Resource Management</category>
-</step>

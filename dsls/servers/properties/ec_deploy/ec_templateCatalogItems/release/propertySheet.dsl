@@ -1,1 +1,0 @@
-property 'release', propertyType: 'sheet'

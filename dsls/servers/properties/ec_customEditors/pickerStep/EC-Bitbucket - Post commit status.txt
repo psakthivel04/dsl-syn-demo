@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/EC-Bitbucket/project</project>
-    <procedure>Post commit status</procedure>
-    <category>Source Control</category>
-</step>

@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/EC-Artifact/project</project>
-    <procedure>Publish</procedure>
-    <category>System</category>
-</step>

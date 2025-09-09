@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/EC-ServiceNow/project</project>
-    <procedure>CheckChangeRequestStatus</procedure>
-    <category>Resource Management</category>
-</step>

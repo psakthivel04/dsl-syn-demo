@@ -1,1 +1,0 @@
-property 'vendor', propertyType: 'sheet'

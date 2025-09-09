@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/EC-Splunk/project</project>
-    <procedure>SendLogs</procedure>
-    <category>Utilities</category>
-</step>

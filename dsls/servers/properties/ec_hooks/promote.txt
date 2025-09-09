@@ -1,1 +1,0 @@
-$[/plugins/EC-Security-1.3.0.2023103007/project/scripts/promoteHook]

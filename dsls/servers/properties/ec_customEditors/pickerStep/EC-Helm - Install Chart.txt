@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/EC-Helm/project</project>
-    <procedure>Install Chart</procedure>
-    <category>Container Management</category>
-</step>

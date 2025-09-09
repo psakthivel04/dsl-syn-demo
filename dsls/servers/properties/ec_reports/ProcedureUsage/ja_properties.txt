@@ -1,7 +1,0 @@
-#
-#Mon Mar 16 18:25:09 PDT 2009
-ProcedureLabel=\u30d7\u30ed\u30b7\u30fc\u30b8\u30e3
-ProjectLabel=\u30d7\u30ed\u30b8\u30a7\u30af\u30c8
-MasterPageFooterLabel=\u30ec\u30dd\u30fc\u30c8\u65e5\u6642\uff1a
-CallsCalledByLabel=\u547c\u3073\u51fa\u3057\uff0f\u547c\u3073\u51fa\u3057\u5143
-

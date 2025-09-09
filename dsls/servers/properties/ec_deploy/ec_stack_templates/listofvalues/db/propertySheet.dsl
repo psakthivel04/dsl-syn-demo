@@ -1,1 +1,0 @@
-property 'db', propertyType: 'sheet'

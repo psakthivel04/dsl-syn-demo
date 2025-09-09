@@ -1,1 +1,0 @@
-/opt/electriccloud/electriccommander

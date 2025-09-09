@@ -1,5 +1,0 @@
-<step>
-    <project>/plugins/EC-SonarQube/project</project>
-    <procedure>CollectReportingData</procedure>
-    <category>Code Analysis</category>
-</step>
