@@ -1,0 +1,11 @@
+{
+    "pluginName":"plugin.shortName",
+    "pluginDisplayName":"plugin.displayName",
+    "pluginVersion":"plugin.version",
+    "description": "object.location.description",
+    "isCAP":"supportInfo.supported",
+    "isProprietary": "supportInfo.proprietary",
+    "ts":"formatTime(now(),'iso8601')",
+    "itemFullName":"item.fullName",
+    "usageType":"'configuration'"
+  }

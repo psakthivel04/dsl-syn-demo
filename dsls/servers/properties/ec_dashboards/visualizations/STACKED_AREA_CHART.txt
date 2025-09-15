@@ -1,0 +1,38 @@
+{
+    "visualizationType": "STACKED_AREA_CHART",
+    "label": "Stacked Area Chart",
+    "supportedAttributes": [
+        {
+            "attribute": "xAxis",
+            "label": "X-Axis",
+            "supportedTypes": [
+                "NUMBER",
+                "DURATION",
+                "PERCENT",
+                "DATE",
+                "DATETIME"
+            ],
+            "required": "true",
+            "documentation": "X-Axis value"
+        },
+        {
+            "attribute": "yAxis",
+            "label": "Y-Axis",
+            "supportedTypes": [
+                "NUMBER",
+                "DURATION",
+                "PERCENT"
+            ],
+            "required": "true",
+            "documentation": "Y-Axis value"
+        },
+        {
+            "attribute": "groups",
+            "label": "Group by",
+            "supportedTypes": null,
+            "required": "true",
+            "documentation": "Value to group by"
+        }
+    ],
+    "supportsColorMap": "true"
+}

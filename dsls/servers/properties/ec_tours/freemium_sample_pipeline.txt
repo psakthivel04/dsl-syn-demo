@@ -1,0 +1,346 @@
+  {
+    "id":"freemium_sample_pipeline",
+    "name":"Create and Run Your First Pipeline",
+    "duration":600,
+    "icon":"icon-pipeline",
+    "version":1,
+    "requiredPages":["Pipelines", "Pipeline Runs"],
+    "starting_url": "home",
+    "index_order":500,
+    "tasks":[
+      {
+        "id":"get_started",
+        "name":"Get Started",
+        "icon":"icon-schedule-start",
+        "steps":[
+          {
+            "name":"Select Pipelines to get started.",
+            "detail_content":"In this tutorial you will create a sample pipeline deploying the JPetstore application to two environments.",
+            "uiElement":".at-pipelines-menu",
+            "coachmark_location":"top-right"
+          }
+        ]
+      },
+      {
+        "id":"create_pipeline",
+        "name":"Add a Pipeline",
+        "icon":"icon-pipeline",
+        "steps":[
+          {
+            "name":"Click to add a new Pipeline",
+            "uiElement":".at-add-item-btn",
+            "coachmark_location":"left"
+          },
+          {
+            "name":"Select Create New Pipeline",
+            "detail_content":"Create a new pipeline from scratch.  You can also select \"Create from Existing\" to start from an existing pipeline",
+            "uiElement":".at-row-item-create-pipeline-from-scratch",
+            "coachmark_location":"bottom-right"
+          },
+          {
+            "name":"Name your pipeline",
+            "detail_content":"Give your pipeline a unique name",
+            "uiElement":".at-pipeline-name-input",
+            "coachmark_location":"left"
+          },
+          {
+            "name":"Select a project for your pipeline",
+            "detail_content":"Select a project where you would like to save your pipeline.  If you do not have a project, select Default",
+            "uiElement":".at-select",
+            "coachmark_location":"left"
+          },
+          {
+            "name":"Click OK to create the pipeline",
+            "uiElement":".at-ok-btn",
+            "coachmark_location":"top"
+          }
+        ]
+      },
+      {
+        "id":"QE_stage",
+        "name":"Add the QE Stage",
+        "icon":"icon-add-stage",
+        "steps":[
+          {
+            "name":"View Stage Details",
+            "detail_content":"The new pipeline is created with one empty stage.  Start by editing the stage details to update the name and description",
+            "uiElement":".at-stage-1-menu",
+            "coachmark_location":"left"
+          },
+          {
+            "name":"Select Details",
+            "detail_content":"",
+            "uiElement":".at-slide-menu-item-0",
+            "coachmark_location":"bottom-right"
+          },
+          {
+            "name":"Change stage name to \"QE\"",
+            "detail_content":"This stage will represent the QE environment",
+            "uiElement":".at-form-txt-name-input",
+            "coachmark_location":"left"
+          },
+          {
+            "name":"Click OK",
+            "uiElement":".at-ok-btn",
+            "coachmark_location":"top"
+          }
+        ]
+      },
+      {
+        "id":"QE_stage2",
+        "name":"Define the QE Stage",
+        "icon":"icon-go-to-details",
+        "steps":[
+          {
+            "name":"Click to open the stage definition",
+            "detail_content":"Define the tasks that will be executed in this stage",
+            "uiElement":".at-stage-1-view-details",
+            "coachmark_location":"bottom"
+          },
+          {
+            "name":"Name the first task \"Deploy JPetstore\"",
+            "detail_content":"The first task will call the deploy process for the JPestore application that already exists in the system.",
+            "uiElement":".at-task-input-name",
+            "coachmark_location":"bottom-right"
+          },
+          {
+            "name":"Define the task",
+            "detail_content":"Define the action to be executed by this task",
+            "uiElement":".at-task-save-and-define",
+            "coachmark_location":"bottom"
+          },
+          {
+            "name":"Select the \"Default\" project",
+            "detail_content":"",
+            "uiElement":".at-select-project-container",
+            "coachmark_location":"right"
+          },
+          {
+            "name":"Select jpetstore-app",
+            "uiElement":".at-select-app-container",
+            "coachmark_location":"right"
+          },
+          {
+            "name":"Select Process \"Deploy\"",
+            "detail_content":"",
+            "uiElement":".at-select-process-container",
+            "coachmark_location":"right"
+          },
+          {
+            "name":"Select the Environment \"jpetstore-env-qe\"",
+            "detail_content":"In this stage we will deploy the application to the QE environment",
+            "uiElement":".at-select-env-container",
+            "coachmark_location":"right"
+          },
+          {
+            "name":"Click OK to save",
+            "detail_content":"",
+            "uiElement":".at-submit-btn",
+            "coachmark_location":"top"
+          }
+        ]
+      },
+      {
+        "id":"prod_stage",
+        "name":"Add the Prod Stage",
+        "icon":"icon-add-stage",
+        "steps":[
+          {
+            "name":"Return to Pipeline Details",
+            "detail_content":"",
+            "uiElement":".at-bredbrumbs-item-0",
+            "coachmark_location":"right"
+          },
+          {
+            "name":"Click Add to add a stage to the pipeline",
+            "detail_content":"The second stage will deploy the application to the Prod environment",
+            "uiElement":".at-create-new-stage",
+            "coachmark_location":"bottom"
+          },
+          {
+            "name":"Name the stage \"Prod\"",
+            "detail_content":"This stage will represent the Prod environment",
+            "uiElement":".at-form-txt-name-input",
+            "coachmark_location":"right"
+          },
+          {
+            "name":"Click OK",
+            "detail_content":"",
+            "uiElement":".at-ok-btn",
+            "coachmark_location":"top"
+          }
+        ]
+      },
+      {
+        "id":"prod_stage2",
+        "name":"Define the Prod Stage",
+        "icon":"icon-go-to-details",
+        "steps":[
+          {
+            "name":"Click to open the stage details",
+            "detail_content":"Define the tasks that will be executed in this stage",
+            "uiElement":".at-stage-2-view-details",
+            "coachmark_location":"bottom-right"
+          },
+          {
+            "name":"Name the first task \"Deploy JPetstore\"",
+            "detail_content":"This task deploy the JPetstore application, to a the Prod environment",
+            "uiElement":".at-task-input-name",
+            "coachmark_location":"bottom-right"
+          },
+          {
+            "name":"Define the task",
+            "detail_content":"Define what action will be executed by this task",
+            "uiElement":".at-task-save-and-define",
+            "coachmark_location":"bottom"
+          },
+          {
+            "name":"Select the \"Default\" project",
+            "uiElement":".at-select-project-container",
+            "coachmark_location":"right"
+          },
+          {
+            "name":"Select \"jpetstore-app\"",
+            "detail_content":"",
+            "uiElement":".at-select-app-container",
+            "coachmark_location":"right"
+          },
+          {
+            "name":"Select the \"Deploy\" process",
+            "detail_content":"",
+            "uiElement":".at-select-process-container",
+            "coachmark_location":"right"
+          },
+          {
+            "name":"Select Environment \"jpetstore-env-prod\"",
+            "detail_content":"In this stage we will deploy the application the prod environment",
+            "uiElement":".at-select-env-container",
+            "coachmark_location":"right"
+          },
+          {
+            "name":"Click Ok to save",
+            "detail_content":"",
+            "uiElement":".at-submit-btn",
+            "coachmark_location":"top"
+          },
+          {
+            "name":"Return to Pipeline Details",
+            "detail_content":"",
+            "uiElement":".at-bredbrumbs-item-0",
+            "coachmark_location":"right"
+          }
+        ]
+      },
+      {
+        "id":"create_entry_gate",
+        "name":"Add an Entry Gate",
+        "icon":"icon-gate-entry",
+        "steps":[
+          {
+            "name":"Click the icon to add an entry gate for Prod Stage",
+            "detail_content":"A gate allows you to control when a pipeline can enter or exit a stage.  Gates can require manual approval, or be automated based on conditions.",
+            "uiElement":".at-gate-2-go-to-PRE",
+            "coachmark_location":"top-left"
+          },
+          {
+            "name":"Enter a name for the gate \"Prod Approval\"",
+            "detail_content":"",
+            "uiElement":".at-task-input-name",
+            "coachmark_location":"bottom-right"
+          },
+          {
+            "name":"Define the gate",
+            "detail_content":"",
+            "uiElement":".at-task-save-and-define",
+            "coachmark_location":"bottom"
+          },
+          {
+            "name":"Assign the gate to your user name",
+            "detail_content":"This is an approval gate that is assigned to a user or group. Gates can also be based on the output of a procedure or custom condition <br><b>Click OK to save</b>",
+            "uiElement":".at-ok-btn",
+            "coachmark_location":"top-left",
+            "hasArrow": false
+          },
+          {
+            "name":"Return to Pipeline Details",
+            "detail_content":"",
+            "uiElement":".at-bredbrumbs-item-0",
+            "coachmark_location":"right"
+          }
+        ]
+      },
+      {
+        "id":"run_your_pipeline",
+        "name":"Run your Pipeline",
+        "icon":"icon-runtime-run",
+        "steps":[
+
+          {
+            "name":"Click the green arrow to run your pipeline",
+            "detail_content":"",
+            "uiElement":".at-pipeline-run-btn",
+            "coachmark_location":"left"
+          },
+          {
+            "name":"Select New Run",
+            "detail_content":"Start a new run of the pipeline.  You can can also schedule pipeline runs.",
+            "uiElement":".at-process-new-run-btn",
+            "coachmark_location":"left"
+          },
+          {
+            "name":"Click Run to run all stages of the pipeline",
+            "detail_content":"",
+            "uiElement":".at-ok-btn",
+            "coachmark_location":"top",
+            "coachmark_location_offset": {
+              "top": 30
+            }
+          },
+          {
+            "name":"Wait for the QE stage to complete.",
+            "detail_content":"When you see the green check mark in the QE stage, the stage is complete.<br><b>Wait until it is complete before clicking continue</b>",
+            "coachmark_location":"bottom-right"
+          },
+          {
+            "name":"Click to approve the gate",
+            "detail_content":"",
+            "uiElement":".at-gate-POST-0",
+            "coachmark_location":"bottom-right"
+          },
+          {
+            "name":"Approve the Entry Gate",
+            "detail_content":"",
+            "uiElement":".at-stage-aprove-btn",
+            "coachmark_location":"bottom"
+          },
+          {
+            "name":"Add an approval comment",
+            "detail_content":"Approval and comments are captured enable auditability and visibility into the pipeline run",
+            "uiElement":".at-description",
+            "coachmark_location":"bottom"
+          },
+          {
+            "name":"Click OK to approve",
+            "detail_content":"",
+            "uiElement":".at-ok-btn",
+            "coachmark_location":"bottom"
+          },
+          {
+            "name":"Click to See the Prod Stage Details",
+            "detail_content":"",
+            "uiElement":".at-content-block-2",
+            "coachmark_location":"bottom-right",
+            "coachmark_location_offset": {
+              "left": 35
+            }
+          },
+          {
+            "name":"View the deployment details",
+            "detail_content":"",
+            "uiElement":".at-run-task-1-details",
+            "coachmark_location":"top-left"
+          }
+        ]
+      }
+    ]
+  }

@@ -1,0 +1,36 @@
+{
+    "visualizationType": "DONUT_CHART",
+    "label": "Donut chart",
+    "supportedAttributes": [
+        {
+            "attribute": "xAxis",
+            "label": "Slice",
+            "supportedTypes": null,
+            "required": "true",
+            "documentation": "Slice/bucket"
+        },
+        {
+            "attribute": "yAxis",
+            "label": "Slice Size",
+            "supportedTypes": [
+                "NUMBER",
+                "DURATION",
+                "PERCENT"
+            ],
+            "required": "true",
+            "documentation": "Slice size"
+        },
+        {
+            "attribute": "total",
+            "label": "Total",
+            "supportedTypes": [
+                "NUMBER",
+                "DURATION",
+                "PERCENT"
+            ],
+            "required": "true",
+            "documentation": "Total value to display in the donut hole"
+        }
+    ],
+    "supportsColorMap": "true"
+}

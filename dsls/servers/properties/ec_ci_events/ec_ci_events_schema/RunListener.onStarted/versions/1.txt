@@ -1,0 +1,16 @@
+{
+      "buildNumber": "object.number",
+      "buildDisplayName": "object.displayName",
+      "buildFullDisplayName": "object.fullDisplayName",
+      "buildDescription": "object.description",
+      "buildStatus": "'IN_PROGRESS'",
+      "jobFullName": "job.fullName",
+      "jobDisplayName": "job.displayName",
+      "jobFullDisplayName": "job.fullDisplayName",
+      "jobName": "job.name",
+      "jobType": "class(job)",
+      "queueTime": "formatTime(queueItem.inQueueSince,'iso8601')",
+      "source": "'CloudBees CI'",
+      "startCauses": "filterByClassName(object.allActions, 'hudson.model.CauseAction')[0].causes[].shortDescription",
+      "startTime": "formatTime(object.startTimeInMillis,'iso8601')"
+  }

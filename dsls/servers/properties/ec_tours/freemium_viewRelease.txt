@@ -1,0 +1,211 @@
+{
+  "id":"freemium_viewRelease",
+  "name":"View and Run a Release",
+  "duration":360,
+  "icon":"logo-catalog-release",
+  "starting_url": "home",
+  "version":1,
+  "requiredPages":["Releases"],
+  "index_order":700,
+  "tasks":[
+    {
+      "id":"get_started",
+      "name":"Get Started",
+      "icon":"icon-schedule-start",
+      "steps":[
+        {
+          "name":"Select Releases to get started",
+          "detail_content":"In this tutorial you will view Release Defintion for the JPetStore Release, and start the release.  Releases allow you to orchestrate multiple applications across multiple environments and manage the software release life cycle. It brings together everything you need to take your software through its journey to production, regardless of your software release processes. ",
+          "uiElement":".at-releases-menu",
+          "coachmark_location":"bottom-right"
+        }
+      ]
+    },
+    {
+      "id":"release-list",
+      "name":"The Releases List",
+      "icon":"icon-release",
+      "steps":[
+        {
+          "name":"The Release List",
+          "detail_content":"The Release list provides a view for the release team, task assignees, and approvers to quickly see the status of all the planned, active, or completed releases at any time",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"Release Details",
+          "detail_content":"For each release, you can see the curent status and current progress of the release, where it is related to the plan, as well as details about the release definition including how many applications are in the release",
+          "coachmark_location":"bottom-right"
+        }
+      ]
+    },
+    {
+      "id":"release-def",
+      "name":"The Releases Definition",
+      "icon":"icon-release",
+      "steps":[
+        {
+          "name":"Open the JPetStore 2.3 Release",
+          "detail_content":"<b>Click the <svg class=\"sds-svg-icon\"><use xlink:href=\"#icon-go-to-details\"></use></svg> icon </b> next to the JPetStore 2.3 Release to open the Release Definition.",
+          "uiElement":".at-view-details-btn",
+          "coachmark_location":"top",
+          "coachmark_location_offset": {
+            "top": 400
+          },
+          "hasArrow": false
+        },
+        {
+          "name":"The Release Definition",
+          "detail_content":"Here you can define all part of a release, including the start and end dates, the pipeline used by the release, and the release payload of applications that are part of the release",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"Open the Release Pipeline",
+          "detail_content":"This pipeline is used to deploy the applications for the release.  The Release model separates the payload of applications from the pipeline that deploys them, so you can reuse the same pipeline definition across releases with multiple releases with different application sets being delivered.",
+          "uiElement":".at-release-menu-pipeline",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"The Release Pipeline",
+          "detail_content":"This pipeline has two stages to deploy the application to the QA and Prod environments",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"Open the QA stage details",
+          "detail_content":"Look at the details of the QA stage",
+          "uiElement":".at-stage-1-view-details",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"This stage contains four tasks.",
+          "detail_content":"",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"Open the \"deploy\" task definition",
+          "detail_content":"This deployer task is used to deploy multiple applications defined in the release",
+          "uiElement":".at-task-1-menu-slide-button",
+          "coachmark_location":""
+        },
+        {
+          "name":"Select Task Definiton",
+          "uiElement":".at-item-action-task-definition",
+          "coachmark_location":""
+        },
+        {
+          "name":"View the task definition",
+          "detail_content":"Tasks of deployer type orchestrate the deployment of the application set that is defined in the release.  A Stage can have multiple deployer tasks to group applications and manage dependencies",
+          "coachmark_location":"right"
+        },
+        {
+          "name":"Click Cancel to exit",
+          "uiElement":".at-cancel-btn",
+          "coachmark_location":"top-left"
+        },
+        {
+          "name":"Select the Main Menu",
+          "detail_content":"Lets go back to the Release Definition",
+          "uiElement":".at-main-menu-btn",
+          "coachmark_location":"bottom-right",
+          "coachmark_location_offset": {
+            "left": 6
+          }
+        },
+        {
+          "name":"Select Releases",
+          "uiElement":".at-releases",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"Open the JPetStore 2.3 Release",
+          "detail_content":"<b>Click the <svg class=\"sds-svg-icon\"><use xlink:href=\"#icon-go-to-details\"></use></svg> icon </b> next to the JPetStore 2.3 Release.",
+          "uiElement":".at-view-details-btn",
+          "coachmark_location":"top",
+          "coachmark_location_offset": {
+            "top": 400
+          },
+          "hasArrow": false
+        },
+        {
+          "name":"Click to View Applications Defined in this Release",
+          "detail_content":"",
+          "uiElement":".at-release-application-edit",
+          "coachmark_location":"right"
+        },
+        {
+          "name":"Release Applications",
+          "detail_content":"This is where the application payload for the release is defined.  This release has one application, JPetStore.  Releases can orchestrate deployment of many applications that are released together.  The deployer task in the pipeline will pick up these applications and deploy",
+          "coachmark_location":"right"
+        },
+        {
+          "name":"Click Cancel to Close",
+          "uiElement":".at-cancel-btn",
+          "coachmark_location":"top-left"
+        },
+        {
+          "name":"Click to View Environments Defined for each application",
+          "detail_content":"",
+          "uiElement":".at-release-environment-edit",
+          "coachmark_location":"right"
+        },
+        {
+          "name":"Environment Selection",
+          "detail_content":"Here we define which environment each application is deployed to for the different stages of the release pipeline",
+          "coachmark_location":"right"
+        },
+        {
+          "name":"Click Cancel to Close",
+          "uiElement":".at-cancel-btn",
+          "coachmark_location":"top-left"
+        },
+        {
+          "name":"Deployers",
+          "detail_content":"If there are multiple deployers in the pipeline stage, here we would define which applications are deployed by each deployer",
+          "coachmark_location":"right"
+        },
+        {
+          "name":"Configurations",
+          "detail_content":"Configuration define any parameter values for each application deployment",
+          "coachmark_location":"right"
+        },
+        {
+          "name":"Release Definition",
+          "detail_content":"The release is defined by the release pipeline, the applications that will be deployed in the pipeline, which environments each application will be deployed to.",
+          "coachmark_location":"right"
+        }
+      ]
+    },
+    {
+      "id":"release-run",
+      "name":"Start a Release",
+      "icon":"icon-runtime-run",
+      "steps":[
+        {
+          "name":"Now click Run to start the release",
+          "detail_content":"This release is not yet started.  By starting the release, the status will change from planning to in progress",
+          "coachmark_location":"bottom-left",
+          "uiElement":".at-release-run-btn"
+        },
+        {
+          "name":"Click Start Release",
+          "coachmark_location":"bottom-lrgy",
+          "uiElement":".at-start-release-btn"
+        },
+        {
+          "name":"Click Run",
+          "coachmark_location":"bottom-right",
+          "uiElement":".at-pipeline-release-run-btn"
+        },
+        {
+          "name":"View the Pipeline Run",
+          "detail_content":"The release pipeline is now running, and the deployer will trigger deployment for the JPetStore application",
+          "coachmark_location":"top-right"
+        },
+        {
+          "name":"",
+          "detail_content":"Continue to monitor progress of the release, and try running the pipeline again.",
+          "coachmark_location":"bottom-right"
+        }
+      ]
+    }
+  ]
+}

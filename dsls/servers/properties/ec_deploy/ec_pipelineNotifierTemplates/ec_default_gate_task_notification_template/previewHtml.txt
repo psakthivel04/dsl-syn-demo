@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td align="center">
+			<table
+				width="100%"
+				cellpadding="0"
+				cellspacing="0"
+				border="0"
+				style="border-collapse: collapse; max-width: 800px;"
+			>
+				<tr style="background-color: #4d545d;">
+					<td height="50" style="padding: 10px;">
+						<div style="margin: 0; padding: 0; line-height: 30px;">
+							<img
+								src="https://cdn.cloudbees.com/logos/cloudbees_cd_logo-light@2x.png"
+								border="0"
+								width="82"
+								height="30"
+								style="display: block;"
+								alt="CloudBees CD"
+							/>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="padding: 0 20px 20px;">
+						<table
+							width="100%"
+							cellpadding="0"
+							cellspacing="0"
+							border="0"
+							style="border-collapse: collapse;"
+						>
+							<tr>
+								<td height="70">
+                      <span
+	                      style="
+                          font-family: 'MS Sans Serif', Geneva, sans-serif;
+                          font-size: 26px;
+                          color: #000000;
+                        "
+                      >
+                        An gate rule requires your approval.
+                      </span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<p
+										style="
+                          font-family: 'MS Sans Serif', Geneva, sans-serif;
+                          font-size: 16px;
+                          line-height: 24px;
+                          color: #000000;
+                        "
+									>
+										<b
+										>gate rule:</b
+										>
+										$[/myTask]<br />
+										<b>Stage:</b> $[/myStage]<br />
+										<b>Pipeline run:</b> $[/myPipelineRuntime]<br />
+										<b>Pipeline:</b> $[/myPipeline]<br />
+									</p>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<table
+										width="100%"
+										cellspacing="0"
+										cellpadding="0"
+										border="0"
+									>
+										<td height="70">
+                          <span
+	                          style="
+                              font-family: 'MS Sans Serif', Geneva, sans-serif;
+                              font-size: 20px;
+                              color: #000000;
+                            "
+                          >
+                            Instructions
+                          </span>
+										</td>
+										<tr>
+											<td>
+												<p
+													style="
+                                font-family: 'MS Sans Serif', Geneva, sans-serif;
+                                font-size: 14px;
+                                color: #000000;
+                                white-space: break-spaces;
+                              "
+												>
+													$[/myTask/instruction]
+												</p>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td style="padding: 0 10px 10px;">
+						<table
+							width="100%"
+							cellpadding="10"
+							cellspacing="0"
+							border="0"
+							style="border-collapse: collapse;"
+						>
+							<tr align="center">
+								<td width="300">
+									<a
+										href="https://$[/javascript const wsh = '$[/server/webServerHost]'; wsh.split(':').length > 2 && !wsh.includes('[') && !wsh.includes(']') ? '[' + wsh + ']' : wsh]/flow/#pipeline-run/$[/myPipeline/id]/$[/myPipelineRuntime/flowRuntimeId]/review/$[/javascript encodeURIComponent(myStage)]/$[/myGate/gateType]"
+										style="
+                          text-decoration: none;
+                        "
+										target="_blank"
+									>
+										<div
+											style="
+                            background-color: #57a4e2;
+                            display: block;
+                            font-family: 'MS Sans Serif', Geneva, sans-serif;
+                            font-size: 16px;
+                            color: #ffffff;
+                            -webkit-text-size-adjust: none;
+                            line-height: 16px;
+                            border-top: 7px solid #57a4e2;
+                            border-bottom: 7px solid #57a4e2;
+                          "
+										>
+											View
+										</div>
+									</a>
+								</td>
+								<td width="300">
+									<a
+										href='https://$[/javascript const wsh = '$[/server/webServerHost]'; wsh.split(':').length > 2 && !wsh.includes('[') && !wsh.includes(']') ? '[' + wsh + ']' : wsh]/flow/#emailTaskAction/{\"pipelineId\":\"$[/myPipeline/id]\",\"flowRuntimeId\":\"$[/myPipelineRuntime/flowRuntimeId]\",\"stageName\":\"$[/javascript encodeURIComponent(myStage)]\",\"gateType\":\"$[/myGate/gateType]\",\"taskName\":\"$[/javascript encodeURIComponent(myTask)]\",\"action\":\"completed\"}'
+										style="
+                          text-decoration: none;
+                        "
+										target="_blank"
+									>
+										<div
+											style="
+                            background-color: #81b93b;
+                            display: block;
+                            font-family: 'MS Sans Serif', Geneva, sans-serif;
+                            font-size: 16px;
+                            color: #ffffff;
+                            -webkit-text-size-adjust: none;
+                            line-height: 16px;
+                            border-top: 7px solid #81b93b;
+                            border-bottom: 7px solid #81b93b;
+                          "
+										>
+											Approve
+										</div>
+									</a>
+								</td>
+								<td width="300">
+									<a
+										href='https://$[/javascript const wsh = '$[/server/webServerHost]'; wsh.split(':').length > 2 && !wsh.includes('[') && !wsh.includes(']') ? '[' + wsh + ']' : wsh]/flow/#emailTaskAction/{\"pipelineId\":\"$[/myPipeline/id]\",\"flowRuntimeId\":\"$[/myPipelineRuntime/flowRuntimeId]\",\"stageName\":\"$[/javascript encodeURIComponent(myStage)]\",\"gateType\":\"$[/myGate/gateType]\",\"taskName\":\"$[/javascript encodeURIComponent(myTask)]\",\"action\":\"failed\"}'
+										style="
+                          text-decoration: none;
+                        "
+										target="_blank"
+									>
+										<div
+											style="
+                            background-color: #808080;
+                            display: block;
+                            font-family: 'MS Sans Serif', Geneva, sans-serif;
+                            font-size: 16px;
+                            color: #ffffff;
+                            -webkit-text-size-adjust: none;
+                            line-height: 16px;
+                            border-top: 7px solid #808080;
+                            border-bottom: 7px solid #808080;
+                          "
+										>
+											Reject
+										</div>
+									</a>
+								</td>
+								<td width="300">
+									<a
+										href='https://$[/javascript const wsh = '$[/server/webServerHost]'; wsh.split(':').length > 2 && !wsh.includes('[') && !wsh.includes(']') ? '[' + wsh + ']' : wsh]/flow/#emailTaskAction/{\"pipelineId\":\"$[/myPipeline/id]\",\"flowRuntimeId\":\"$[/myPipelineRuntime/flowRuntimeId]\",\"stageName\":\"$[/javascript encodeURIComponent(myStage)]\",\"gateType\":\"$[/myGate/gateType]\",\"taskName\":\"$[/javascript encodeURIComponent(myTask)]\",\"action\":\"skipped\"}'
+										style="
+                          text-decoration: none;
+                        "
+										target="_blank"
+									>
+										<div
+											style="
+                            background-color: #808080;
+                            display: block;
+                            font-family: 'MS Sans Serif', Geneva, sans-serif;
+                            font-size: 16px;
+                            color: #ffffff;
+                            -webkit-text-size-adjust: none;
+                            line-height: 16px;
+                            border-top: 7px solid #808080;
+                            border-bottom: 7px solid #808080;
+                          "
+										>
+											Skip
+										</div>
+									</a>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

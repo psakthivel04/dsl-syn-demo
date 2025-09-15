@@ -1,0 +1,10 @@
+{
+    "id": "uuid(trimToNull(lowerCase(email))||object)",
+    "username": "object",
+    "email": "lowerCase(email)",
+    "timestamp":"formatTime(now(),'iso8601')",
+    "category":"'login'",
+    "status": "'error'",
+    "source":"'CloudBees CI'",
+    "eventType": "'failedToLogIn'"
+  }

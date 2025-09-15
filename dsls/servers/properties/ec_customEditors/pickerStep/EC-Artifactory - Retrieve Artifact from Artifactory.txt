@@ -1,0 +1,5 @@
+<step>
+    <project>/plugins/EC-Artifactory/project</project>
+    <procedure>Retrieve Artifact from Artifactory</procedure>
+    <category>Build</category>
+</step>

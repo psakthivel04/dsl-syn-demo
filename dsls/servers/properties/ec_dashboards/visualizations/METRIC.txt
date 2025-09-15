@@ -1,0 +1,55 @@
+{
+    "visualizationType": "METRIC",
+    "label": "Metric",
+    "supportedAttributes": [
+        {
+            "attribute": "metricValue",
+            "label": "Metric Value",
+            "supportedTypes": [
+                "NUMBER",
+                "DURATION",
+                "PERCENT"
+            ],
+            "required": "true",
+            "documentation": "Field containing the metric value to display."
+        },
+        {
+            "attribute": "icon",
+            "label": "Icon",
+            "supportedTypes": [
+                "STRING"
+            ],
+            "required": "false",
+            "documentation": "Icon to display along with the metric value."
+        },
+        {
+            "attribute": "total",
+            "label": "Total",
+            "supportedTypes": [
+                "NUMBER"
+            ],
+            "required": "false",
+            "documentation": "Field containing the total value that the metric value is based-of. If set, this field will be displayed along with the metric value as '<value> of <total>'"
+        },
+        {
+            "attribute": "trend",
+            "label": "Trend Indicator",
+            "supportedTypes": [
+                "NUMBER",
+                "PERCENT"
+            ],
+            "required": "false",
+            "documentation": "Field containing trend value. If defined, it determines the direction for the arrow on the widget."
+        }
+    ],
+    "supportedProperties": [
+        {
+            "property": "showTrendValue",
+            "label": "Show Trend Value",
+            "type": "BOOLEAN",
+            "required": "false",
+            "documentation": "Whether to display the trend value next to the trend arrow on the widget. Applicable only if the trend indicator is defined."
+        }
+    ],
+    "supportsColorRange": "true"
+}

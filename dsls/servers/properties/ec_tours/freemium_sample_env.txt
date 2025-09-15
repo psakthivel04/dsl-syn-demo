@@ -1,0 +1,188 @@
+{
+  "id":"freemium_sample_env",
+  "name":"Create an Environment and Tier Map",
+  "duration":300,
+  "icon":"icon-environments-static",
+  "starting_url": "home",
+  "version":1,
+  "requiredPages":["Applications", "Application Deployments", "Environments"],
+  "index_order":400,
+  "tasks":[
+    {
+      "id":"get_started",
+      "name":"Get Started",
+      "icon":"icon-schedule-start",
+      "starting_url":"home",
+      "steps":[
+        {
+          "name":"Go to Environments to get started",
+          "detail_content":"In this tutorial you will create the a new environment for the Hello World Application and then define a tier map from the application to environment.<br><b>You must have first completed the tutorial \"Create and Deploy Your First Application\", if you haven't done this, go back to the tutorials menu</b>",
+          "uiElement":".at-environments-menu",
+          "coachmark_location":"bottom-right",
+          "coachmark_location_offset": {
+            "bottom": 20
+          }
+        }
+      ]
+    },
+    {
+      "id":"create_environment",
+      "name":"Add An Environment",
+      "icon":"icon-environments-static",
+      "steps":[
+        {
+          "name":"Click to add a new environment",
+          "uiElement":".at-add-item-btn",
+          "coachmark_location":"left"
+        },
+        {
+          "name":"Click Create New",
+          "detail_content":"Create a new environment from scratch.  You can also select create an environment based on an application, or create an Environment or Resource template to use as part of a \"Dynamic Environment\"",
+          "uiElement":".at-create-new-env",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"Enter \"Hello World Prod\" in the Name field",
+          "detail_content":"This will be the production environment for the \"Hello World\" Application",
+          "uiElement":".at-env-name-input",
+          "coachmark_location":"left"
+        },
+        {
+          "name":"Select a project",
+          "detail_content":"This is where your environment will be saved.  If you do not have a project, select \"Default\"",
+          "uiElement":".at-select",
+          "coachmark_location":"left"
+        },
+        {
+          "name":"Click OK to save",
+          "uiElement":".at-ok-btn",
+          "coachmark_location":"top-left"
+        }
+      ]
+    },
+
+    {
+      "id":"add_tier",
+      "name":"Add a Tier",
+      "icon":"icon-application-tier",
+      "steps": [
+        {
+          "name":"Select \"With a Tier and adding a Resource\"",
+          "detail_content":"For traditional monolithic application tiers, like the Hello World Web server tier, the environment will be comprised of tiers containing resources.",
+          "uiElement":".at-starting-tier",
+          "coachmark_location":"right"
+        },
+        {
+          "name":"Select \"Add resources\" to add a resource to the tier",
+          "uiElement":".at-add-resource",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"Select the resource \"HelloWorldProd\"",
+          "detail_content":"<b>Then click OK to add</b><br>This resource was already created in the system, and will be assigned to the environment tier.",
+          "uiElement":".at-ok-btn",
+          "coachmark_location":"top-left",
+          "hasArrow": false
+        },
+        {
+          "name":"Go to the Tier Menu",
+          "detail_content":"to update the tier name",
+          "uiElement":".at-slide-menu-btn",
+          "coachmark_location":"left"
+        },
+        {
+          "name":"Select Details",
+          "uiElement":".at-item-edit",
+          "coachmark_location":"right"
+        },
+        {
+          "name":"Enter \"Apache\" for the tier name",
+          "detail_content":"This tier is the Apache server where the \"Hello World\" html file is deployed",
+          "uiElement":".at-form-txt-name-input",
+          "coachmark_location":"left"
+        },
+        {
+          "name":"Click OK to save",
+          "uiElement":".at-ok-btn",
+          "coachmark_location":"top-left"
+        }
+      ]
+    },
+    {
+      "id":"create_tier_map",
+      "name":"Create a Tier Map",
+      "icon":"icon-tier-map",
+      "steps":[
+        {
+          "name":"Select the Main Menu",
+          "detail_content":"In this task we will create a tier map from the \"Hello World\" application to our new environment.<br></b>If you have not completed the \"Create and Deploy Your First Application\" Tutorial, please go to the tutorial menu and complete it first</b>",
+          "uiElement":".at-main-menu-btn",
+          "coachmark_location":"bottom-right",
+          "coachmark_location_offset": {
+            "left": 6
+          }
+        },
+        {
+          "name":"Select Applications",
+          "uiElement":".at-applications",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"Select All Applications",
+          "uiElement":".at-allApplications",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"Open \"Hello World\" Application",
+          "detail_content":"<b>Click the <svg class=\"sds-svg-icon\"><use xlink:href=\"#icon-go-to-details\"></use></svg> icon </b> next to the Hello World Application to open the application model and create the tier map. <b>If you do not have a HelloWorld Application, Go back to the tutorials menu and complete the \"Create and Deploy Your First Application\" Tutorial",
+          "uiElement":".at-application-list-item",
+          "coachmark_location":"bottom-right",
+          "hasArrow":false
+        },
+        {
+          "name":"Add a new tier map",
+          "detail_content":"The map will associate the tiers in the application to the tiers of an environment",
+          "uiElement":".at-add-map-btn",
+          "coachmark_location_offset": {
+            "bottom": 10
+          }
+        },
+        {
+          "name":"Select Environment",
+          "detail_content":"We will create a tier map with the newly created environment.",
+          "uiElement":".at-create-env-mapping"
+        },
+        {
+          "name":"Select \"Hello World Prod\" from the list",
+          "uiElement":".at-environment-to-map",
+          "coachmark_location":"bottom-right",
+          "hasArrow":false
+        },
+        {
+          "name":"Click the Menu",
+          "uiElement":".at-mapping-select-btn",
+          "coachmark_location":"left"
+        },
+        {
+          "name":"Map the Web Server tier to Apache in the environment",
+          "detail_content":"The Web tier in the application will map to the Apache server tier defined in the environment.  For applications with multiple tiers, each tier is  mapped to the corresponding environment tier.",
+          "uiElement":".at-popover-not-link"
+        },
+        {
+          "name":"Close the window",
+          "uiElement":".at-breadcrumb-first-btn",
+          "coachmark_location":"right",
+          "coachmark_location_offset": {
+            "left": 15,
+            "bottom":5
+          }
+        },
+        {
+          "name":"Your environment and tier map are complete",
+          "detail_content":"Your environment and tier map are complete. You can now deploy the \"Hello World\" Application to the new environment.",
+          "uiElement":""
+        }
+      ]
+    }
+  ]
+}

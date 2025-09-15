@@ -1,0 +1,5 @@
+<step>
+    <project>/plugins/EC-RemoteAccess/project</project>
+    <procedure>Run Custom Command</procedure>
+    <category>System</category>
+</step>

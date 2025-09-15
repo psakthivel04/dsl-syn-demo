@@ -1,0 +1,226 @@
+{
+  "id": "enterprise_createEnvironment",
+  "name": "Create an environment and tier map",
+  "duration": 240,
+  "icon": "icon-environments-static",
+  "version": 1,
+  "requiredPages": ["Applications", "Environments"],
+  "index_order": 700,
+  "tasks": [
+    {
+      "id": "get_started",
+      "name": "Get started",
+      "icon": "icon-schedule-start",
+      "starting_url": "home",
+      "steps": [
+        {
+          "name": "Select the main menu.",
+          "detail_content": "In this tutorial, you are setting up your environment model and tier map, and then running a deployment.\n\n**Prerequisites for this tutorial:**\n* Complete the **Create an Application Model** tutorial.\n* Be sure you have agents set up on your target hosts by following [these instructions](https://docs.cloudbees.com/docs/cloudbees-cd-kb/latest/getting-started/basics-8-deploying-to-your-servers).",
+          "uiElement": ".tour--main-menu-btn",
+          "coachmark_location": "right"
+        },
+        {
+          "name": "Select **Deployment automation**",
+          "uiElement": ".tour--main-menu-group-deployment-automation",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Select **Environments**",
+          "uiElement": ".tour--main-menu-item-environments",
+          "coachmark_location": "bottom-right"
+        }
+      ]
+    },
+    {
+      "id": "create_environment",
+      "name": "Add an environment",
+      "icon": "icon-environments-static",
+      "steps": [
+        {
+          "name": "Select **+**",
+          "uiElement": ".tour--create-new-object-btn",
+          "coachmark_location": "left"
+        },
+        {
+          "name": "Select **Create New...**",
+          "detail_content": "There are additional options available to create an environment based on an application or to create an environment or resource template to use as part of a dynamic environment.",
+          "uiElement": ".tour--create-new-env",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Enter a name for your environment.",
+          "detail_content": "Enter the name for your new environment; remember it, as you will refer to this name in a future step. For example, this may be the development environment for your application. Select **Enter** to continue.",
+          "uiElement": ".tour--entry-object-name",
+          "coachmark_location": "left"
+        },
+        {
+          "name": "Select a project",
+          "detail_content": "Select a project as the destination for your environment. If you do not have a project, select **Default**.",
+          "uiElement": ".tour--select-object-project",
+          "coachmark_location": "left"
+        },
+        {
+          "name": "Select **OK**",
+          "uiElement": ".tour--modal-footer-btn-ok",
+          "coachmark_location": "top-left"
+        }
+      ]
+    },
+
+    {
+      "id": "add_tier",
+      "name": "Add a tier",
+      "icon": "icon-application-tier",
+      "steps": [
+        {
+          "name": "Select **tiers**",
+          "detail_content": "In traditional monolithic applications, the environment consists of tiers with resources. For container deployments, you can model your environment using clusters.",
+          "uiElement": ".tour--starting-option-modal-tiers",
+          "coachmark_location": "right"
+        },
+        {
+          "name": "Select **+**",
+          "uiElement": ".tour--add-resource-to-tier",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Select **Add resources**",
+          "uiElement": ".tour--add-resource",
+          "coachmark_location": "bottom-right"
+        },
+        {
+          "name": "Select resources to add to this environment tier.",
+          "detail_content": "You can add one or multiple resources. Any deployments to this environment tier will run on all resources in the tier. If needed, add a new resource by selecting **Details** on the right of a resource.      Select **OK** to continue.",
+          "uiElement": ".tour--modal-footer-btn-ok",
+          "coachmark_location": "top-left",
+          "hasArrow": false
+        },
+        {
+          "name": "Select the three-dot menu",
+          "detail_content": "Open the menu to display additional options.",
+          "uiElement": ".tour--tier-cell-menu-btn",
+          "coachmark_location": "left"
+        },
+        {
+          "name": "Select **Details**",
+          "uiElement": ".tour--context-menu-details",
+          "coachmark_location": "left"
+        },
+        {
+          "name": "Rename the tier",
+          "detail_content": "Rename the default tier name for clarity. For example, if the tier corresponds to the application's web server tier, you might name it `Apache`.",
+          "uiElement": ".tour--entry-object-name",
+          "coachmark_location": "left"
+        },
+        {
+          "name": "Select **OK**",
+          "uiElement": ".tour--modal-footer-btn-ok",
+          "coachmark_location": "top-left"
+        },
+
+        {
+          "name": "Add more tiers as needed.",
+          "detail_content": "Add necessary tiers such as web, app, and database to mirror your application's structure in this environment. Ensure each tier corresponds with the relevant server types. Select **Continue**.",
+          "coachmark_location": "bottom-right"
+        }
+      ]
+    },
+    {
+      "id": "create_tier_map",
+      "name": "Create a tier map",
+      "icon": "icon-tier-map",
+      "steps": [
+        {
+          "name": "Select the **main menu** **>** **Deployment automation** **>** **Applications**.",
+          "detail_content": "Next, map a tier from your application to the new environment If you do not have an applicable application, complete the **Create an Application Model** tutorial before continuing. Select **Continue**.",
+          "coachmark_location": "right"
+        },
+        {
+          "name": "Open your application",
+          "detail_content": "Once the list of applications appears, select the name of your application. Select **Continue**.",
+          "coachmark_location": "center"
+        },
+        {
+          "name": "Select **+**",
+          "detail_content": "Select the **+** to start creating a tier map. This will link the application's tiers with the corresponding environment tiers.",
+          "uiElement": ".tour--add-map-btn",
+          "coachmark_location": "left"
+        },
+        {
+          "name": "Choose **Select Existing**",
+          "detail_content": "Open the list of environments.",
+          "uiElement": ".tour--create-env-from-existing",
+          "coachmark_location": "top-left"
+        },
+        {
+          "name": "Select your new environment from the list.",
+          "uiElement": ".tour--environment-to-map-list",
+          "coachmark_location": "top-left"
+        },
+        {
+          "name": "Select the three-dot menu next to a tier.",
+          "detail_content": "To map the app tier to the corresponding environment tier, select the three-dot menu next to a tier, and select the appropriate environment tier. For example, you might map a web tier to an Apache server tier. Repeat for each application tier. Select **Continue**."
+        },
+        {
+          "name": "Select **Close** when the mapping is complete.",
+          "uiElement": ".tour--modal-footer-btn-ok",
+          "coachmark_location": "top-left"
+        },
+        {
+          "name": "Your environment and tier map are complete.",
+          "detail_content": "You can now deploy your application to the new environment. Select **Continue**."
+        }
+      ]
+    },
+    {
+      "id": "run_your_deployment",
+      "name": "Deploy your first application",
+      "icon": "icon-runtime-run",
+      "steps": [
+        {
+          "name": "Select **Run** to start a new deployment.",
+          "detail_content": "Select the green run button to start a new deployment.",
+          "uiElement": ".tour--run-context-menu-button",
+          "coachmark_location": "left"
+        },
+        {
+          "name": "Select **New Run**",
+          "detail_content": "Open the **Run application** dialog to select a deploy process option.",
+          "uiElement": ".tour--context-menu-new_run"
+        },
+        {
+          "name": "Choose **Select process**",
+          "detail_content": "Choose your deployment process.",
+          "coachmark_location": "left",
+          "uiElement": ".tour--select-process-container"
+        },
+        {
+          "name": "Select your new environment.",
+          "detail_content": "Optionally, choose any environment for which a tier map exists.",
+          "uiElement": ".tour--select-env-container",
+          "coachmark_location": "left"
+        },
+        {
+          "name": "Select **OK** to deploy the application.",
+          "detail_content": "Other advanced deployment options include **Smart Deploy**, **Check Dependency**, and **Artifact Staging**.",
+          "uiElement": ".tour--modal-footer-btn-ok",
+          "coachmark_location": "top-left"
+        }
+      ]
+    },
+    {
+      "id": "view_your_deployment",
+      "name": "View your deployment",
+      "icon": "icon-process",
+      "steps": [
+        {
+          "detail_content": "The **Application process runs** screen opens. Monitor the progress of your deployment. Select **Continue**.",
+          "coachmark_location": "bottom"
+        },
+        {
+          "detail_content": "Select **OK** to close this popup window."
+        }
+      ]
+    }
+  ]
+}

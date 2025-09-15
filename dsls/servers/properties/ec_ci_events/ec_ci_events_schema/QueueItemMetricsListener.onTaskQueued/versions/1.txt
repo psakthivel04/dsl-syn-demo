@@ -1,0 +1,6 @@
+{
+      "queueItemId": "event.item.id",
+      "queueSize": "size(queue.items)",
+      "queuedAt": "formatTime(event.item.inQueueSince,'iso8601')",
+      "eventType": "'taskQueued'"
+  }

@@ -1,0 +1,5 @@
+<step>
+    <project>/plugins/EC-FileOps/project</project>
+    <procedure>CreateEmptyFile</procedure>
+    <category>Utility</category>
+</step>

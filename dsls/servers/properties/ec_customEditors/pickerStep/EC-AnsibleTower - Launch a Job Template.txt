@@ -1,0 +1,5 @@
+<step>
+    <project>/plugins/EC-AnsibleTower/project</project>
+    <procedure>Launch a Job Template</procedure>
+    <category>Resource Management</category>
+</step>

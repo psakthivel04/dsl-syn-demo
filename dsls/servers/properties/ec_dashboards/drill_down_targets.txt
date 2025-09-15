@@ -1,0 +1,247 @@
+[
+    {
+        "target": "Deployments",
+        "filters": [
+            {
+                "filter": "RELEASE",
+                "sourceFields": [
+                    "releaseName",
+                    "projectName"
+                ],
+                "targetFields": [
+                    "releaseName",
+                    "releaseProjectName"
+                ]
+            },
+            {
+                "filter": "APPLICATION",
+                "sourceFields": [
+                    "applicationName",
+                    "projectName",
+                    "applicationType"
+                ],
+                "targetFields": [
+                    "applicationName",
+                    "applicationProjectName",
+                    "applicationType"
+                ]
+            },
+            {
+                "filter": "ENVIRONMENT",
+                "sourceFields": [
+                    "environmentName",
+                    "projectName"
+                ],
+                "targetFields": [
+                    "environmentName",
+                    "environmentProjectName"
+                ]
+            },
+            {
+                "filter": "DATE",
+                "targetFields": [
+                    "jobFinish"
+                ]
+            }
+        ],
+        "parameters": [
+            {
+                "name": "deploymentOutcome",
+                "label": "Deployment Outcome",
+                "description": "Field containing the deployment outcome"
+            },
+            {
+                "name": "applicationProjectName",
+                "label": "Application Project Name",
+                "description": "Field containing the application project name"
+            },
+            {
+                "name": "applicationName",
+                "label": "Application Name",
+                "description": "Field containing the application name"
+            },
+            {
+                "name": "applicationType",
+                "label": "Application Type",
+                "description": "Field containing the application type"
+            },
+            {
+                "name": "environmentProjectName",
+                "label": "Environment Project Name",
+                "description": "Field containing the environment project name"
+            },
+            {
+                "name": "environmentName",
+                "label": "Environment Name",
+                "description": "Field containing the environment name"
+            },
+            {
+                "name": "deploymentDateMin",
+                "label": "Deployment Date Range - Minimum",
+                "description": "Field containing the minimum deployment date",
+                "operator": "greaterOrEqual"
+            },
+            {
+                "name": "deploymentDateMax",
+                "label": "Deployment Date Range - Maximum",
+                "description": "Field containing the maximum deployment date",
+                "operator": "lessOrEqual"
+            }
+        ],
+        "urlTemplate": "#deployments"
+    },
+    {
+        "target": "External",
+        "supportsFilters": false,
+        "parameters": [
+            {
+                "name": "externalUrl",
+                "label": "External URL",
+                "required": true,
+                "description": "The external URL to navigate to. Specify in one of these ways:\n - An absolute URL: www.example.com\n - The value of a report result column: ${report_column_name}\n - A combination of the above: https://www.example.com/${report_column_name}"
+            }
+        ],
+        "urlTemplate": "$[externalUrl]"
+    },
+    {
+        "target": "Widget",
+        "supportsFilters": false,
+        "parameters": [
+            {
+                "name": "drilldownWidgetName",
+                "label": "Drill-down Widget Name",
+                "required": true,
+                "description": "Drill-down widget name to navigate to."
+            },
+            {
+                "name": "drilldownParameterName",
+                "label": "Drill-down Parameter Name",
+                "required": false,
+                "description": "Drill-down Parameter Name."
+            },
+            {
+                "name": "drilldownParameterValue",
+                "label": "Drill-down Parameter Value",
+                "required": false,
+                "description": "Drill-down Parameter Value."
+            },
+            {
+                "name": "drilldownFilterName",
+                "label": "Drill-down Filter Name",
+                "required": false,
+                "description": "Drill-down Filter Name."
+            },
+            {
+                "name": "drilldownFilterValue",
+                "label": "Drill-down Filter Value",
+                "required": false,
+                "description": "Drill-down Filter Value."
+            }
+        ],
+        "urlTemplate": "#"
+    },
+    {
+        "target": "Releases",
+        "filters": [
+            {
+                "filter": "RELEASE",
+                "sourceFields": [
+                    "releaseName",
+                    "projectName"
+                ],
+                "targetFields": [
+                    "releaseName",
+                    "projectName"
+                ]
+            },
+            {
+                "filter": "DATE",
+                "targetFields": [
+                    "actualEndTime"
+                ]
+            }
+        ],
+        "parameters": [
+            {
+                "name": "projectName",
+                "label": "Release Project Name",
+                "description": "Field containing the release project name"
+            },
+            {
+                "name": "releaseName",
+                "label": "Release Name",
+                "description": "Field containing the release name"
+            },
+            {
+                "name": "actualEndTimeMin",
+                "label": "Release Actual End Date Range - Minimum",
+                "description": "Field containing the minimum actual end date and time for the release",
+                "operator": "greaterOrEqual"
+            },
+            {
+                "name": "actualEndTimeMax",
+                "label": "Release Actual End Date Range - Maximum",
+                "description": "Field containing the maximum actual end date and time for the release",
+                "operator": "lessOrEqual"
+            },
+            {
+                "name": "plannedEndTimeMin",
+                "label": "Release Planned End Date Range - Minimum",
+                "description": "Field containing the minimum planned end date and time for the release",
+                "operator": "greaterOrEqual"
+            },
+            {
+                "name": "plannedEndTimeMax",
+                "label": "Release Planned End Date Range - Maximum",
+                "description": "Field containing the maximum planned end date and time for the release",
+                "operator": "lessOrEqual"
+            }
+        ],
+        "urlTemplate": "#releases"
+    },
+    {
+        "target": "Pipeline Runs",
+        "filters": [
+            {
+                "filter": "RELEASE",
+                "sourceFields": [
+                    "releaseName",
+                    "projectName"
+                ],
+                "targetFields": [
+                    "releaseName",
+                    "projectName"
+                ]
+            },
+            {
+                "filter": "DATE",
+                "targetFields": [
+                    "flowRuntimeStateFinish"
+                ]
+            }
+        ],
+        "parameters": [
+            {
+                "name": "projectName",
+                "label": "Pipeline Project Name",
+                "description": "Field containing the pipeline project name"
+            },
+            {
+                "name": "flowRuntimeName",
+                "label": "Pipeline Runtime Name",
+                "description": "Field containing the pipeline runtime name"
+            },
+            {
+                "name": "stageName",
+                "label": "Pipeline Stage Name",
+                "description": "Field containing the pipeline stage name"
+            },
+            {
+                "name": "taskPath",
+                "label": "Path to the Pipeline Task",
+                "description": "Field containing the '/' separated path to the pipeline task. E.g., group1/parentTask1/task1"
+            }
+        ],
+        "urlTemplate": "#pipeline-run"
+    }
+]

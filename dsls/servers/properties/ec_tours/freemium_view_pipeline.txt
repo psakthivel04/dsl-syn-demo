@@ -1,0 +1,274 @@
+{
+  "id":"freemium_view_pipeline",
+  "name":"View and Run a Pipeline",
+  "duration":300,
+  "icon":"icon-pipeline",
+  "starting_url": "home",
+  "version":1,
+  "requiredPages":["Pipelines", "Pipeline Runs"],
+  "index_order":200,
+  "tasks":[
+    {
+      "id":"get_started",
+      "name":"Get Started",
+      "icon":"icon-schedule-start",
+      "steps":[
+        {
+          "name":"Select Pipelines to get started",
+          "detail_content":"In this tutorial you will explore the release pipeline model for the JPetStore Application, and then run the pipeline.",
+          "uiElement":".at-pipelines-menu",
+          "coachmark_location":"top-right"
+        }
+      ]
+    },
+    {
+      "id":"pipeline_view",
+      "name":"The JPetstore Pipeline Model",
+      "icon":"icon-pipeline",
+      "steps":[
+        {
+          "name":"Open the JPetStore Standalone Pipeline ",
+          "detail_content":"<b>Click the <svg class=\"sds-svg-icon\"><use xlink:href=\"#icon-go-to-details\"></use></svg> </b> to open the pipeline model",
+          "uiElement":".at-pipelines-list",
+          "coachmark_location":"top-right",
+          "hasArrow": false,
+          "coachmark_location_offset": {
+            "top": 25,
+            "left": 40,
+            "right": -5
+          }
+        },
+        {
+          "name":"View the Pipeline",
+          "detail_content":"This pipeline models two stages, \"QA\" and \"Prod\" for performing deployment activities in each respective environment.",
+          "coachmark_location":"bottom-left"
+        }
+      ]
+    },
+    {
+      "id":"qa_stage_view",
+      "name":"Explore a Pipeline Stage",
+      "icon":"icon-stage",
+      "steps":[
+        {
+          "name":"Open the QA stage details",
+          "detail_content":"",
+          "uiElement":".at-stage-1-view-details",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"This stage contains four tasks.",
+          "detail_content":"Tasks allow you to orchestrate various automation units - such as call an application process to deploy, call a predefined procedure or plugin, call a workflow, or wait for manual input.",
+          "uiElement":"",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"Open the \"deploy\" task definition",
+          "uiElement":".at-task-1-menu-slide-button",
+          "coachmark_location":""
+        },
+        {
+          "name":"Select Task Definiton",
+          "uiElement":".at-item-action-task-definition",
+          "coachmark_location":""
+        },
+        {
+          "name":"View the task definition",
+          "detail_content":"This task calls calls the \"Deploy\" Application Process in the \"jpetstore-app\" application, and runs it on the \"jpestore-env-qe\" environment.",
+          "coachmark_location":"right"
+        },
+        {
+          "name":"Click Cancel to exit",
+          "uiElement":".at-cancel-btn",
+          "coachmark_location":"top-left"
+        },
+        {
+          "name":"Open the \"verify application is deployed\" task definition",
+          "uiElement":".at-task-3-menu-slide-button",
+          "coachmark_location":""
+        },
+        {
+          "name":"Select Task Definiton",
+          "uiElement":".at-item-action-task-definition",
+          "coachmark_location":""
+        },
+        {
+          "name":"This is a manual task",
+          "detail_content":"This task waits for manual input, and provides optional instructions for the user to complete.  Manual tasks can be assigned to individual users or groups, in this case it is assigned to the user who started the pipeline.",
+          "coachmark_location":"right"
+        },
+        {
+          "name":"Click Cancel to exit",
+          "uiElement":".at-cancel-btn",
+          "coachmark_location":"top-left"
+        }
+      ]
+    },
+    {
+      "id":"gate_view",
+      "name":"Explore an Entry Gate",
+      "icon":"icon-application",
+      "steps":[
+        {
+          "name":"Go back to the pipeline",
+          "uiElement":".at-bredbrumbs-item-3",
+          "coachmark_location":"right"
+        },
+        {
+          "name":"Select the entry gate for the Prod Stage",
+          "detail_content":"Entry and exit gates on stage control when a pipeline can enter or exit a stage.  Gates can be assigned to individual users or groups for manual approval, or can be automated based on custom conditions.",
+          "uiElement":".at-gate-2-go-to-PRE",
+          "coachmark_location":""
+        },
+        {
+          "name":"View the entry gate details",
+          "detail_content":"This gate has a single rule that is assigned to the user who started the pipelines.  Gates can have muliple rules that can require manual or automated approval.",
+          "coachmark_location":"bottom"
+        }
+      ]
+    },
+    {
+      "id":"run_pipeline",
+      "name":"Run the Pipeline",
+      "icon":"icon-runtime-run",
+      "steps":[
+        {
+          "name":"Go back to the pipeline",
+          "uiElement":".at-bredbrumbs-item-3",
+          "coachmark_location":"right"
+        },
+        {
+          "name":"Run the Pipeline",
+          "detail_content":"We can now run the pipeline",
+          "uiElement":".at-pipeline-run-btn",
+          "coachmark_location":"left",
+          "coachmark_location_offset": {
+            "top": 30
+          }
+        },
+        {
+          "name":"Select New Run",
+          "uiElement":".at-process-new-run-btn"
+        },
+        {
+          "name":"Select Configure",
+          "detail_content":"",
+          "uiElement":".at-stages-to-run"
+        },
+        {
+          "name":"View Pipeline stage configuration",
+          "detail_content":"You can select which stages of the pipeline will be executed in this pipeline run.  In this case we will keep both stages selected to run the whole pipeline. Click OK to continue.",
+          "uiElement":".at-save-stage-configuration",
+          "coachmark_location":"top-left"
+        },
+        {
+          "name":"Click Run",
+          "detail_content":"There are no parameters for this pipeline, click run to start the pipeline run.",
+          "uiElement":".at-pipeline-release-run-btn",
+          "coachmark_location":"top-right"
+        }
+      ]
+    },
+    {
+      "id":"view_pipeline_run",
+      "name":"View the pipeline run",
+      "icon":"icon-pipeline",
+      "steps":[
+        {
+          "name":"View the running pipeline",
+          "detail_content":"",
+          "coachmark_location":"right"
+        },
+        {
+          "name":"Click the QA Stage to see the details",
+          "uiElement":".at-content-block-1",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"Wait for the manual task",
+          "detail_content":"<b>WAIT for the \"test\" task to be 100% complete, then click Continue</b>",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"Open the manual task approval",
+          "detail_content":"The icon mean that this task is waiting for approval.  Click the icon to enter the manual task.",
+          "uiElement":".at-approvers-dropdown-button",
+          "coachmark_location":"left"
+        },
+        {
+          "name":"Select approver",
+          "detail_content":"",
+          "uiElement":".at-approver-item",
+          "coachmark_location":"left"
+        },
+        {
+          "name":"Complete the manual task",
+          "detail_content":"Click the link to view the deployed JPetstore application, then mark the outcome as completed.  Add an optional comment and click OK",
+          "uiElement":".at-ok-btn",
+          "coachmark_location":"top-right"
+        },
+        {
+          "name":"Wait for QA Stage to complete",
+          "detail_content":"<b>Wait for the stage to complete running</b><br>When a checkbox appears in the stage, click Continue",
+          "coachmark_location":"bottom-right"
+        },
+        {
+          "name":"Open the entry gate",
+          "detail_content":"The entry gate must be approved before the pipeline will enter the next stage",
+          "uiElement":".at-gate-POST-1",
+          "coachmark_location":"right"
+        },
+        {
+          "name":"Approve the entry gate",
+          "detail_content":"Click to approve the gate and start the Prod stage.  If the gate is rejected, the pipeline run will end.",
+          "uiElement":".at-stage-aprove-btn",
+          "coachmark_location":"top-left"
+        },
+        {
+          "name":"Add an approval comment",
+          "detail_content":"This comment can later be viewed for auditing and traceability",
+          "uiElement":".at-description",
+          "coachmark_location":"right"
+        },
+        {
+          "name":"Click OK to approve",
+          "uiElement":".at-ok-btn",
+          "coachmark_location":""
+        },
+        {
+          "name":"View the Prod stage",
+          "detail_content":"The Prod stage is now running.  Click the stage to view the details of the rest of the pipeline run.",
+          "coachmark_location":"bottom-right",
+          "uiElement":".at-content-block-2"
+        },
+        {
+          "name":"Wait for Prod stage",
+          "detail_content":"<b>Wait for the test task to finish, then click Continue</b>",
+          "coachmark_location":"top-right"
+        },
+        {
+          "name":"Open the manual task approval",
+          "detail_content":"The icon means that this task is waiting for approval.  Click the icon to enter the manual task.",
+          "uiElement":".at-approvers-dropdown-button",
+          "coachmark_location":"left"
+        },
+        {
+          "name":"Select approver",
+          "detail_content":"",
+          "uiElement":".at-approver-item",
+          "coachmark_location":"left"
+        },
+        {
+          "name":"Complete the manual task",
+          "detail_content":"Click the link to view the deployed JPetstore application, then mark the outcome as completed.  Add an optional comment and click OK",
+          "uiElement":".at-ok-btn",
+          "coachmark_location":"top-right"
+        },
+        {
+          "name":"View the successful pipeline run",
+          "detail_content":"The pipeline run is complete.  Continue the tutorials to try creating your own sample pipeline"
+        }
+      ]
+    }
+  ]
+}
