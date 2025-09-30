@@ -1,0 +1,9 @@
+---
+apiVersion: cloudbees.com/v2025.12
+kind: release
+metadata:
+  name: qe release name
+spec:
+  notes:
+    - name: qe release note name 1
+      note: Automation test for MultiplePipelineRunsForRelease

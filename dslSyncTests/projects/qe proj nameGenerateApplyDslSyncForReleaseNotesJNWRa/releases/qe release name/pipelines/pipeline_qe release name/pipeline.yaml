@@ -1,0 +1,9 @@
+---
+apiVersion: cloudbees.com/v2025.12
+kind: pipeline
+metadata:
+  name: pipeline_qe release name
+spec:
+  formalParameters:
+    - name: ec_stagesToRun
+      expansionDeferred: true

@@ -1,0 +1,12 @@
+---
+apiVersion: cloudbees.com/v2025.12
+kind: acl
+spec:
+  inheriting: true
+  aclEntries:
+    - principalType: user
+      principalName: "project: qe proj nameGenerateApplyDslSyncForReleaseNotesJNWRa"
+      changePermissionsPrivilege: allow
+      executePrivilege: allow
+      modifyPrivilege: allow
+      readPrivilege: allow

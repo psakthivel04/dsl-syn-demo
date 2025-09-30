@@ -1,0 +1,7 @@
+---
+apiVersion: cloudbees.com/v2025.12
+kind: project
+metadata:
+  name: qe proj nameGenerateApplyDslSyncForReleaseNotesJNWRa
+spec:
+  tracked: true
