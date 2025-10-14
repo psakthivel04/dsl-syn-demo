@@ -1,0 +1,14 @@
+---
+apiVersion: cloudbees.com/v2025.9
+kind: stage
+metadata:
+  name: qe stage4
+  description: Automation backend tests
+spec:
+  condition: "1"
+  duration: "525600"
+  plannedEndDate: 2023-06-20T00:00
+  plannedStartDate: 2022-06-20T00:00
+  precondition: "1"
+  resourceName: "$[prop]"
+  waitForPlannedStartDate: true
