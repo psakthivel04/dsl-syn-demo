@@ -1,0 +1,12 @@
+---
+apiVersion: cloudbees.com/v2025.9
+kind: acl
+spec:
+  inheriting: true
+  aclEntries:
+    - principalType: user
+      principalName: user1GenerateApplyDslSyncForPluginConfigurationgGDap
+      changePermissionsPrivilege: allow
+      executePrivilege: inherit
+      modifyPrivilege: deny
+      readPrivilege: deny

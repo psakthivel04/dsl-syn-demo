@@ -1,0 +1,7 @@
+---
+apiVersion: cloudbees.com/v2025.9
+kind: pluginConfiguration
+metadata:
+  name: qe plugin config 2
+spec:
+  pluginKey: EC-Git
