@@ -1,0 +1,13 @@
+---
+apiVersion: cloudbees.com/v2025.9
+kind: gate
+metadata:
+  gateType: POST
+spec:
+  waitDependencies:
+    - name: wait dependency name5
+      allowSkip: true
+      waitForTriggeredPipelines: true
+      waitForTriggeredReleases: true
+      assigneesForSkip:
+        - "project: qe proj nameGenerateApplyDslSyncForWaitDependencymnJvE"

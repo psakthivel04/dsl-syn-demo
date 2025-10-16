@@ -1,0 +1,14 @@
+---
+apiVersion: cloudbees.com/v2025.9
+kind: task
+metadata:
+  name: qe group task 0
+spec:
+  taskType: GROUP
+  waitDependencies:
+    - name: wait dependency name6
+      allowSkip: true
+      waitForTriggeredPipelines: true
+      waitForTriggeredReleases: true
+      assigneesForSkip:
+        - "project: qe proj nameGenerateApplyDslSyncForWaitDependencymnJvE"
