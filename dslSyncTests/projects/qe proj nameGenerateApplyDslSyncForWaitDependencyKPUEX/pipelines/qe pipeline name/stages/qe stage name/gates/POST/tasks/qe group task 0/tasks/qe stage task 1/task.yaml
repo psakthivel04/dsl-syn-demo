@@ -1,0 +1,13 @@
+---
+apiVersion: cloudbees.com/v2025.9
+kind: task
+metadata:
+  name: qe stage task 1
+spec:
+  waitDependencies:
+    - name: wait dependency name7
+      allowSkip: true
+      waitForTriggeredPipelines: true
+      waitForTriggeredReleases: true
+      assigneesForSkip:
+        - "project: qe proj nameGenerateApplyDslSyncForWaitDependencyKPUEX"
