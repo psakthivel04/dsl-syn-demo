@@ -1,0 +1,11 @@
+---
+apiVersion: cloudbees.com/v2025.12
+kind: process
+metadata:
+  name: component processnew nameGenerateApplyDslSyncForProcesseszYgxN
+spec:
+  credentialName: test_cred
+  processType: UNDEPLOY
+  timeLimit: "10"
+  workingDirectory: qq
+  workspaceName: default

@@ -1,0 +1,6 @@
+apiVersion: cloudbees.com/v2025.12
+kind: property
+metadata:
+  name: ec_content_details
+spec:
+  propertyType: sheet

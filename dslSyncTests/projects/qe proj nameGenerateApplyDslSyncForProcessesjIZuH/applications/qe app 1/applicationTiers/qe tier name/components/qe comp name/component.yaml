@@ -1,0 +1,7 @@
+---
+apiVersion: cloudbees.com/v2025.12
+kind: component
+metadata:
+  name: qe comp name
+spec:
+  pluginKey: EC-Artifact

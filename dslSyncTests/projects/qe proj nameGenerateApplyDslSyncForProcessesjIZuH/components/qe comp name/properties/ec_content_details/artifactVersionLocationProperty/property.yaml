@@ -1,0 +1,7 @@
+apiVersion: cloudbees.com/v2025.12
+kind: property
+metadata:
+  name: artifactVersionLocationProperty
+spec:
+  value: "{% cb_include_as_yaml_comment '../artifactVersionLocationProperty.txt' %}"
+  propertyType: string

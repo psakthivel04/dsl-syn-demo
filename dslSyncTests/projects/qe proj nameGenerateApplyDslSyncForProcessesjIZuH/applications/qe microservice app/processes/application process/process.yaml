@@ -1,0 +1,8 @@
+---
+apiVersion: cloudbees.com/v2025.12
+kind: process
+metadata:
+  name: application process
+spec:
+  exclusiveEnvironment: false
+  processType: DEPLOY

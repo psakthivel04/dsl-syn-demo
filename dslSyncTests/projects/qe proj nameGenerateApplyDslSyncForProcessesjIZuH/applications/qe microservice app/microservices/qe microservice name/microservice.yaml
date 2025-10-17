@@ -1,0 +1,17 @@
+---
+apiVersion: cloudbees.com/v2025.12
+kind: microservice
+metadata:
+  name: qe microservice name
+spec:
+  definitionSource: helm_repository
+  definitionSourceParameters:
+    - repositoryName: test
+    - repositoryUrl: test
+  definitionType: helm
+  deployParameters:
+    - chart: test
+    - releaseName: test
+  rollbackParameters:
+    - rollbackEnabled: "false"
+    - waitTimeout: "300"

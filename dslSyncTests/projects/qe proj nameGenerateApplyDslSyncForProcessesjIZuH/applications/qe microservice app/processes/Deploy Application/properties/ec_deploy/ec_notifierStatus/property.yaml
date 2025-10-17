@@ -1,0 +1,7 @@
+apiVersion: cloudbees.com/v2025.12
+kind: property
+metadata:
+  name: ec_notifierStatus
+spec:
+  value: "{% cb_include_as_yaml_comment '../ec_notifierStatus.txt' %}"
+  propertyType: string

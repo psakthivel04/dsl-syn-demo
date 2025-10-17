@@ -1,0 +1,17 @@
+---
+apiVersion: cloudbees.com/v2025.12
+kind: process
+metadata:
+  name: qe proc name
+spec:
+  credentialName: test_cred
+  exclusiveEnvironment: true
+  processType: UNDEPLOY
+  timeLimit: "10"
+  workingDirectory: qq
+  workspaceName: default
+  formalParameters:
+    - name: ec_enforceDependencies
+      defaultValue: "0"
+      expansionDeferred: true
+      type: checkbox

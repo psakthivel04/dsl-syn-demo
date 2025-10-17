@@ -1,0 +1,32 @@
+---
+apiVersion: cloudbees.com/v2025.12
+kind: process
+metadata:
+  name: Deploy Application
+  description: System generated process for microservice application
+spec:
+  processType: DEPLOY
+  formalParameters:
+    - name: ec_qe microservice name-run
+      defaultValue: "1"
+      expansionDeferred: true
+      type: checkbox
+    - name: ec_rolloutApprovers
+      expansionDeferred: true
+      type: assigneeList
+    - name: ec_rolloutNotificationEnabled
+      defaultValue: "0"
+      expansionDeferred: true
+      type: checkbox
+  processSteps:
+    - name: qe microservice name
+      description: System generated step to invoke microservice process
+      processStepType: process
+      submicroservice: qe microservice name
+      submicroserviceProcess: Deploy Microservice Process
+      useUtilityResource: true
+      properties:
+        - name: ec_deploy
+          properties:
+            - name: ec_notifierStatus
+              value: "0"

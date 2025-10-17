@@ -1,0 +1,7 @@
+apiVersion: cloudbees.com/v2025.12
+kind: property
+metadata:
+  name: retrieveToDirectory
+spec:
+  propertyType: string
+  value: "{% cb_include_as_yaml_comment '../retrieveToDirectory.txt' %}"

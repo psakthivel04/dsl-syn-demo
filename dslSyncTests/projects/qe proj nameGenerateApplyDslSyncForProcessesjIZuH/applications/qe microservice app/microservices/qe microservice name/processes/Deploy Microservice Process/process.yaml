@@ -1,0 +1,22 @@
+---
+apiVersion: cloudbees.com/v2025.12
+kind: process
+metadata:
+  name: Deploy Microservice Process
+  description: System generated process for microservice deployment
+spec:
+  processType: DEPLOY
+  processSteps:
+    - name: Retrieve Artifact
+      description: System generated step to retrieve microservice definition artifact
+      processStepType: plugin
+      subprocedure: Source Provider
+      subproject: /plugins/EC-Helm/project
+    - name: Deploy Microservice
+      description: System generated step to deploy microservice
+      processStepType: plugin
+      subprocedure: Deploy Service
+      subproject: /plugins/EC-Helm/project
+  processDependencies:
+    - processStepName: Retrieve Artifact
+      targetProcessStepName: Deploy Microservice
