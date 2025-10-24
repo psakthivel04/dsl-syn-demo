@@ -1,0 +1,14 @@
+---
+apiVersion: cloudbees.com/v2025.12
+kind: dataRetentionPolicy
+metadata:
+  name: qe data retention policyGenerateApplyDSlSyncForDataRetentionPolicyJOSjC
+spec:
+  action: archiveOnly
+  age: 1
+  ageUnit: minutes
+  cleanupDatabase: false
+  enabled: true
+  objectType: release
+  statuses:
+    - COMPLETED
