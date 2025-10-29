@@ -1,0 +1,9 @@
+---
+apiVersion: cloudbees.com/v2025.12
+kind: emailConfig
+metadata:
+  configName: qe email configGenerateApplyDslSyncForEmailConfigkHVkA
+spec:
+  mailFrom: test
+  mailHost: test
+  mailProtocol: SMTP
