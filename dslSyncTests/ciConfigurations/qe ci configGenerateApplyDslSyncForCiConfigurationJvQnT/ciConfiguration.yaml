@@ -1,0 +1,9 @@
+---
+apiVersion: cloudbees.com/v2025.12
+kind: ciConfiguration
+metadata:
+  name: qe ci configGenerateApplyDslSyncForCiConfigurationJvQnT
+  description: Automation backend tests
+spec:
+  ciConfigurationType: CB_OPS_CENTER
+  serverUrl: http://127.0.0.1cjoc
