@@ -1,0 +1,19 @@
+---
+apiVersion: cloudbees.com/v2025.12
+kind: openIDConnectConfiguration
+metadata:
+  name: qe openIDConnectConfigurationGenerateApplyForOpenIDConnectConfigurationSLTpu
+spec:
+  authorizationEndpoint: https://localhost/authorize
+  clientId: 0oazmt4ereDaYQsHI0h7
+  configurationUrl: https:/localhost/.well-known/openid-configuration
+  emailIdTokenClaim: email
+  enableSingleLogout: false
+  enabled: false
+  fullUserNameIdTokenClaim: email
+  jwkProviderEndpoint: https://localhost/oauth2/default/v1/keys
+  serverUrl: https://localhost
+  ssoProvider: OKTA
+  tokenEndpoint: https://localhost/oauth2/default/v1/token
+  userGroupsIdTokenClaim: groups
+  userNameIdTokenClaim: sub
