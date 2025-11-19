@@ -1,0 +1,6 @@
+apiVersion: cloudbees.com/v2025.12
+kind: property
+metadata:
+  name: qe property sheet name1
+spec:
+  propertyType: sheet

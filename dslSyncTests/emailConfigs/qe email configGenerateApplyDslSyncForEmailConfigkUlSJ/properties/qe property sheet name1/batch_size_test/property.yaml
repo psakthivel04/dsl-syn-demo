@@ -1,0 +1,7 @@
+apiVersion: cloudbees.com/v2025.12
+kind: property
+metadata:
+  name: batch_size_test
+spec:
+  value: "{% cb_include_as_yaml_comment '../batch_size_test.txt' %}"
+  propertyType: string
