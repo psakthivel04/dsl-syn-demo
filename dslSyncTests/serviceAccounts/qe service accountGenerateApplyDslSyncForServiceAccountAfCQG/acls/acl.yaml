@@ -1,0 +1,24 @@
+---
+apiVersion: cloudbees.com/v2025.12
+kind: acl
+spec:
+  inheriting: true
+  aclEntries:
+    - principalType: group
+      principalName: qe groupGenerateApplyDslSyncForServiceAccountqaqsV
+      changePermissionsPrivilege: allow
+      executePrivilege: allow
+      modifyPrivilege: allow
+      readPrivilege: allow
+    - principalType: serviceAccount
+      principalName: qe service accountGenerateApplyDslSyncForServiceAccountAfCQG
+      changePermissionsPrivilege: allow
+      executePrivilege: allow
+      modifyPrivilege: allow
+      readPrivilege: allow
+    - principalType: user
+      principalName: qe userGenerateApplyDslSyncForServiceAccountgVypY
+      changePermissionsPrivilege: allow
+      executePrivilege: allow
+      modifyPrivilege: allow
+      readPrivilege: allow
