@@ -2,11 +2,17 @@
 apiVersion: cloudbees.com/v2025.12
 kind: acl
 spec:
-  inheriting: true
+  inheriting: false
   aclEntries:
     - principalType: user
       principalName: qe proj nameGenerateApplyDslSyncForReleasesEIWqU
-      changePermissionsPrivilege: allow
+      changePermissionsPrivilege: deny
       executePrivilege: inherit
       modifyPrivilege: allow
-      readPrivilege: allow
+      readPrivilege: deny
+    - principalType: user
+      principalName: user1GenerateApplyDslSyncForReleaseseTJZy
+      changePermissionsPrivilege: allow
+      executePrivilege: inherit
+      modifyPrivilege: deny
+      readPrivilege: deny
